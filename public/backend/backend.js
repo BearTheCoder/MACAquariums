@@ -1,27 +1,9 @@
-let fs = null;
-
-console.log("here");
-
-const loadOptions = {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-};
-
-fetch('/load', loadOptions) //post
-  .then(promise => promise.json())
-  .then(jsonResponse => {
-    fs = jsonResponse.fs;
-    console.log("Retrieved...", fs);
-  });
-
-
 function backendSubmitButtonClick () {
   const imageFiles = document.getElementById("imageInput").files; //array
   const price = document.getElementById("priceInput").value;
   const title = document.getElementById("titleInput").value;
   const desc = document.getElementById("descInput").value;
+  const fileReader = new FileReader();
 
   let data = {
     imageData: [],
@@ -39,7 +21,7 @@ function backendSubmitButtonClick () {
   }
 
   imageArray.forEach((element) => {
-    data.imageData.push(fs.readFileSync(element.name));
+    data.imageData.push(fileReader.readAsArrayBuffer(element.name));
     data.imageNames.push(element.name);
   });
 
