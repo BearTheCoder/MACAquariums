@@ -13,17 +13,19 @@ function backendSubmitButtonClick () {
     price,
   };
 
-  imageArray = Array.from(imageFiles);
-
   if (imageArray.length === 0) {
     alert("Please add images...");
     return;
   }
 
-  imageArray.forEach((element) => {
-    data.imageData.push(fileReader.readAsArrayBuffer(element));
-    data.imageNames.push(element.name);
-  });
+  data.imageData.push(fileReader.readAsArrayBuffer(imageFiles[0]));
+  data.imageNames.push(imageFiles[0].name);
+
+
+  // imageArray.forEach((element) => {
+  //   data.imageData.push(fileReader.readAsArrayBuffer(element));
+  //   data.imageNames.push(element.name);
+  // });
 
   for (const prop in data) {
     if (data[prop].length === 0) {
