@@ -4,3 +4,9 @@ const app = express();
 app.listen(process.env.PORT, () => console.log("listening..."));
 app.use(express.static('public'));
 app.use(express.json());
+
+app.post('/upload', (postRequest, postResponse) => {
+
+ console.log(postRequest);
+
+});
