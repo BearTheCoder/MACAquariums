@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="backend.css">
+ <title>Backend</title>
+</head>
+
+<body>
+ <div id="inputForm">
+  <label for="titleInput" class="formLabel">Title: </label>
+  <input type="text" id="titleInput" class="formInput" placeholder="Input Name..." \>
+  <br>
+  <label for="descInput" class="formLabel">Description: </label>
+  <textarea id="descInput" rows="10"></textarea>
+  <br>
+  <label for="priceInput" class="formLabel">Price: </label>
+  <input type="number" id="priceInput" class="formInput" placeholder="Input Price...">
+  <br>
+  <input type="file" id="imageInput" accept=".png, .jpg" multiple>
+  <br>
+  <button onclick="backendSubmitButtonClick()">Submit</button>
+ </div>
+</body>
+<script src="backend.js"></script>
+
+</html>
