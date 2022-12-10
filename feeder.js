@@ -26,28 +26,27 @@ app.post('/upload', (postRequest, postResponse) => {
 
   //Create new object from postrequest
   let requestData = {
-    images: postRequest.body.imageFiles,
+    imageData: postRequest.body.imagesData,
+    imageNames: postRequest.body.imageNames,
     title: postRequest.body.title,
     desc: postRequest.body.desc,
     price: postRequest.body.price,
     urls: [],
   };
 
-  for (const prop in requestData.images) {
-    console.log(prop);
-    // const imageReference = ref(storage, prop.name);
-    // const imageData = fs.readFileSync(prop.name);
-    // uploadBytes(imageReference, imageData)
-    //   .then(() => {
-    //     return getDownloadURL(imageReference);
-    //   })
-    //   .then((url) => {
-    //     // SAVE URL LINK AND ASSOCIATED DATA TO DATABASE HERE
-    //     requestData.urls.push(url);
-    //     console.log(url);
-    //   })
-    //   .catch((error) => {
-    //     // Handle any errors
-    //   });
-  }
+  requestData.imageData.forEach((element, index) => {
+    const imageReference = ref(storage, requestData.imageNames[i]);
+    uploadBytes(imageReference, element)
+      .then(() => {
+        return getDownloadURL(imageReference);
+      })
+      .then((url) => {
+        // SAVE URL LINK AND ASSOCIATED DATA TO DATABASE HERE
+        requestData.urls.push(url);
+        console.log(url);
+      })
+      .catch((error) => {
+        // Handle any errors
+      });
+  });
 });
