@@ -35,7 +35,7 @@ app.post('/upload', (postRequest, postResponse) => {
     urls: [],
   };
 
-  console.log(postRequest.body.imageData);
+  console.log(postRequest.body.imageData[0]);
   console.log(postRequest.body);
 
   requestData.imageData.forEach((element, index) => {
