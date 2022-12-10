@@ -25,24 +25,30 @@ app.use(express.json());
 
 app.post('/upload', (postRequest, postResponse) => {
 
- console.log(postRequest.body);
+ //Create new object from postrequest
+ let requestData = {
+  images: postRequest.body.imageFiles,
+  title: postRequest.body.title,
+  desc: postRequest.body.desc,
+  price: postRequest.body.price,
+  urls: [],
+ };
 
- postRequest.body.imageFiles.forEach((element) => {
-  const imageReference = ref(storage, element.name);
-  const imageData = fs.readFileSync(element.name);
+
+ for (const prop in requestData.images) {
+  const imageReference = ref(storage, prop.name);
+  const imageData = fs.readFileSync(prop.name);
   uploadBytes(imageReference, imageData)
    .then(() => {
     return getDownloadURL(imageReference);
    })
    .then((url) => {
     // SAVE URL LINK AND ASSOCIATED DATA TO DATABASE HERE
+    requestData.urls.push(url);
     console.log(url);
    })
    .catch((error) => {
     // Handle any errors
    });
- });
-
-
-
+ }
 });
