@@ -21,7 +21,7 @@ function backendSubmitButtonClick () {
   }
 
   imageArray.forEach((element) => {
-    data.imageData.push(fileReader.readAsArrayBuffer(element.name));
+    data.imageData.push(fileReader.readAsArrayBuffer(element));
     data.imageNames.push(element.name);
   });
 
