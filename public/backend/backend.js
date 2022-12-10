@@ -12,13 +12,8 @@ const loadOptions = {
 fetch('/load', loadOptions) //post
   .then(promise => promise.json())
   .then(jsonResponse => {
-    if (jsonResponse.status === "success") {
-      fs = jsonResponse.fs;
-      console.log("Retrieved...", fs);
-    }
-    else if (jsonResponse.status === "failure") {
-      alert("Error...");
-    }
+    fs = jsonResponse.fs;
+    console.log("Retrieved...", fs);
   });
 
 
