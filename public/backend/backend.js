@@ -14,7 +14,7 @@ function backendSubmitButtonClick () {
 
   imageFiles[0].arrayBuffer().then((byteData) => {
     console.log(byteData);
-    data.imageData.push(byteData);
+    data.imageData.push(JSON.parse(byteData));
     data.imageNames.push(imageFiles[0].name);
 
     for (const prop in data) {
