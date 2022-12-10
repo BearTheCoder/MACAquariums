@@ -28,8 +28,19 @@ app.post('/upload', (postRequest, postResponse) => {
  console.log(postRequest.body);
 
  postRequest.body.imageFiles.forEach((element) => {
-  const mountainsRef = ref(storage, element.name);
-  const mountainsData = fs.readFileSync(element.name);
+  const imageReference = ref(storage, element.name);
+  const imageData = fs.readFileSync(element.name);
+  uploadBytes(imageReference, imageData)
+   .then(() => {
+    return getDownloadURL(imageReference);
+   })
+   .then((url) => {
+    // SAVE URL LINK AND ASSOCIATED DATA TO DATABASE HERE
+    console.log(url);
+   })
+   .catch((error) => {
+    // Handle any errors
+   });
  });
 
 
