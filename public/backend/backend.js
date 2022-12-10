@@ -28,7 +28,7 @@ function backendSubmitButtonClick () {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(byteData),
+      body: JSON.stringify(data),
     };
 
     fetch('/upload', options) //post
