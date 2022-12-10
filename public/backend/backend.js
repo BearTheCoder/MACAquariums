@@ -1,5 +1,7 @@
 let fs = null;
 
+console.log("here");
+
 const loadOptions = {
   method: 'POST',
   headers: {
