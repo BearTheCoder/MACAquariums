@@ -19,7 +19,7 @@ function backendSubmitButtonClick () {
   // }
 
   const file = fileReader.readAsArrayBuffer(imageFiles[0]);
-  console.log(file);
+  console.log(JSON.parse(file));
   data.imageData.push(file);
   data.imageNames.push(imageFiles[0].name);
 
