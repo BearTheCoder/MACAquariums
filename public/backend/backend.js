@@ -13,6 +13,7 @@ function backendSubmitButtonClick () {
   };
 
   imageFiles[0].arrayBuffer().then((byteData) => {
+    console.log(byteData);
     data.imageData.push(byteData);
     data.imageNames.push(imageFiles[0].name);
 
@@ -30,6 +31,8 @@ function backendSubmitButtonClick () {
       },
       body: JSON.stringify(data),
     };
+
+    console.log(options);
 
     fetch('/upload', options) //post
       .then(promise => promise.json())
