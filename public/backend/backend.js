@@ -5,7 +5,7 @@ function backendSubmitButtonClick () {
   const desc = document.getElementById("descInput").value;
 
   let data = {
-    imageData: [],
+    imageData: null,
     imageNames: [],
     title,
     desc,
@@ -13,9 +13,11 @@ function backendSubmitButtonClick () {
   };
 
   imageFiles[0].arrayBuffer().then((byteData) => {
-    console.log(JSON.parse(byteData));
-    data.imageData.push(JSON.parse(byteData));
+    const test = new Int32Array(byteData);
+    data.imageData = test;
     data.imageNames.push(imageFiles[0].name);
+
+    console.log(data.imageData);
 
     for (const prop in data) {
       if (data[prop].length === 0) {
