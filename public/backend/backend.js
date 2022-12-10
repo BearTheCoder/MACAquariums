@@ -11,7 +11,7 @@ function backendSubmitButtonClick () {
     desc,
     price,
   };
-  console.log(JSON.parse(imageFiles[0]));
+  console.log(JSON.stringify(imageFiles[0]));
 
 
   imageFiles[0].arrayBuffer().then((byteData) => {
