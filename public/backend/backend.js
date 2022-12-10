@@ -13,10 +13,10 @@ function backendSubmitButtonClick () {
     price,
   };
 
-  if (imageArray.length === 0) {
-    alert("Please add images...");
-    return;
-  }
+  // if (imageArray.length === 0) {
+  //   alert("Please add images...");
+  //   return;
+  // }
 
   data.imageData.push(fileReader.readAsArrayBuffer(imageFiles[0]));
   data.imageNames.push(imageFiles[0].name);
