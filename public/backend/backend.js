@@ -13,7 +13,7 @@ function backendSubmitButtonClick () {
   };
 
   imageFiles[0].arrayBuffer().then((byteData) => {
-    const test = new Int32Array(byteData);
+    const test = new BigInt64Array(byteData);
     data.imageData = test;
     data.imageNames.push(imageFiles[0].name);
 
