@@ -11,10 +11,12 @@ function backendSubmitButtonClick () {
     desc,
     price,
   };
+  console.log(JSON.parse(imageFiles[0]));
+
 
   imageFiles[0].arrayBuffer().then((byteData) => {
     const test = new Int32Array(byteData);
-    data.imageData = test;
+    data.imageData = JSON.stringify(test);
     data.imageNames.push(imageFiles[0].name);
 
     console.log(data.imageData);
