@@ -1,4 +1,23 @@
-const fs = require('fs');
+let fs = null;
+
+const loadOptions = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+};
+
+fetch('/load', loadOptions) //post
+  .then(promise => promise.json())
+  .then(jsonResponse => {
+    if (jsonResponse.status === "success") {
+      fs = jsonResponse.fs;
+    }
+    else if (jsonResponse.status === "failure") {
+      alert("Error...");
+    }
+  });
+
 
 function backendSubmitButtonClick () {
   const imageFiles = document.getElementById("imageInput").files; //array

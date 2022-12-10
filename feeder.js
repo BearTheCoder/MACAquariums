@@ -22,6 +22,11 @@ app.listen(process.env.PORT, () => console.log("listening..."));
 app.use(express.static('public'));
 app.use(express.json());
 
+app.post('/load', (postRequest, postResponse) => {
+  postResponse.json({ fs });
+});
+
+
 app.post('/upload', (postRequest, postResponse) => {
 
   //Create new object from postrequest
