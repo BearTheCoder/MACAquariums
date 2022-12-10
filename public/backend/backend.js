@@ -6,7 +6,7 @@ function backendSubmitButtonClick () {
   const title = document.getElementById("titleInput").value;
   const desc = document.getElementById("descInput").value;
 
-  const data = {
+  let data = {
     imageData: [],
     imageNames: [],
     title,
