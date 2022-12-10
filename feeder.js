@@ -36,7 +36,7 @@ app.post('/upload', (postRequest, postResponse) => {
   };
 
   requestData.imageData.forEach((element, index) => {
-    const imageReference = ref(storage, requestData.imageNames[i]);
+    const imageReference = ref(storage, requestData.imageNames[index]);
     uploadBytes(imageReference, element)
       .then(() => {
         return getDownloadURL(imageReference);
