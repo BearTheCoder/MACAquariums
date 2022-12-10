@@ -3,7 +3,6 @@ function backendSubmitButtonClick () {
   const price = document.getElementById("priceInput").value;
   const title = document.getElementById("titleInput").value;
   const desc = document.getElementById("descInput").value;
-  const fileReader = new FileReader();
 
   let data = {
     imageData: [],
@@ -13,49 +12,34 @@ function backendSubmitButtonClick () {
     price,
   };
 
-  // if (imageArray.length === 0) {
-  //   alert("Please add images...");
-  //   return;
-  // }
+  imageFiles[0].arrayBuffer().then((byteData) => {
+    data.imageData.push(byteData);
+    data.imageNames.push(imageFiles[0].name);
 
-  // console.log(imageFiles[0].name);
-  // console.log(imageFiles[0]);
-
-  fileReader.readAsArrayBuffer(imageFiles[0]);
-  console.log(fileReader.result);
-  data.imageData.push(fileReader.result);
-  data.imageNames.push(imageFiles[0].name);
-
-
-  // imageArray.forEach((element) => {
-  //   data.imageData.push(fileReader.readAsArrayBuffer(element));
-  //   data.imageNames.push(element.name);
-  // });
-
-  for (const prop in data) {
-    if (data[prop].length === 0) {
-      alert("Please fill out all fields in form.");
-      return;
+    for (const prop in data) {
+      if (data[prop].length === 0) {
+        alert("Please fill out all fields in form.");
+        return;
+      }
     }
-  }
 
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data),
-  };
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(byteData),
+    };
 
-  fetch('/upload', options) //post
-    .then(promise => promise.json())
-    .then(jsonResponse => {
-      if (jsonResponse.status === "success") {
-        alert("Upload successful.");
-      }
-      else if (jsonResponse.status === "failure") {
-        alert("There was an error uploading. If this continues, please contact your admin.");
-      }
-    });
-
+    fetch('/upload', options) //post
+      .then(promise => promise.json())
+      .then(jsonResponse => {
+        if (jsonResponse.status === "success") {
+          alert("Upload successful.");
+        }
+        else if (jsonResponse.status === "failure") {
+          alert("There was an error uploading. If this continues, please contact your admin.");
+        }
+      });
+  });
 }
