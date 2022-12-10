@@ -35,6 +35,8 @@ app.post('/upload', (postRequest, postResponse) => {
     urls: [],
   };
 
+  console.log(postRequest.body);
+
   requestData.imageData.forEach((element, index) => {
     const imageReference = ref(storage, requestData.imageNames[index]);
     uploadBytes(imageReference, element)
