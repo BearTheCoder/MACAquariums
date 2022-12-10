@@ -22,6 +22,7 @@ function backendSubmitButtonClick () {
   // console.log(imageFiles[0]);
 
   fileReader.readAsArrayBuffer(imageFiles[0]);
+  console.log(fileReader.result);
   data.imageData.push(fileReader.result);
   data.imageNames.push(imageFiles[0].name);
 
