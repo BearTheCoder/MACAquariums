@@ -1,3 +1,29 @@
+/*
+
+     *****     Entity TOO LARGE?????     *****
+
+     Heres the issue, I need to send the image to the database and storage, but I do not 
+     want to expose sensitive data to the client.
+
+     Hence I was trying to parse the data to bytes and send the bytes to the server in order 
+     to send the bytes to the database.
+
+     Though, a 1.3mb image turns into a 8mb json string.
+
+     This is obviously an issue.
+
+     There are two solutions that I can think of, compression?
+
+     Or maybe, I think I read somewhere that having Firebase config information public does not
+     produce any risks for the data base and I may be able to skip serverside rendering all together.
+
+     Just did the research, Firebase config does not need to be hidden, showing the config object client side is safe.
+     
+
+*/
+
+
+
 function backendSubmitButtonClick () {
   const imageFiles = document.getElementById("imageInput").files; //array
   const price = document.getElementById("priceInput").value;
@@ -11,8 +37,6 @@ function backendSubmitButtonClick () {
     desc,
     price,
   };
-  console.log(JSON.stringify(imageFiles[0]));
-
 
   imageFiles[0].arrayBuffer().then((byteData) => {
     const test = new Int32Array(byteData);

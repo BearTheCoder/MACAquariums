@@ -6,6 +6,7 @@ const { initializeApp } = require("firebase/app"); // npm i firebase
 const { getStorage, ref, uploadBytes, getDownloadURL } = require("firebase/storage"); // npm i firebase
 const fs = require('fs');
 
+//Firebase config does not need to be hidden and is completely safe to show client side.
 const firebaseConfig = {
   apiKey: "AIzaSyAtsvkP-si-K-2JhnWhfUU1GN4UTWJFcRc",
   authDomain: "btc-db-97c7e.firebaseapp.com",
