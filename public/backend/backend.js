@@ -18,6 +18,8 @@ function backendSubmitButtonClick () {
   //   return;
   // }
 
+  console.log(imageFiles[0]);
+
   const file = fileReader.readAsArrayBuffer(imageFiles[0]);
   console.log(JSON.parse(file));
   data.imageData.push(file);
