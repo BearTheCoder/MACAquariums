@@ -26,7 +26,7 @@ app.post('/upload', (postRequest, postResponse) => {
 
   //Create new object from postrequest
   let requestData = {
-    imageData: postRequest.body.imagesData,
+    imageData: postRequest.body.imageData,
     imageNames: postRequest.body.imageNames,
     title: postRequest.body.title,
     desc: postRequest.body.desc,
