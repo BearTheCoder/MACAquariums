@@ -10,17 +10,67 @@ body {
 }
 
 textarea {
+ min-width: 300px;
+ max-width: 300px;
+}
+
+.form {
+ display: flex;
+ flex-direction: column;
+ width: 300px;
+ max-height: 500px;
+ margin-top: 50px;
+ padding: 20px;
+ border: 1px solid gray;
+}
+
+.post {
+ background-color: white;
+ padding: 10px;
+ margin: 10px 10px;
+ border: 1px solid lightgray;
+}
+
+.postFooter {
+ display: flex;
+ flex-direction: row;
+ font-size: 10px;
+ justify-content: space-evenly;
+ flex-wrap: wrap;
+}
+
+.postButtonFooter {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-evenly;
+}
+
+.editButton {
+ width: 100px;
+}
+
+.deleteButton {
+ width: 100px;
+}
+
+#postContainer {
+ overflow: auto;
+ background-color: rgb(245, 245, 245);
+}
+
+#categorySelect {
+ display: flex;
+ flex-grow: 0;
+ flex-direction: row;
  min-width: 250px;
  max-width: 400px;
 }
 
-#inputForm {
- display: flex;
- flex-direction: column;
+#importButton {
+ width: 75px;
+ margin-left: 10px;
+}
+
+#importCategoryInput {
  flex-grow: 1;
- max-width: 400px;
- max-height: 800px;
- margin: 10px;
- padding: 10px;
- border: 1px solid black;
 }
