@@ -1,14 +1,36 @@
 * {
  margin: 0;
  padding: 0;
+ font-family: Helvetica;
 }
 
 /*      *****     ELEMENT SELECTORS     *****       */
-
 body {
  display: flex;
+ flex-wrap: wrap;
  flex-direction: column;
- align-items: center;
+ font-size: 10px;
+ letter-spacing: 3px;
+}
+
+button {
+ color: white;
+ border: 1px solid rgb(200, 200, 200);
+ background-color: rgb(175, 225, 255);
+ border-radius: 100px;
+}
+
+input[type=file] {
+ display: flex;
+ color: white;
+ border: 1px solid rgb(200, 200, 200);
+ background-color: rgb(175, 225, 255);
+ border-radius: 100px;
+ padding: 1px 10px;
+}
+
+input::file-selector-button {
+ display: none;
 }
 
 textarea {
@@ -16,16 +38,49 @@ textarea {
  max-width: 300px;
 }
 
+select {
+ color: rgb(175, 175, 175)
+}
+
+button:hover {
+ background-color: rgb(175, 225, 200);
+}
+
+input[type=text]:hover {
+ border: 1px solid rgb(175, 225, 200);
+ border-radius: 5px;
+ padding: 1px
+}
+
+input[type=file]:hover {
+ background-color: rgb(175, 225, 200);
+}
+
+textarea:hover {
+ border: 1px solid rgb(175, 225, 200);
+ border-radius: 5px;
+}
+
+select:hover {
+ color: black;
+}
+
 /*      *****     CLASS SELECTORS     *****       */
+.headerContent {
+ padding: 5px 10px;
+}
 
 .form {
  display: flex;
  flex-direction: column;
  width: 300px;
- max-height: 500px;
- margin-top: 50px;
+ margin: 5px;
  padding: 20px;
- border: 1px solid gray;
+ border: 1px solid rgb(220, 220, 220);
+}
+
+.form100 {
+ height: 100%;
 }
 
 .post {
@@ -49,22 +104,41 @@ textarea {
  justify-content: space-evenly;
 }
 
-.editButton {
+.postButton {
  width: 100px;
 }
 
-.deleteButton {
- width: 100px;
+.standardButton {
+ height: 100%;
+ width: 75px;
+ margin-left: 10px;
 }
+
 
 /*      *****     ID SELECTORS     *****       */
-
 /* * * * * DIVS * * * * */
+#standardHeader {
+ display: flex;
+ justify-content: space-between;
+ width: 100%;
+ background-color: lightgrey;
+ color: white;
+
+}
+
+#contentContainer {
+ display: flex;
+ flex-wrap: wrap;
+}
+
 #postContainer {
- overflow: auto;
+ overflow-y: scroll;
  background-color: rgb(245, 245, 245);
  border: 1px solid rgb(230, 230, 230);
- ;
+}
+
+#editForm {
+ max-height: 500px;
 }
 
 /* * * * * TEXT AREA * * * * */
@@ -73,12 +147,6 @@ textarea {
 }
 
 /* * * * * BUTTONS * * * * */
-#importButton {
- height: 100%;
- width: 75px;
- margin-left: 10px;
-}
-
 #addCategoryButton {
  height: 100%;
  min-width: 100px;

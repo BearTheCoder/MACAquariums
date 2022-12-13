@@ -8,8 +8,7 @@ document.getElementById("importButton").onclick = () => {
   importCollection(categoryValue.value)
     .then(col => {
       col.forEach(el => {
-        const data = el.data();
-        postContainer.innerHTML += returnPostDiv(data);
+        postContainer.innerHTML += returnPostDiv(el.data());
       });
       loadButtonsToArray();
     });
@@ -27,11 +26,9 @@ function loadButtonsToArray () {
 
       getDoc(docRef).then((querySnapshot) => {
         const url = querySnapshot.data().imageURLS[0];
-
         const imageRef = ref(storage, url);
-        deleteObject(imageRef);
-
         const elementRef = doc(db, category, element.name);
+        deleteObject(imageRef);
         deleteDoc(elementRef);
       });
       element.parentElement.parentElement.remove();

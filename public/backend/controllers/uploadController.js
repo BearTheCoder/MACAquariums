@@ -9,13 +9,12 @@ uploadButton.onclick = () => {
 
   for (const prop in uploadFormElements) {
     if (uploadFormElements[prop].value.length !== 0) continue;
-    alert("Please fill out all fields in form.");
+    alert("Please fill out all fields in the form.");
     uploadButton.disabled = false;
-    return; // On Click
+    return;
   };
 
   let canUpdate = true;
-
   importCollection(uploadFormElements.category.value)
     .then(col => {
       col.forEach(doc => {
@@ -24,12 +23,10 @@ uploadButton.onclick = () => {
       if (!canUpdate) {
         alert("Duplicate title, must be unique for new posts.");
         resetForm(uploadFormElements);
-        return; // then callback
+        return;
       }
-
       const imageArray = Array.from(uploadFormElements.images.files);
       upload(imageArray, uploadFormElements);
-
     });
 };
 
@@ -39,7 +36,7 @@ function upload (imageArray, uploadFormElements) {
     const imageReference = ref(storage, element.name);
     element.arrayBuffer()
       .then(byteData => uploadBytes(imageReference, byteData))
-      .then(ref => getDownloadURL(imageReference))
+      .then(() => getDownloadURL(imageReference))
       .then(url => urls.push(url))
       .catch(error => console.log(error));
   });
@@ -47,16 +44,15 @@ function upload (imageArray, uploadFormElements) {
   const interval = setInterval(() => {
     if (imageArray.length !== urls.length) return;
     sendToDB(uploadFormElements, urls)
-      .then(docRef => {
-        resetForm(uploadFormElements);
-      });
+      .then(() => resetForm(uploadFormElements));
     alert("Post uploaded to database.");
     clearInterval(interval);
   }, 500);
 }
 
 function sendToDB (uploadFormElements, urls) {
-  return setDoc(doc(db, uploadFormElements.category.value, uploadFormElements.title.value), {
+  const categoryDoc = doc(db, uploadFormElements.category.value, uploadFormElements.title.value);
+  return setDoc(categoryDoc, {
     title: uploadFormElements.title.value,
     description: uploadFormElements.desc.value,
     category: uploadFormElements.category.value,
@@ -67,6 +63,6 @@ function sendToDB (uploadFormElements, urls) {
 }
 
 function resetForm (uploadFormElements) {
-  for (const prop in uploadFormElements) { uploadFormElements[prop].value = ""; }
+  for (const prop in uploadFormElements) uploadFormElements[prop].value = "";
   uploadButton.disabled = false;
 }
