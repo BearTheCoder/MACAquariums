@@ -1,5 +1,5 @@
-import { ref, storage, uploadBytes, getDownloadURL, setDoc, doc, db, uploadFormElements } from "./config.js";
-import { importCollection } from "./import.js";
+import { ref, storage, uploadBytes, getDownloadURL, setDoc, doc, db, importCollection } from "../exports/firebaseConfigExports.js";
+import { uploadFormElements } from "../exports/elementsExports.js";
 
 const uploadButton = document.getElementById("uploadButton");
 
@@ -8,12 +8,11 @@ uploadButton.onclick = () => {
   uploadButton.disabled = true;
 
   for (const prop in uploadFormElements) {
-    if (uploadFormElements[prop].value.length === 0) {
-      alert("Please fill out all fields in form.");
-      uploadButton.disabled = false;
-      return; // On Click
-    }
-  }
+    if (uploadFormElements[prop].value.length !== 0) continue;
+    alert("Please fill out all fields in form.");
+    uploadButton.disabled = false;
+    return; // On Click
+  };
 
   let canUpdate = true;
 

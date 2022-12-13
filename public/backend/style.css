@@ -3,6 +3,8 @@
  padding: 0;
 }
 
+/*      *****     ELEMENT SELECTORS     *****       */
+
 body {
  display: flex;
  flex-direction: column;
@@ -13,6 +15,8 @@ textarea {
  min-width: 300px;
  max-width: 300px;
 }
+
+/*      *****     CLASS SELECTORS     *****       */
 
 .form {
  display: flex;
@@ -53,9 +57,37 @@ textarea {
  width: 100px;
 }
 
+/*      *****     ID SELECTORS     *****       */
+
+/* * * * * DIVS * * * * */
 #postContainer {
  overflow: auto;
  background-color: rgb(245, 245, 245);
+ border: 1px solid rgb(230, 230, 230);
+ ;
+}
+
+/* * * * * TEXT AREA * * * * */
+#addCategoryInput {
+ width: 100%;
+}
+
+/* * * * * BUTTONS * * * * */
+#importButton {
+ height: 100%;
+ width: 75px;
+ margin-left: 10px;
+}
+
+#addCategoryButton {
+ height: 100%;
+ min-width: 100px;
+ margin-left: 10px;
+}
+
+/* * * * * DROP DOWN MENUS * * * * */
+#importCategoryInput {
+ flex-grow: 1;
 }
 
 #categorySelect {
@@ -64,13 +96,4 @@ textarea {
  flex-direction: row;
  min-width: 250px;
  max-width: 400px;
-}
-
-#importButton {
- width: 75px;
- margin-left: 10px;
-}
-
-#importCategoryInput {
- flex-grow: 1;
 }

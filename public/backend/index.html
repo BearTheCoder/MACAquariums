@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="style.css">
+ <title>Backend</title>
+</head>
+
+<body>
+ <div id="inputForm" class="form">
+  <div class="titleHeader">
+   <h3>Add to Database</h3>
+   <hr>
+   <br>
+  </div>
+  <label for="titleInput" class="formLabel">Title: </label>
+  <input type="text" id="titleInput" class="formInput" placeholder="Title must be unique..." \>
+  <br>
+  <label for="descInput" class="formLabel">Description: </label>
+  <textarea id="descInput" rows="10"></textarea>
+  <br>
+  <select name="Fish" id="uploadCategoryInput" class="categoryInput"></select>
+  <br>
+  <label for="priceInput" class="formLabel">Price: </label>
+  <input type="number" id="priceInput" class="formInput" placeholder="Input Price...">
+  <br>
+  <label for="importance" class="formLabel">Importance: </label>
+  <input type="number" id="importance" class="formInput" placeholder="Low to High...">
+  <br>
+  <input type="file" id="imageInput" accept=".png, .jpg" multiple>
+  <br>
+  <button id="uploadButton">Submit</button>
+ </div>
+
+ <div id="categoryForm" class="form">
+  <div class="titleHeader">
+   <h3>Edit Categories</h3>
+   <hr>
+   <br>
+  </div>
+  <div id="categorySelect">
+   <input type="text" id="addCategoryInput" class="formInput" placeholder="Category must be unique..." \>
+   <button id="addCategoryButton">Add Category</button>
+  </div>
+  <br>
+  <div id="categorySelect">
+   <select name="Fish" id="importCategoryInput" class="categoryInput"></select>
+   <button id="importButton">Delete</button>
+   <button id="importButton">Rename</button>
+  </div>
+ </div>
+
+ <div id="editForm" class="form">
+  <div class="titleHeader">
+   <h3>Edit Posts</h3>
+   <hr>
+   <br>
+  </div>
+  <div id="categorySelect">
+   <select name="Fish" id="importCategoryInput" class="categoryInput"></select>
+   <button id="importButton">Import</button>
+  </div>
+  <p style="padding-top: 10px; padding-bottom: 5px;;">Select a category above.</p>
+  <div id="postContainer"></div>
+ </div>
+
+</body>
+<script src="main.js"></script>
+<script type="module" src="./controllers/importController.js"></script>
+<script type="module" src="./controllers/uploadController.js"></script>
+<script type="module" src="./controllers/categoryController.js"></script>
+
+</html>
