@@ -1,3 +1,13 @@
+:root {
+ --accent-color: rgb(140, 210, 240);
+ --hover-color: rgb(140, 210, 190);
+ --border-color: rgb(175, 175, 175);
+ --placeholder-color: rgb(175, 175, 175);
+ --placeholderHover-color: black;
+ --border-radius: 5px;
+}
+
+
 * {
  margin: 0;
  padding: 0;
@@ -15,17 +25,17 @@ body {
 
 button {
  color: white;
- border: 1px solid rgb(200, 200, 200);
- background-color: rgb(175, 225, 255);
- border-radius: 100px;
+ border: 1px solid var(--border-color);
+ background-color: var(--accent-color);
+ border-radius: var(--border-radius);
 }
 
 input[type=file] {
  display: flex;
  color: white;
- border: 1px solid rgb(200, 200, 200);
- background-color: rgb(175, 225, 255);
- border-radius: 100px;
+ border: 1px solid var(--border-color);
+ background-color: var(--accent-color);
+ border-radius: var(--border-radius);
  padding: 1px 10px;
 }
 
@@ -33,36 +43,71 @@ input::file-selector-button {
  display: none;
 }
 
+input[type=text] {
+ border: 1px solid var(--border-color);
+ padding: 1px;
+ border-radius: var(--border-radius);
+}
+
+input[type=number] {
+ border-radius: var(--border-radius);
+ border: 1px solid var(--border-color);
+ padding: 1px;
+}
+
 textarea {
  min-width: 300px;
  max-width: 300px;
+ border-radius: var(--border-radius);
 }
 
 select {
- color: rgb(175, 175, 175)
+ color: var(--placeholder-color);
+ border-radius: var(--border-radius);
+ border: 1px solid var(--border-color);
 }
 
 button:hover {
- background-color: rgb(175, 225, 200);
+ background-color: var(--hover-color);
 }
 
 input[type=text]:hover {
- border: 1px solid rgb(175, 225, 200);
- border-radius: 5px;
+ border: 1px solid var(--hover-color);
+ border-radius: var(--border-radius);
  padding: 1px
 }
 
 input[type=file]:hover {
- background-color: rgb(175, 225, 200);
+ background-color: var(--hover-color);
+}
+
+input[type=number]:hover {
+ color: var(--placeholderHover-color);
+ padding: 1px;
+ border: 1px solid var(--hover-color)
 }
 
 textarea:hover {
- border: 1px solid rgb(175, 225, 200);
- border-radius: 5px;
+ border: 1px solid var(--hover-color);
+ border-radius: var(--border-radius);
 }
 
 select:hover {
- color: black;
+ color: var(--placeholderHover-color);
+ border: 1px solid var(--hover-color);
+}
+
+input[type=number]:hover::placeholder {
+ color: var(--placeholderHover-color);
+}
+
+input[type=text]:hover::placeholder {
+ color: var(--placeholderHover-color);
+}
+
+::placeholder {
+ color: var(--placeholder-color);
+ padding-left: 3px;
 }
 
 /*      *****     CLASS SELECTORS     *****       */
@@ -76,7 +121,8 @@ select:hover {
  width: 300px;
  margin: 5px;
  padding: 20px;
- border: 1px solid rgb(220, 220, 220);
+ border: 1px solid var(--border-color);
+ border-radius: var(--border-radius);
 }
 
 .form100 {
@@ -87,7 +133,8 @@ select:hover {
  background-color: white;
  padding: 10px;
  margin: 10px 10px;
- border: 1px solid lightgray;
+ border: 1px solid var(--hover-color);
+ border-radius: var(--border-radius);
 }
 
 .postFooter {
@@ -121,7 +168,7 @@ select:hover {
  display: flex;
  justify-content: space-between;
  width: 100%;
- background-color: lightgrey;
+ background-color: var(--accent-color);
  color: white;
 
 }
@@ -133,8 +180,9 @@ select:hover {
 
 #postContainer {
  overflow-y: scroll;
- background-color: rgb(245, 245, 245);
- border: 1px solid rgb(230, 230, 230);
+ border: 1px solid var(--accent-color);
+ border-radius: var(--border-radius);
+ scrollbar-color: red;
 }
 
 #editForm {
