@@ -27,9 +27,8 @@ function loadButtonsToArray () {
       getDoc(docRef).then((querySnapshot) => {
         const url = querySnapshot.data().imageURLS[0];
         const imageRef = ref(storage, url);
-        const elementRef = doc(db, category, element.name);
         deleteObject(imageRef);
-        deleteDoc(elementRef);
+        deleteDoc(docRef);
       });
       element.parentElement.parentElement.remove();
     };

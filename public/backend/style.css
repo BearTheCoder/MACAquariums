@@ -5,13 +5,17 @@
  --placeholder-color: rgb(175, 175, 175);
  --placeholderHover-color: black;
  --border-radius: 5px;
+ --disabled-color: gray;
+ --notWorking-color: rgb(255, 150, 150);
 }
 
 
 * {
  margin: 0;
  padding: 0;
- font-family: Helvetica;
+ font-family: 'Kanit', sans-serif;
+ font-size: 10px;
+ letter-spacing: 1px;
 }
 
 /*      *****     ELEMENT SELECTORS     *****       */
@@ -19,8 +23,23 @@ body {
  display: flex;
  flex-wrap: wrap;
  flex-direction: column;
- font-size: 10px;
+ height: 100%;
+}
+
+h3 {
  letter-spacing: 3px;
+ font-size: 12px;
+}
+
+p {
+ letter-spacing: 0px;
+ font-weight: 100;
+ font-size: 10px;
+}
+
+hr {
+ background-color: var(--accent-color);
+ border: 1px solid var(--accent-color);
 }
 
 button {
@@ -105,6 +124,10 @@ input[type=text]:hover::placeholder {
  color: var(--placeholderHover-color);
 }
 
+button:disabled {
+ background-color: var(--disabled-color);
+}
+
 ::placeholder {
  color: var(--placeholder-color);
  padding-left: 3px;
@@ -113,6 +136,12 @@ input[type=text]:hover::placeholder {
 /*      *****     CLASS SELECTORS     *****       */
 .headerContent {
  padding: 5px 10px;
+}
+
+.iconHeader {
+ display: flex;
+ align-items: center;
+ padding: 2px;
 }
 
 .form {
@@ -167,10 +196,10 @@ input[type=text]:hover::placeholder {
 #standardHeader {
  display: flex;
  justify-content: space-between;
+ align-items: center;
  width: 100%;
  background-color: var(--accent-color);
  color: white;
-
 }
 
 #contentContainer {
@@ -212,4 +241,38 @@ input[type=text]:hover::placeholder {
  flex-direction: row;
  min-width: 250px;
  max-width: 400px;
+}
+
+/* * * * * IMAGES * * * * */
+#iconTest {
+ width: 25px;
+ filter: invert(1);
+}
+
+#menuIcon {
+ width: 15px;
+ filter: invert(1);
+ padding: 2px;
+ padding-right: 5px;
+}
+
+#backendFooter {
+ display: flex;
+ align-content: stretch;
+ width: 100%;
+ height: 100%;
+}
+
+#footerMain {
+ height: 100%;
+ background-color: var(--accent-color);
+}
+
+/* NOT WORKING */
+#renameCategoryButton {
+ background-color: var(--notWorking-color);
+}
+
+.editButton {
+ background-color: var(--notWorking-color);
 }
