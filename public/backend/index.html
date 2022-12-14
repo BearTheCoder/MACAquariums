@@ -2,107 +2,108 @@
 <html lang="en">
 
 <head>
- <meta charset="UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;400&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="style.css">
- <title>Backend</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Backend</title>
 </head>
 
 <body>
- <div id="standardHeader">
-  <div class="iconHeader">
-   <img id="iconTest" src="../images/fish.png" alt="">
-   <h3 class="headerContent">Mikey's Fishtanks</h3>
+  <div id="standardHeader">
+    <div class="iconHeader">
+      <img id="iconTest" src="../images/fish.png" alt="">
+      <h3 class="headerContent">Mikey's Fishtanks</h3>
+    </div>
+    <img id="menuIcon" src="../images/menu.png" alt="">
   </div>
-  <img id="menuIcon" src="../images/menu.png" alt="">
- </div>
- <div id="contentContainer">
+  <div id="contentContainer">
 
 
-  <div id="inputForm" class="form form100">
-   <div class="titleHeader">
-    <h3>Add to Database</h3>
-    <hr>
-    <br>
-   </div>
-   <label for="titleInput" class="formLabel">Title: </label>
-   <input type="text" id="titleInput" class="formInput" placeholder="Title must be unique..." \>
-   <br>
-   <label for="descInput" class="formLabel">Description: </label>
-   <textarea id="descInput" rows="10"></textarea>
-   <br>
-   <select id="uploadCategoryInput" class="categoryInput"></select>
-   <br>
-   <label for="priceInput" class="formLabel">Price: </label>
-   <input type="number" id="priceInput" class="formInput" placeholder="Input Price...">
-   <br>
-   <label for="importance" class="formLabel">Importance: </label>
-   <input type="number" id="importance" class="formInput" placeholder="Low to High...">
-   <br>
-   <input type="file" id="imageInput" accept=".png, .jpg" multiple>
-   <br>
-   <button id="uploadButton">Submit</button>
+    <div id="inputForm" class="form form100">
+      <div class="titleHeader">
+        <h3>Post</h3>
+        <hr>
+        <br>
+      </div>
+      <label for="titleInput" class="formLabel">Title: </label>
+      <input type="text" id="titleInput" class="formInput" placeholder="Title must be unique..." \>
+      <br>
+      <label for="descInput" class="formLabel">Description: </label>
+      <textarea id="descInput" rows="10"></textarea>
+      <br>
+      <select id="uploadCategoryInput" class="categoryInput"></select>
+      <br>
+      <label for="priceInput" class="formLabel">Price: </label>
+      <input type="number" id="priceInput" class="formInput" placeholder="Input Price...">
+      <br>
+      <label for="importance" class="formLabel">Importance: </label>
+      <input type="number" id="importance" class="formInput" placeholder="Low to High...">
+      <br>
+      <input type="file" id="imageInput" accept=".png, .jpg" multiple>
+      <br>
+      <button id="uploadButton">Submit</button>
+    </div>
+
+    <div id="categoryForm" class="form form100">
+      <div class="titleHeader">
+        <h3>Edit Categories</h3>
+        <hr>
+        <br>
+      </div>
+      <div id="categorySelect">
+        <input type="text" id="addCategoryInput" class="formInput" placeholder="This will be shown to customers." \>
+        <button id="addCategoryButton">Add Category</button>
+      </div>
+      <br>
+      <div id="categorySelect">
+        <select id="editCategoryInput" class="categoryInput"></select>
+        <button id="deleteCategoryButton" class="standardButton">Delete</button>
+        <button id="renameCategoryButton" class="standardButton">Rename</button>
+      </div>
+      <br>
+      <hr>
+      <p>Your website is sorted by categories. The more categories you have, the more pages you have at your disposal to
+        sort your website.</p>
+    </div>
+
+    <div id="editForm" class="form">
+      <div class="titleHeader">
+        <h3>Edit Posts</h3>
+        <hr>
+        <br>
+      </div>
+      <div id="categorySelect">
+        <select id="importCategoryInput" class="categoryInput"></select>
+        <button id="importButton" class="standardButton">Import</button>
+      </div>
+      <p style="padding-top: 10px; padding-bottom: 5px;;">Select a category above. Anything can be edited on a post
+        except
+        for the images. To change images, the post needs to be delete and recreated.</p>
+      <div id="postContainer"></div>
+    </div>
+
+    <div id="infoForm" class="form">
+      <div class="titleHeader">
+        <h3>Information</h3>
+        <hr>
+        <br>
+      </div>
+      <div id="categorySelect">
+        <select id="infoSelectInput" class="categoryInput"></select>
+        <button id="infoSelectButton" class="standardButton">Import</button>
+      </div>
+    </div>
+
+    <footer id="backendFooter">
+      <div id="footerMain">
+    </footer>
   </div>
-
-  <div id="categoryForm" class="form form100">
-   <div class="titleHeader">
-    <h3>Edit Categories</h3>
-    <hr>
-    <br>
-   </div>
-   <div id="categorySelect">
-    <input type="text" id="addCategoryInput" class="formInput" placeholder="This will be shown to customers." \>
-    <button id="addCategoryButton">Add Category</button>
-   </div>
-   <br>
-   <div id="categorySelect">
-    <select id="editCategoryInput" class="categoryInput"></select>
-    <button id="deleteCategoryButton" class="standardButton">Delete</button>
-    <button id="renameCategoryButton" class="standardButton">Rename</button>
-   </div>
-   <br>
-   <hr>
-   <p>Your website is sorted by categories. The more categories you have, the more pages you have at your disposal to
-    sort your website.</p>
-  </div>
-
-  <div id="editForm" class="form">
-   <div class="titleHeader">
-    <h3>Edit Posts</h3>
-    <hr>
-    <br>
-   </div>
-   <div id="categorySelect">
-    <select id="importCategoryInput" class="categoryInput"></select>
-    <button id="importButton" class="standardButton">Import</button>
-   </div>
-   <p style="padding-top: 10px; padding-bottom: 5px;;">Select a category above. Anything can be edited on a post except
-    for the images. To change images, the post needs to be delete and recreated.</p>
-   <div id="postContainer"></div>
-  </div>
-
-  <div id="infoForm" class="form">
-   <div class="titleHeader">
-    <h3>Information</h3>
-    <hr>
-    <br>
-   </div>
-   <div id="categorySelect">
-    <select id="infoSelectInput" class="categoryInput"></select>
-    <button id="infoSelectButton" class="standardButton">Import</button>
-   </div>
-  </div>
-
-  <footer id="backendFooter">
-   <div id="footerMain">
-  </footer>
- </div>
 </body>
 <script type="module" src="./controllers/onLoadController.js"></script>
 <script type="module" src="./controllers/importController.js"></script>
