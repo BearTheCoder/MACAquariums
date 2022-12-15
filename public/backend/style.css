@@ -19,9 +19,15 @@
 
 /*      *****     ELEMENT SELECTORS     *****       */
 body {
+ height: 100%;
  display: flex;
- flex-wrap: wrap;
  flex-direction: column;
+ background-color: var(--accent-color);
+}
+
+a {
+ padding: 10px;
+ color: white;
 }
 
 h3 {
@@ -82,6 +88,12 @@ select {
  color: var(--placeholder-color);
  border-radius: var(--border-radius);
  border: 1px solid var(--border-color);
+}
+
+/*  HOVER */
+
+a:hover {
+ color: var(--hover-color)
 }
 
 button:hover {
@@ -148,20 +160,20 @@ button:disabled {
  width: 300px;
  margin: 5px;
  padding: 20px;
- border: 1px solid var(--border-color);
- border-radius: var(--border-radius);
+ justify-content: center;
+ flex: 0 1 auto;
+ background-color: rgb(250, 250, 250);
+ min-width: 300px;
 }
 
-.form100 {
- height: 100%;
+.form:hover {
+ background-color: white;
 }
 
 .post {
  background-color: white;
  padding: 10px;
  margin: 10px 10px;
- border: 1px solid var(--hover-color);
- border-radius: var(--border-radius);
 }
 
 .postFooter {
@@ -188,57 +200,68 @@ button:disabled {
  margin-left: 10px;
 }
 
+.w100p {
+ width: 100%;
+}
+
+.h100p {
+ width: 100%;
+}
+
+.flexGrow1 {
+ flex-grow: 1;
+}
+
+.addBorder {
+ border: 1px solid var(--border-color);
+ border-radius: var(--border-radius);
+}
 
 /*      *****     ID SELECTORS     *****       */
 /* * * * * DIVS * * * * */
-#standardHeader {
+#backendHeader {
  display: flex;
  justify-content: space-between;
  align-items: center;
- width: 100%;
  background-color: var(--accent-color);
  color: white;
 }
 
-#contentContainer {
+#backendMain {
  display: flex;
  flex-wrap: wrap;
+ padding-top: 20px;
+ padding: 20px 100px 20px 20px;
+ padding-bottom: 100px;
+ background-color: white;
+}
+
+#backendFooter {
+ display: flex;
+ align-content: center;
+ justify-content: center;
+ color: white;
 }
 
 #postContainer {
  overflow-y: scroll;
- border: 1px solid var(--accent-color);
- border-radius: var(--border-radius);
- scrollbar-color: red;
 }
 
 #editForm {
  max-height: 500px;
 }
 
-/* * * * * TEXT AREA * * * * */
-#addCategoryInput {
- width: 100%;
-}
 
 /* * * * * BUTTONS * * * * */
 #addCategoryButton {
- height: 100%;
  min-width: 100px;
  margin-left: 10px;
 }
 
 /* * * * * DROP DOWN MENUS * * * * */
-#importCategoryInput {
- flex-grow: 1;
-}
-
 #categorySelect {
  display: flex;
- flex-grow: 0;
  flex-direction: row;
- min-width: 250px;
- max-width: 400px;
 }
 
 /* * * * * IMAGES * * * * */
@@ -254,17 +277,11 @@ button:disabled {
  padding-right: 5px;
 }
 
-#backendFooter {
+#infoCategorySelect {
  display: flex;
- align-content: stretch;
- width: 100%;
- height: 100%;
 }
 
-#footerMain {
- height: 100%;
- background-color: var(--accent-color);
-}
+
 
 /* NOT WORKING */
 #renameCategoryButton {

@@ -15,17 +15,17 @@
 </head>
 
 <body>
-  <div id="standardHeader">
+  <div id="backendHeader" class="w100p">
     <div class="iconHeader">
       <img id="iconTest" src="../images/fish.png" alt="">
       <h3 class="headerContent">Mikey's Fishtanks</h3>
     </div>
     <img id="menuIcon" src="../images/menu.png" alt="">
   </div>
-  <div id="contentContainer">
 
+  <div id="backendMain">
 
-    <div id="inputForm" class="form form100">
+    <div id="inputForm" class="form addBorder">
       <div class="titleHeader">
         <h3>Post</h3>
         <hr>
@@ -50,15 +50,15 @@
       <button id="uploadButton">Submit</button>
     </div>
 
-    <div id="categoryForm" class="form form100">
+    <div id="categoryForm" class="form addBorder">
       <div class="titleHeader">
         <h3>Edit Categories</h3>
         <hr>
         <br>
       </div>
       <div id="categorySelect">
-        <input type="text" id="addCategoryInput" class="formInput" placeholder="This will be shown to customers." \>
-        <button id="addCategoryButton">Add Category</button>
+        <input type="text" id="addCategoryInput" class="formInput w100p" placeholder="Category Name" \>
+        <button id="addCategoryButton" class="h100p">Add Category</button>
       </div>
       <br>
       <div id="categorySelect">
@@ -72,38 +72,42 @@
         sort your website.</p>
     </div>
 
-    <div id="editForm" class="form">
+    <div id="editForm" class="form addBorder">
       <div class="titleHeader">
         <h3>Edit Posts</h3>
         <hr>
         <br>
       </div>
       <div id="categorySelect">
-        <select id="importCategoryInput" class="categoryInput"></select>
+        <select id="importCategoryInput" class="categoryInput flexGrow1"></select>
         <button id="importButton" class="standardButton">Import</button>
       </div>
       <p style="padding-top: 10px; padding-bottom: 5px;;">Select a category above. Anything can be edited on a post
         except
         for the images. To change images, the post needs to be delete and recreated.</p>
-      <div id="postContainer"></div>
+      <div id="postContainer" class="addBorder"></div>
     </div>
 
-    <div id="infoForm" class="form">
+    <div id="infoForm" class="form addBorder">
       <div class="titleHeader">
         <h3>Information</h3>
         <hr>
         <br>
       </div>
-      <div id="categorySelect">
-        <select id="infoSelectInput" class="categoryInput"></select>
+      <div id="infoCategorySelect">
+        <select id="infoSelectInput" class="categoryInput flexGrow1"></select>
         <button id="infoSelectButton" class="standardButton">Import</button>
       </div>
     </div>
-
-    <footer id="backendFooter">
-      <div id="footerMain">
-    </footer>
   </div>
+
+  <footer id="backendFooter" class="w100p">
+    <a href="">Check Out the Code</a>
+    <a href="">Contact Me</a>
+    <a href="">Terms of Service</a>
+    <a href="">Privacy Agreement</a>
+    <a href="">About me</a>
+  </footer>
 </body>
 <script type="module" src="./controllers/onLoadController.js"></script>
 <script type="module" src="./controllers/importController.js"></script>

@@ -11,7 +11,7 @@ export const uploadFormElements = {
 /*      *****     FUNCTIONS     *****       */
 export function returnPostDiv (data) {
   return `
-    <div class="post">
+    <div class="post addBorder">
       <img src="${data.imageURLS[0]}" width="100%">
       <h4>${data.title}</h4>
       <hr>
