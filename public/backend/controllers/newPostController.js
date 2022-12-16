@@ -4,16 +4,13 @@ import { uploadFormElements } from "../exports/elementsExports.js";
 const uploadButton = document.getElementById("uploadButton");
 
 uploadButton.onclick = () => {
-
   uploadButton.disabled = true;
-
   for (const prop in uploadFormElements) {
     if (uploadFormElements[prop].value.length !== 0) continue;
     alert("Please fill out all fields in the form.");
     uploadButton.disabled = false;
     return;
   };
-
   let canUpdate = true;
   importCollection(uploadFormElements.category.value)
     .then(col => {

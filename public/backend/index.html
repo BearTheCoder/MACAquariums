@@ -9,7 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>Backend</title>
 </head>
@@ -61,15 +63,27 @@
         <button id="addCategoryButton" class="h100p">Add Category</button>
       </div>
       <br>
-      <div id="categorySelect">
-        <select id="editCategoryInput" class="categoryInput"></select>
+      <div id="categorySelect" class="w100p">
+        <select id="editCategoryInput" class="categoryInput w100p"></select>
         <button id="deleteCategoryButton" class="standardButton">Delete</button>
         <button id="renameCategoryButton" class="standardButton">Rename</button>
       </div>
       <br>
+      <div id="renameInputContainer"></div>
+      <br>
       <hr>
-      <p>Your website is sorted by categories. The more categories you have, the more pages you have at your disposal to
-        sort your website.</p>
+      <p>
+        Your website is sorted by categories.
+        The more categories you have, the more pages you have at your disposal to sort your website.
+        <br><br>
+        Deleting a category will delete all posts inside it.
+        <br><br>
+        Renaming a category will move all posts to the new category.
+        <br><br>
+        If you are renaming a category with multiple posts, it make take some time. Try not to shut down the tab after
+        submitting the rename.
+
+      </p>
     </div>
 
     <div id="editForm" class="form addBorder">
@@ -82,10 +96,47 @@
         <select id="importCategoryInput" class="categoryInput flexGrow1"></select>
         <button id="importButton" class="standardButton">Import</button>
       </div>
-      <p style="padding-top: 10px; padding-bottom: 5px;;">Select a category above. Anything can be edited on a post
+      <br>
+      <p>Select a category above. Anything can be edited on a post
         except
-        for the images. To change images, the post needs to be delete and recreated.</p>
-      <div id="postContainer" class="addBorder"></div>
+        for the images. To change images, the post needs to be delete and recreated.
+      </p>
+      <br>
+      <hr>
+      <br>
+      <div id="primaryPostContainer">
+        <div id="postContainer" class="addBorder"></div>
+      </div>
+    </div>
+
+    <div id="colorsForm" class="form addBorder">
+      <div class="titleHeader">
+        <h3>Change Colors</h3>
+        <hr>
+        <br>
+
+
+        <label for="accentColor">Accent Color:</label>
+        <input id="accentColor" type="color" style="width: 100%;">
+
+
+        <label for="borderColor">Border Color:</label>
+        <input id="borderColor" type="color" style="width: 100%;">
+        <label for="backgroundColor">Background Color:</label>
+        <input id="backgroundColor" type="color" style="width: 100%;">
+        <label for="hoverColor">Hover Color:</label>
+        <input id="hoverColor" type="color" style="width: 100%;">
+        <label for="postColor">Post Color:</label>
+        <input id="postColor" type="color" style="width: 100%;">
+        <label for="postHoverColor">Post Hover Color:</label>
+        <input id="postHoverColor" type="color" style="width: 100%;">
+        <label for="accentFontColor">Accent Font Color:</label>
+        <input id="accentFontColor" type="color" style="width: 100%;">
+        <label for="fontColor">Font Color:</label>
+        <input id="fontColor" type="color" style="width: 100%;">
+        <br><br>
+        <button id="submitColorsButton" style="width: 100%;">Submit</button>
+      </div>
     </div>
 
     <div id="infoForm" class="form addBorder">
@@ -108,10 +159,11 @@
     <a href="">Privacy Agreement</a>
     <a href="">About me</a>
   </footer>
+
 </body>
 <script type="module" src="./controllers/onLoadController.js"></script>
-<script type="module" src="./controllers/importController.js"></script>
-<script type="module" src="./controllers/uploadController.js"></script>
+<script type="module" src="./controllers/editPostController.js"></script>
+<script type="module" src="./controllers/newPostController.js"></script>
 <script type="module" src="./controllers/categoryController.js"></script>
 
 </html>
