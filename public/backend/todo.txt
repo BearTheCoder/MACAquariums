@@ -1,1 +1,3 @@
-ability to change colors
+information module
+multiple images
+front end start

@@ -1,16 +1,15 @@
 :root {
-  --accent-color: rgb(113, 180, 209);
-  --border-color: rgb(175, 175, 175);
-  --background-color: rgb(250, 250, 250);
-  --hover-color: rgb(140, 210, 190);
-  --post-color: rgb(250, 250, 250);
-  --postHover-color: rgb(255, 255, 255);
-  --accentFont-color: rgb(255, 255, 255);
-  --font-color: rgb(0, 0, 0);
+  --accentColor: rgb(113, 180, 209);
+  --borderColor: rgb(175, 175, 175);
+  --backgroundColor: rgb(250, 250, 250);
+  --hoverColor: rgb(140, 210, 190);
+  --postColor: rgb(250, 250, 250);
+  --postHoverColor: rgb(255, 255, 255);
+  --accentFontColor: rgb(255, 255, 255);
+  --fontColor: rgb(0, 0, 0);
   --placeholder-color: rgb(125, 125, 125);
   --placeholderHover-color: black;
   --disabled-color: gray;
-  --notWorking-color: rgb(255, 150, 150);
   --border-radius: 5px;
 }
 
@@ -20,7 +19,6 @@
   font-family: 'Kanit', sans-serif;
   font-size: 12px;
   letter-spacing: 1px;
-
 }
 
 /*      *****     ELEMENT SELECTORS     *****       */
@@ -29,34 +27,25 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: var(--accent-color);
 }
 
 a {
   padding: 10px;
-  color: var(--accentFont-color);
 }
 
 h2 {
   letter-spacing: 3px;
   font-size: 20px;
-  color: var(--accentFont-color);
 }
 
 h3 {
   letter-spacing: 3px;
   font-size: 20px;
-  color: var(--font-color);
-}
-
-label {
-  color: var(--font-color);
 }
 
 h4 {
   letter-spacing: 3px;
   font-size: 16px;
-  color: var(--font-color);
 }
 
 p {
@@ -64,29 +53,13 @@ p {
   font-weight: 100;
   font-size: 16px;
   font-weight: 200;
-  color: var(--font-color);
-}
-
-hr {
-  background-color: var(--accent-color);
-  border: 1px solid var(--accent-color);
-}
-
-button {
-  color: var(--accentFont-color);
-  border: 1px solid var(--border-color);
-  background-color: var(--accent-color);
-  border-radius: var(--border-radius);
-}
-
-textarea {
-  border-radius: var(--border-radius);
+  color: var(--fontColor);
 }
 
 select {
   color: var(--placeholder-color);
   border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--borderColor);
 }
 
 /* * * * * INPUT TYPES * * * * */
@@ -95,68 +68,65 @@ input::file-selector-button {
 }
 
 input[type=color] {
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--borderColor);
   border-radius: var(--border-radius);
 }
 
 input[type=text] {
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--borderColor);
   padding: 1px;
   border-radius: var(--border-radius);
 }
 
 input[type=number] {
   border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--borderColor);
   padding: 1px;
 }
 
 input[type=file] {
   display: flex;
-  color: var(--accentFont-color);
-  border: 1px solid var(--border-color);
-  background-color: var(--accent-color);
+  color: var(--accentFontColor);
+  border: 1px solid var(--borderColor);
+  background-color: var(--accentColor);
   border-radius: var(--border-radius);
   padding: 1px 10px;
 }
 
 /* * * * * HOVER EFFECTS * * * * */
 a:hover {
-  color: var(--hover-color)
+  color: var(--hoverColor)
 }
 
-button:hover {
-  background-color: var(--hover-color);
-}
 
 input[type=text]:hover {
-  border: 1px solid var(--hover-color);
+  border: 1px solid var(--hoverColor);
   border-radius: var(--border-radius);
   padding: 1px
 }
 
 input[type=color]:hover {
-  border-color: var(--hover-color);
+  border-color: var(--hoverColor);
 }
 
 input[type=file]:hover {
-  background-color: var(--hover-color);
+  background-color: var(--hoverColor);
 }
 
 input[type=number]:hover {
   color: var(--placeholderHover-color);
   padding: 1px;
-  border: 1px solid var(--hover-color)
+  border: 1px solid var(--hoverColor)
 }
 
 textarea:hover {
-  border: 1px solid var(--hover-color);
+  border: 1px solid var(--hoverColor);
   border-radius: var(--border-radius);
 }
 
 select:hover {
   color: var(--placeholderHover-color);
-  border: 1px solid var(--hover-color);
+  border: 1px solid var(--hoverColor);
 }
 
 input[type=number]:hover::placeholder {
@@ -177,6 +147,7 @@ button:disabled {
   padding-left: 3px;
 }
 
+
 /*      *****     CLASS SELECTORS     *****       */
 .headerContent {
   padding: 5px 10px;
@@ -196,7 +167,6 @@ button:disabled {
   padding: 20px;
   justify-content: flex-start;
   flex: 0 1 auto;
-  background-color: var(--background-color);
   min-width: 300px;
 }
 
@@ -206,12 +176,10 @@ button:disabled {
   margin: 5px;
   justify-content: flex-start;
   flex: 0 1 auto;
-  height: 100%;
 }
 
 
 .post {
-  background-color: var(--post-color);
   padding: 10px;
   margin: 10px 10px;
 }
@@ -235,7 +203,6 @@ button:disabled {
 }
 
 .standardButton {
-  height: 100%;
   width: 100px;
   margin-left: 10px;
 }
@@ -245,7 +212,7 @@ button:disabled {
 }
 
 .h100p {
-  width: 100%;
+  height: 100%;
 }
 
 .flexGrow1 {
@@ -253,14 +220,14 @@ button:disabled {
 }
 
 .addBorder {
-  border: 1px solid var(--border-color);
+  border: 1px solid;
   border-radius: var(--border-radius);
 }
 
-/* * * * * HOVER EFFECTS * * * * */
-.form:hover {
-  background-color: var(--postHover-color);
+.addFlex {
+  display: flex;
 }
+
 
 /*      *****     ID SELECTORS     *****       */
 /* * * * * DIVS * * * * */
@@ -268,8 +235,6 @@ button:disabled {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--accent-color);
-  color: var(--accentFont-color);
 }
 
 #backendMain {
@@ -277,7 +242,6 @@ button:disabled {
   flex-wrap: wrap;
   padding-top: 20px;
   padding: 20px 20px 100px 20px;
-  background-color: var(--background-color);
   justify-content: center;
 }
 
@@ -285,7 +249,6 @@ button:disabled {
   display: flex;
   align-content: center;
   justify-content: center;
-  color: var(--accentFont-color);
 }
 
 #postContainer {
@@ -302,6 +265,10 @@ button:disabled {
   flex-direction: row;
 }
 
+#infoDisplayContainer {
+  max-height: 350px;
+  overflow-y: scroll;
+}
 
 /* * * * * BUTTONS * * * * */
 #addCategoryButton,
@@ -335,6 +302,67 @@ button:disabled {
   display: flex;
 }
 
-#descInput {
-  width: 100%;
+/*      *****     Scrollbar Modifiers     *****       */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accentColor);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--hoverColor);
+  border-radius: 10px;
+}
+
+
+/*      *****     Color Modifiers     *****       */
+.postBG {
+  background-color: var(--postColor);
+}
+
+.postBG:hover {
+  background-color: var(--postHoverColor);
+}
+
+.accentColorNoHover {
+  border-color: var(--accentColor);
+}
+
+.accentColor {
+  background-color: var(--accentColor);
+}
+
+.hoverColor:hover {
+  background-color: var(--hoverColor);
+}
+
+.accentFontColor {
+  color: var(--accentFontColor);
+}
+
+.accentFontColor:hover {
+  color: var(--accentFontColor);
+}
+
+.fontColor {
+  color: var(--fontColor);
+}
+
+.borderColor {
+  border-color: var(--borderColor);
+}
+
+.borderColor:hover {
+  border-color: var(--hoverColor);
+}
+
+.backgroundColor {
+  background-color: var(--backgroundColor);
+}
+
+.placeholderColor {
+  color: var(--placeholder-color)
 }

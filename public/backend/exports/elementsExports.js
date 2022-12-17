@@ -13,8 +13,8 @@ export function returnPostDiv (data) {
   return `
     <div class="post addBorder">
       <img src="${data.imageURLS[0]}" width="100%">
-      <h4>${data.title}</h4>
-      <hr>
+      <h4 class="fontColor">${data.title}</h4>
+      <hr class="addBorder accentColorNoHover">
       <p>${data.description}</p>
       <br>
       <div class="postFooter">
@@ -26,8 +26,8 @@ export function returnPostDiv (data) {
       </div>
       <br>
       <div class="postButtonFooter">
-        <button name="${data.title}" class="editButton postButton" width="100">Edit</button>
-        <button name="${data.title}" class="deleteButton postButton" width="100">Delete</button>
+        <button name="${data.title}" class="editButton postButton accentColor addBorder borderColor accentFontColor hoverColor w100p">Edit</button>
+        <button name="${data.title}" class="deleteButton postButton accentColor addBorder borderColor accentFontColor hoverColor w100p">Delete</button>
       </div>
     </div>
      `;
@@ -44,7 +44,7 @@ export function returnRenameInputContainer (value) {
 export function returnEditPostDiv (data, categories) {
   let existingCategoies = createSelectionOptions(categories);
   return `
-    <div class="newForm">
+    <div class="newForm h100p">
       <label for="newTitleInput" class="formLabel">Title: </label>
       <input type="text" id="newTitleInput" class="formInput" value="${data.title}" \>
       <br>
