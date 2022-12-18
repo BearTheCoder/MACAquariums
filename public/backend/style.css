@@ -22,11 +22,9 @@
 }
 
 /*      *****     ELEMENT SELECTORS     *****       */
-/* * * * * BASIC ELEMENTS * * * * */
 body {
-  height: 100%;
-  display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 a {
@@ -53,114 +51,104 @@ p {
   font-weight: 100;
   font-size: 16px;
   font-weight: 200;
-  color: var(--fontColor);
 }
 
-select {
-  color: var(--placeholder-color);
-  border-radius: var(--border-radius);
-  border: 1px solid var(--borderColor);
-}
-
-/* * * * * INPUT TYPES * * * * */
-input::file-selector-button {
-  display: none;
-}
-
-input[type=color] {
-  border: 1px solid var(--borderColor);
-  border-radius: var(--border-radius);
-}
-
-input[type=text] {
-  border: 1px solid var(--borderColor);
-  padding: 1px;
-  border-radius: var(--border-radius);
-}
-
-input[type=number] {
-  border-radius: var(--border-radius);
-  border: 1px solid var(--borderColor);
-  padding: 1px;
-}
-
-input[type=file] {
-  display: flex;
-  color: var(--accentFontColor);
-  border: 1px solid var(--borderColor);
-  background-color: var(--accentColor);
-  border-radius: var(--border-radius);
-  padding: 1px 10px;
-}
-
-/* * * * * HOVER EFFECTS * * * * */
-a:hover {
-  color: var(--hoverColor)
-}
-
-
-input[type=text]:hover {
-  border: 1px solid var(--hoverColor);
-  border-radius: var(--border-radius);
-  padding: 1px
-}
-
-input[type=color]:hover {
-  border-color: var(--hoverColor);
-}
-
-input[type=file]:hover {
-  background-color: var(--hoverColor);
-}
-
-input[type=number]:hover {
-  color: var(--placeholderHover-color);
-  padding: 1px;
-  border: 1px solid var(--hoverColor)
-}
-
-textarea:hover {
-  border: 1px solid var(--hoverColor);
-  border-radius: var(--border-radius);
-}
-
-select:hover {
-  color: var(--placeholderHover-color);
-  border: 1px solid var(--hoverColor);
-}
-
-input[type=number]:hover::placeholder {
-  color: var(--placeholderHover-color);
-}
-
-input[type=text]:hover::placeholder {
-  color: var(--placeholderHover-color);
-}
-
-/* * * * * OTHER PROPERTIES * * * * */
 button:disabled {
   background-color: var(--disabled-color);
 }
 
-::placeholder {
-  color: var(--placeholder-color);
-  padding-left: 3px;
+input::file-selector-button {
+  display: none;
+}
+
+/*      *****     ID SELECTORS     *****       */
+#backendHeader {
+  justify-content: space-between;
+  align-items: center;
+}
+
+#backendMain {
+  flex-wrap: wrap;
+  padding-top: 20px;
+  padding: 20px 20px 100px 20px;
+  justify-content: center;
+}
+
+#backendFooter {
+  align-content: center;
+  justify-content: center;
+}
+
+#postContainer {
+  max-height: 350px;
+  overflow-y: scroll;
+}
+
+#editForm {
+  max-height: 600px;
+}
+
+#renameInputContainer {
+  flex-direction: row;
+}
+
+#infoDisplayContainer {
+  max-height: 350px;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+#addCategoryButton,
+#renameCategorySubmit {
+  min-width: 100px;
+  margin-left: 10px;
 }
 
 
-/*      *****     CLASS SELECTORS     *****       */
+#categorySelect {
+  flex-direction: row;
+}
+
+#iconTest {
+  width: 25px;
+  padding-left: 10px;
+  filter: invert(1);
+}
+
+#menuIcon {
+  width: 25px;
+  filter: invert(1);
+  padding: 2px;
+  padding-right: 10px;
+}
+
+/*      *****     Scrollbar Modifiers     *****       */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hoverColor);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--accentColor);
+  border-radius: 10px;
+}
+
+
+/*      *****     Base Class Modifiers     *****       */
 .headerContent {
   padding: 5px 10px;
 }
 
 .iconHeader {
-  display: flex;
   align-items: center;
   padding: 2px;
 }
 
 .form {
-  display: flex;
   flex-direction: column;
   margin: 5px;
   width: 398px;
@@ -171,13 +159,11 @@ button:disabled {
 }
 
 .newForm {
-  display: flex;
   flex-direction: column;
   margin: 5px;
   justify-content: flex-start;
   flex: 0 1 auto;
 }
-
 
 .post {
   padding: 10px;
@@ -185,7 +171,6 @@ button:disabled {
 }
 
 .postFooter {
-  display: flex;
   flex-direction: row;
   font-size: 8px;
   justify-content: space-evenly;
@@ -193,7 +178,6 @@ button:disabled {
 }
 
 .postButtonFooter {
-  display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
@@ -207,6 +191,9 @@ button:disabled {
   margin-left: 10px;
 }
 
+
+
+/*      *****     Transform Modifiers     *****       */
 .w100p {
   width: 100%;
 }
@@ -228,94 +215,6 @@ button:disabled {
   display: flex;
 }
 
-
-/*      *****     ID SELECTORS     *****       */
-/* * * * * DIVS * * * * */
-#backendHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#backendMain {
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 20px;
-  padding: 20px 20px 100px 20px;
-  justify-content: center;
-}
-
-#backendFooter {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
-
-#postContainer {
-  max-height: 350px;
-  overflow-y: scroll;
-}
-
-#editForm {
-  max-height: 600px;
-}
-
-#renameInputContainer {
-  display: flex;
-  flex-direction: row;
-}
-
-#infoDisplayContainer {
-  max-height: 350px;
-  overflow-y: scroll;
-}
-
-/* * * * * BUTTONS * * * * */
-#addCategoryButton,
-#renameCategorySubmit {
-  min-width: 100px;
-  margin-left: 10px;
-}
-
-
-/* * * * * DROP DOWN MENUS * * * * */
-#categorySelect {
-  display: flex;
-  flex-direction: row;
-}
-
-/* * * * * IMAGES * * * * */
-#iconTest {
-  width: 25px;
-  padding-left: 10px;
-  filter: invert(1);
-}
-
-#menuIcon {
-  width: 25px;
-  filter: invert(1);
-  padding: 2px;
-  padding-right: 10px;
-}
-
-#infoCategorySelect {
-  display: flex;
-}
-
-/*      *****     Scrollbar Modifiers     *****       */
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--accentColor);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px var(--hoverColor);
-  border-radius: 10px;
-}
 
 
 /*      *****     Color Modifiers     *****       */
@@ -365,4 +264,16 @@ button:disabled {
 
 .placeholderColor {
   color: var(--placeholder-color)
+}
+
+.placeholderColor:hover::placeholder {
+  color: var(--placeholderHover-color);
+}
+
+.linkHoverColor:hover {
+  color: var(--hoverColor);
+}
+
+.textHoverColor:hover {
+  color: var(--fontColor);
 }

@@ -11,13 +11,13 @@ export const uploadFormElements = {
 /*      *****     FUNCTIONS     *****       */
 export function returnPostDiv (data) {
   return `
-    <div class="post addBorder">
+    <div class="post addBorder postBG">
       <img src="${data.imageURLS[0]}" width="100%">
       <h4 class="fontColor">${data.title}</h4>
       <hr class="addBorder accentColorNoHover">
       <p>${data.description}</p>
       <br>
-      <div class="postFooter">
+      <div class="postFooter addFlex">
         <p style="font-size: 12px;">Price: ${data.price}</p> 
         <p style="font-size: 15px;">||</p> 
         <p style="font-size: 12px;">Importance: ${data.importance}</p> 
@@ -25,9 +25,9 @@ export function returnPostDiv (data) {
         <p style="font-size: 12px;">Category: ${data.category}</p>
       </div>
       <br>
-      <div class="postButtonFooter">
-        <button name="${data.title}" class="editButton postButton accentColor addBorder borderColor accentFontColor hoverColor w100p">Edit</button>
-        <button name="${data.title}" class="deleteButton postButton accentColor addBorder borderColor accentFontColor hoverColor w100p">Delete</button>
+      <div class="postButtonFooter addFlex">
+        <button name="${data.title}" class="editButton postButton accentColor addBorder borderColor accentFontColor hoverColor">Edit</button>
+        <button name="${data.title}" class="deleteButton postButton accentColor addBorder borderColor accentFontColor hoverColor">Delete</button>
       </div>
     </div>
      `;
@@ -44,7 +44,7 @@ export function returnRenameInputContainer (value) {
 export function returnEditPostDiv (data, categories) {
   let existingCategoies = createSelectionOptions(categories);
   return `
-    <div class="newForm h100p">
+    <div class="newForm addFlex h100p">
       <label for="newTitleInput" class="formLabel">Title: </label>
       <input type="text" id="newTitleInput" class="formInput" value="${data.title}" \>
       <br>
