@@ -1,5 +1,5 @@
-import { setDoc, doc, db, deleteDoc, importCollection, getDoc, ref, storage, deleteObject } from "../exports/firebaseConfigExports.js";
-import { returnRenameInputContainer } from "../exports/elementsExports.js";
+import { setDoc, doc, db, deleteDoc, importCollection, getDoc, ref, storage, deleteObject } from "../../exports/firebaseConfigExports.js";
+import { returnRenameInputContainer } from "../../exports/elementsExports.js";
 
 const addCategoryButton = document.getElementById("addCategoryButton");
 const deleteButton = document.getElementById("deleteCategoryButton");

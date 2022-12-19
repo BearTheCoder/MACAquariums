@@ -1,4 +1,4 @@
-import { ref, storage, uploadBytes, getDownloadURL, setDoc, doc, db, importCollection } from "../exports/firebaseConfigExports.js";
+import { ref, storage, uploadBytes, getDownloadURL, setDoc, doc, db, importCollection } from "../../exports/firebaseConfigExports.js";
 
 let root = document.documentElement;
 let testColorButton = document.getElementById("testColorButton");

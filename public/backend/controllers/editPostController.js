@@ -1,5 +1,5 @@
-import { returnPostDiv, returnEditPostDiv } from "../exports/elementsExports.js";
-import { deleteDoc, setDoc, doc, db, ref, storage, deleteObject, getDoc, importCollection } from "../exports/firebaseConfigExports.js";
+import { returnPostDiv, returnEditPostDiv } from "../../exports/elementsExports.js";
+import { deleteDoc, setDoc, doc, db, ref, storage, deleteObject, getDoc, importCollection } from "../../exports/firebaseConfigExports.js";
 
 document.getElementById("importButton").onclick = () => {
   const categoryValue = document.getElementById("importCategoryInput");

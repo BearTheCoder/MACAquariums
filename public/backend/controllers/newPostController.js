@@ -1,5 +1,5 @@
-import { ref, storage, uploadBytes, getDownloadURL, setDoc, doc, db, importCollection } from "../exports/firebaseConfigExports.js";
-import { uploadFormElements } from "../exports/elementsExports.js";
+import { ref, storage, uploadBytes, getDownloadURL, setDoc, doc, db, importCollection } from "../../exports/firebaseConfigExports.js";
+import { uploadFormElements } from "../../exports/elementsExports.js";
 
 const uploadButton = document.getElementById("uploadButton");
 

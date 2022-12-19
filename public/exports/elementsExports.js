@@ -8,6 +8,17 @@ export const uploadFormElements = {
   images: document.getElementById("imageInput"),
 };
 
+export const defaultRGB = {
+  0: { name: "--accentColor", value: "#71B4D1" },
+  1: { name: "--borderColor", value: "#AFAFAF" },
+  2: { name: "--backgroundColor", value: "#FAFAFA" },
+  3: { name: "--hoverColor", value: "#8CD2BE" },
+  4: { name: "--postColor", value: "#FAFAFA" },
+  5: { name: "--postHoverColor", value: "#FFFFFF" },
+  6: { name: "--accentFontColor", value: "#FFFFFF" },
+  7: { name: "--fontColor", value: "#000000" },
+};
+
 /*      *****     FUNCTIONS     *****       */
 export function returnPostDiv (data) {
   return `

@@ -1,5 +1,5 @@
-import { importCollection } from "../exports/firebaseConfigExports.js";
-import { information } from "../exports/informationExports.js";
+import { importCollection } from "../../exports/firebaseConfigExports.js";
+import { information } from "../../exports/informationExports.js";
 
 importCollection("Categories")
   .then((col) => {
