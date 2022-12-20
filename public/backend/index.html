@@ -140,9 +140,32 @@
       </div>
     </div>
 
+    <div id="galleryForm" class="form addFlex addBorder postBG borderColor">
+      <div class="titleHeader">
+        <h3 class="fontColor">Gallery</h3>
+        <hr class="addBorder accentColorNoHover">
+        <br>
+      </div>
+      <label for="galleryInput">Add Images: </label>
+      <div id="galleryInput" class="addFlex">
+        <input type="file" id="galleryImageInput" class="hoverColor addFlex addBorder borderColor accentFontColor accentColor" accept=".png, .jpg" multiple>
+        <button id="galleryImageSubmitButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">submit</button>
+      </div>
+      <br><br>
+      <label for="categoryGallerySelect">Category Image: </label>
+      <select id="categoryGallerySelect" class="categoryInput addBorder placeholderColor borderColor textHoverColor"></select>
+      <br>
+      <div class="addFlex">
+        <input type="file" id="categoryImageInput" class="hoverColor addFlex addBorder borderColor accentFontColor accentColor" accept=".png, .jpg">
+        <button id="catergoryImageSubmitButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">submit</button>
+      </div>
+      <br>
+      <hr class="accentColorNoHover addBorder">
+    </div>
+
     <div id="infoForm" class="form addFlex addBorder postBG borderColor">
       <div class="titleHeader">
-        <h3 class="fontColor">Information</h3>
+        <h3 class="fontColor">More Information</h3>
         <hr class="addBorder accentColorNoHover">
         <br>
       </div>
@@ -171,5 +194,6 @@
 <script type="module" src="./controllers/categoryController.js"></script>
 <script type="module" src="./controllers/colorController.js"></script>
 <script type="module" src="./controllers/informationController.js"></script>
+<script type="module" src="./controllers/galleryController.js"></script>
 
 </html>

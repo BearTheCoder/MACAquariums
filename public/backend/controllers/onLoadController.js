@@ -1,3 +1,4 @@
+import { defaultRGB } from "../../exports/elementsExports.js";
 import { importCollection } from "../../exports/firebaseConfigExports.js";
 import { information } from "../../exports/informationExports.js";
 
@@ -26,6 +27,12 @@ importCollection("colors")
     for (let i = 0; i < colorSelectors.length; i++) {
       root.style.setProperty(colors[i].name, colors[i].value);
       colorSelectors[i].value = colors[i].value;
+    }
+  })
+  .catch(err => {
+    let root = document.documentElement;
+    for (const prop in defaultRGB) {
+      root.style.setProperty(defaultRGB[prop].name, defaultRGB[prop].value);
     }
   });
 

@@ -77,6 +77,29 @@ export function returnEditPostDiv (data, categories) {
   `;
 }
 
+export function showSlides (slideIndex) {
+  let slides = document.getElementsByClassName("mySlides");
+  if (slideIndex > slides.length) { slideIndex = 1; }
+  if (slideIndex < 1) { slideIndex = slides.length; }
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex - 1].style.display = "flex";
+  return slideIndex;
+}
+
+export function registerButtons (leftButton, rightButton) {
+  let slideIndex = 1;
+  leftButton.onclick = () => {
+    slideIndex = showSlides(slideIndex - 1);
+  };
+  rightButton.onclick = () => {
+    slideIndex = showSlides(slideIndex + 1);
+  };
+}
+
+
+/*      *****     INTERNAL FUNCTIONS     *****       */
 function createSelectionOptions (categories) {
   let returnedOptions = "";
   categories.categories.forEach((element, index) => {

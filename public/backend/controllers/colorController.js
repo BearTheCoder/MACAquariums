@@ -10,7 +10,7 @@ testColorButton.onclick = () => {
   root.style.setProperty("--borderColor", colorSelectors[1].value);
   root.style.setProperty("--backgroundColor", colorSelectors[2].value);
   root.style.setProperty("--hoverColor", colorSelectors[3].value);
-  root.style.setProperty("--post-color", colorSelectors[4].value);
+  root.style.setProperty("--postColor", colorSelectors[4].value);
   root.style.setProperty("--postHoverColor", colorSelectors[5].value);
   root.style.setProperty("--accentFontColor", colorSelectors[6].value);
   root.style.setProperty("--fontColor", colorSelectors[7].value);

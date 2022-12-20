@@ -106,13 +106,36 @@ input::file-selector-button {
 }
 
 #gallery {
+  justify-content: center;
   align-items: center;
-
+  position: relative;
+  width: 90%;
+  height: 600px;
+  background-color: rgb(20, 20, 20);
+  border-radius: 20px;
 }
 
-#mainImage {
-  min-width: none;
-  max-width: 1000px;
+#rightButton,
+#leftButton {
+  cursor: pointer;
+  position: absolute;
+  width: auto;
+  padding: 16px;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#rightButton {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+#leftButton {
+  left: 0;
+  border-radius: 3px 0 0 3px;
 }
 
 /*      *****     Scrollbar Modifiers     *****       */
@@ -148,9 +171,30 @@ input::file-selector-button {
 
 .main {
   flex-wrap: wrap;
-  padding-top: 20px;
-  padding: 20px 20px 100px 20px;
+  padding: 40px 20px 100px 20px;
   justify-content: center;
+}
+
+.mySlides {
+  display: none;
+}
+
+.mainImage {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.imageContainer {
+  height: 90%;
+}
+
+.imageText {
+  color: var(--accentFontColor);
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  padding: 5px 0px 0px 15px;
 }
 
 .footer {
@@ -201,7 +245,9 @@ input::file-selector-button {
   margin-left: 10px;
 }
 
-
+.galleryButton {
+  color: var(--accentFontColor);
+}
 
 /*      *****     Transform Modifiers     *****       */
 .w100p {
@@ -225,19 +271,14 @@ input::file-selector-button {
   display: flex;
 }
 
-
-
 /*      *****     Color Modifiers     *****       */
+/* BG COLOR */
 .postBG {
   background-color: var(--postColor);
 }
 
 .postBG:hover {
   background-color: var(--postHoverColor);
-}
-
-.accentColorNoHover {
-  border-color: var(--accentColor);
 }
 
 .accentColor {
@@ -248,16 +289,13 @@ input::file-selector-button {
   background-color: var(--hoverColor);
 }
 
-.accentFontColor {
-  color: var(--accentFontColor);
+.backgroundColor {
+  background-color: var(--backgroundColor);
 }
 
-.accentFontColor:hover {
-  color: var(--accentFontColor);
-}
-
-.fontColor {
-  color: var(--fontColor);
+/* BORDER COLOR */
+.accentColorNoHover {
+  border-color: var(--accentColor);
 }
 
 .borderColor {
@@ -268,8 +306,17 @@ input::file-selector-button {
   border-color: var(--hoverColor);
 }
 
-.backgroundColor {
-  background-color: var(--backgroundColor);
+/* FONT COLOR */
+.accentFontColor {
+  color: var(--accentFontColor);
+}
+
+.accentFontColor:hover {
+  color: var(--accentFontColor);
+}
+
+.fontColor {
+  color: var(--fontColor);
 }
 
 .placeholderColor {
@@ -286,4 +333,9 @@ input::file-selector-button {
 
 .textHoverColor:hover {
   color: var(--fontColor);
+}
+
+.galleryButton:hover {
+  background-color: var(--hoverColor);
+  opacity: 0.6;
 }
