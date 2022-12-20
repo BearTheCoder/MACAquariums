@@ -33,8 +33,8 @@ importCollection("Gallery Images")
       index++;
     });
     galleryDiv += `
-    <a id="leftButton" class="galleryButton">&#10094;</a>
-    <a id="rightButton" class="galleryButton">&#10095;</a>
+    <a id="leftButton" class="galleryButton accentColor">&#10094;</a>
+    <a id="rightButton" class="galleryButton accentColor">&#10095;</a>
     `;
     document.getElementById("gallery").innerHTML = galleryDiv;
     showSlides(1, 1);
