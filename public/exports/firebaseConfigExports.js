@@ -52,7 +52,7 @@ export function uploadImageAndAddToDatabase (imageBlob, collectionName, document
 export function uploadMultipleImagesAndAddToDatabase (imageArray, collectionName) {
   return new Promise(resolved => {
     uploadMultipleImages(imageArray)
-      .then(() => {
+      .then((urls) => {
         urls.forEach(el => {
           const randomIdentifier = Math.floor(Math.random() * 10000000);
           const categoryDoc = doc(db, collectionName, `image_${randomIdentifier}`);
@@ -61,7 +61,6 @@ export function uploadMultipleImagesAndAddToDatabase (imageArray, collectionName
           });
         });
         alert("Images uploaded to database.");
-        clearInterval(interval);
         resolved();
       });
   });
@@ -76,9 +75,12 @@ function uploadMultipleImages (imageArray) {
       element.arrayBuffer()
         .then(byteData => uploadBytes(imageReference, byteData))
         .then(() => getDownloadURL(imageReference))
-        .then(url => urls.push(url))
+        .then(url => {
+          urls.push(url);
+          if (imageArray.length === urls.length) resolved(urls);
+        })
         .catch(error => console.log(error));
     });
-    resolved();
+
   });
 }
