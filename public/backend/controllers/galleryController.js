@@ -1,4 +1,4 @@
-import { ref, storage, uploadBytes, getDownloadURL, setDoc, doc, db } from "../../exports/firebaseConfigExports.js";
+import { ref, storage, uploadBytes, getDownloadURL, setDoc, doc, db, pullURLandDeleteImage, uploadImageAndAddToDatabase, uploadMultipleImagesAndAddToDatabase } from "../../exports/firebaseConfigExports.js";
 
 const galleryImageSubmitButton = document.getElementById("galleryImageSubmitButton");
 const catergoryImageSubmitButton = document.getElementById("catergoryImageSubmitButton");
@@ -10,30 +10,8 @@ galleryImageSubmitButton.onclick = () => {
     return;
   }
   galleryImageSubmitButton.disabled = true;
-  let urls = [];
-  imageArray.forEach(element => {
-    const imageReference = ref(storage, element.name);
-    element.arrayBuffer()
-      .then(byteData => uploadBytes(imageReference, byteData))
-      .then(() => getDownloadURL(imageReference))
-      .then(url => urls.push(url))
-      .catch(error => console.log(error));
-  });
-  const interval = setInterval(() => {
-    if (imageArray.length !== urls.length) return;
-    //Upload each image individually
-    urls.forEach(el => {
-      const randomIdentifier = Math.floor(Math.random() * 1000000);
-      const categoryDoc = doc(db, "Gallery Images", `galleryImage_${randomIdentifier}`);
-      setDoc(categoryDoc, {
-        imageURL: el
-      });
-    });
-    alert("Images uploaded to database.");
-    clearInterval(interval);
-    galleryImageSubmitButton.disabled = false;
-    document.getElementById("galleryImageInput").value = "";
-  }, 500);
+  uploadMultipleImagesAndAddToDatabase(imageArray, "Gallery Images")
+    .then(() => location.reload());
 };
 
 catergoryImageSubmitButton.onclick = () => {
@@ -44,20 +22,12 @@ catergoryImageSubmitButton.onclick = () => {
     return;
   }
   catergoryImageSubmitButton.disabled = true;
-  const imageReference = ref(storage, categoryImageInput.files[0].name);
-  categoryImageInput.files[0].arrayBuffer()
-    .then(byteData => uploadBytes(imageReference, byteData))
-    .then(() => getDownloadURL(imageReference))
-    .then(url => {
-      const categoryDoc = doc(db, "Category Images", categoryGallerySelect.value);
-      setDoc(categoryDoc, {
-        imageURL: url
-      }).then(data => {
-        alert("Image uploaded to database.");
-        catergoryImageSubmitButton.disabled = false;
-        categoryGallerySelect.value = "";
-        categoryImageInput.value = "";
-      });
-    })
-    .catch(error => console.log(error));
+  pullURLandDeleteImage("Category Images", categoryGallerySelect.value);
+  uploadImageAndAddToDatabase(categoryImageInput, "Category Images", categoryGallerySelect.value)
+    .then(data => {
+      alert("Category image updated...");
+      catergoryImageSubmitButton.disabled = false;
+      categoryGallerySelect.value = "";
+      categoryImageInput.value = "";
+    });
 };

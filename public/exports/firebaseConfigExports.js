@@ -24,3 +24,61 @@ export function importCollection (category) {
   return getDocs(col);
 }
 
+export function pullURLandDeleteImage (collectionName, documentName) {
+  const docRef = doc(db, collectionName, documentName);
+  getDoc(docRef).then((querySnapshot) => {
+    const url = querySnapshot.data().imageURL;
+    const imageRef = ref(storage, url);
+    deleteObject(imageRef);
+  })
+    .catch(err => { console.log(err); });
+}
+
+export function uploadImageAndAddToDatabase (imageBlob, collectionName, documentName) {
+  const randomIdentifier = Math.floor(Math.random() * 10000000);
+  const imageReference = ref(storage, `image_${randomIdentifier}`);
+  imageBlob.files[0].arrayBuffer()
+    .then(byteData => uploadBytes(imageReference, byteData))
+    .then(() => getDownloadURL(imageReference))
+    .then(url => {
+      const categoryDoc = doc(db, collectionName, documentName);
+      return setDoc(categoryDoc, {
+        imageURL: url
+      });
+    })
+    .catch(error => console.log(error));
+}
+
+export function uploadMultipleImagesAndAddToDatabase (imageArray, collectionName) {
+  return new Promise(resolved => {
+    uploadMultipleImages(imageArray)
+      .then(() => {
+        urls.forEach(el => {
+          const randomIdentifier = Math.floor(Math.random() * 10000000);
+          const categoryDoc = doc(db, collectionName, `image_${randomIdentifier}`);
+          setDoc(categoryDoc, {
+            imageURL: el
+          });
+        });
+        alert("Images uploaded to database.");
+        clearInterval(interval);
+        resolved();
+      });
+  });
+}
+
+function uploadMultipleImages (imageArray) {
+  return new Promise(resolved => {
+    let urls = [];
+    imageArray.forEach(element => {
+      const randomIdentifier = Math.floor(Math.random() * 10000000);
+      const imageReference = ref(storage, `image_${randomIdentifier}`);
+      element.arrayBuffer()
+        .then(byteData => uploadBytes(imageReference, byteData))
+        .then(() => getDownloadURL(imageReference))
+        .then(url => urls.push(url))
+        .catch(error => console.log(error));
+    });
+    resolved();
+  });
+}
