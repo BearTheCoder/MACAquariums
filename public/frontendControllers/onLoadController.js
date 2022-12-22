@@ -27,7 +27,7 @@ importCollection("Gallery Images")
     col.forEach((el) => {
       galleryDiv += `
       <div class="mySlides addFlex imageContainer">
-        <img class="mainImage addFlex" src="${el.data().imageURL}">
+        <img class="mainImage addFlex" src="${el.data().URL}">
       </div>
       `;
       index++;

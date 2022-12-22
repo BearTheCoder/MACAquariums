@@ -18,56 +18,44 @@ export const app_fb = initializeApp(firebaseConfig);
 export const storage = getStorage(app_fb);
 export const db = getFirestore(app_fb);
 
-/*      *****     FUNCTIONS     *****       */
+/** 
+* @param {string} category
+* @returns {Promise<QuerySnapshot<T>} Promise with collection data.
+*/
 export function importCollection (category) {
   let col = collection(db, category);
   return getDocs(col);
 }
 
+/** 
+* Querys the database, pulls the url, and deletes the image from storage.
+* @param {string} collectionName
+* @param {string} documentName
+*/
 export function pullURLandDeleteImage (collectionName, documentName) {
-  const docRef = doc(db, collectionName, documentName);
-  getDoc(docRef).then((querySnapshot) => {
-    const url = querySnapshot.data().imageURL;
-    const imageRef = ref(storage, url);
-    deleteObject(imageRef);
-  })
-    .catch(err => { console.log(err); });
+  try {
+    const docRef = doc(db, collectionName, documentName);
+    getDoc(docRef)
+      .then((querySnapshot) => {
+        const url = querySnapshot.data().URL;
+        const imageRef = ref(storage, url);
+        deleteObject(imageRef);
+      })
+      .catch(err => { });
+  }
+  //Throws error if category image and database doc doesn't exist
+  catch (err) { }
 }
 
-export function uploadImageAndAddToDatabase (imageBlob, collectionName, documentName) {
-  const randomIdentifier = Math.floor(Math.random() * 10000000);
-  const imageReference = ref(storage, `image_${randomIdentifier}`);
-  imageBlob.files[0].arrayBuffer()
-    .then(byteData => uploadBytes(imageReference, byteData))
-    .then(() => getDownloadURL(imageReference))
-    .then(url => {
-      const categoryDoc = doc(db, collectionName, documentName);
-      return setDoc(categoryDoc, {
-        imageURL: url
-      });
-    })
-    .catch(error => console.log(error));
-}
-
-export function uploadMultipleImagesAndAddToDatabase (imageArray, collectionName) {
+/** 
+* Returns an empty array if fileList is empty.
+* @param {object} fileList
+* @returns {Promise<any[]>} Array of URLS
+*/
+export function uploadImagesToStorage (fileList) {
   return new Promise(resolved => {
-    uploadMultipleImages(imageArray)
-      .then((urls) => {
-        urls.forEach(el => {
-          const randomIdentifier = Math.floor(Math.random() * 10000000);
-          const categoryDoc = doc(db, collectionName, `image_${randomIdentifier}`);
-          setDoc(categoryDoc, {
-            imageURL: el
-          });
-        });
-        alert("Images uploaded to database.");
-        resolved();
-      });
-  });
-}
-
-function uploadMultipleImages (imageArray) {
-  return new Promise(resolved => {
+    const imageArray = Array.from(fileList);
+    if (imageArray.length === 0) resolved([]);
     let urls = [];
     imageArray.forEach(element => {
       const randomIdentifier = Math.floor(Math.random() * 10000000);
@@ -77,10 +65,20 @@ function uploadMultipleImages (imageArray) {
         .then(() => getDownloadURL(imageReference))
         .then(url => {
           urls.push(url);
-          if (imageArray.length === urls.length) resolved(urls);
+          if (fileList.length === urls.length) resolved(urls);
         })
         .catch(error => console.log(error));
     });
-
   });
+}
+
+/** 
+* @param {object} data *must have property named URL*
+* @param {string} collectionName
+* @param {string} documentName
+* @returns {Promise<void>} Empty promise
+*/
+export function uploadDataToDatabase (data, collectionName, documentName) {
+  const categoryDoc = doc(db, collectionName, documentName);
+  return setDoc(categoryDoc, data);
 }
