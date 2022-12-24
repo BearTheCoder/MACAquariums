@@ -28,8 +28,9 @@ submitButton.onclick = () => {
     5: { name: "--postHoverColor", value: colorSelectors[5].value },
     6: { name: "--accentFontColor", value: colorSelectors[6].value },
     7: { name: "--fontColor", value: colorSelectors[7].value },
-  }).then(() => {
-    submitButton.disabled = false;
-    alert("Default website colors updated.");
-  });
+  })
+    .then(() => {
+      submitButton.disabled = false;
+      alert("Default website colors updated.");
+    });
 };

@@ -33,18 +33,20 @@ export function importCollection (category) {
 * @param {string} documentName
 */
 export function pullURLandDeleteImage (collectionName, documentName) {
-  try {
-    const docRef = doc(db, collectionName, documentName);
-    getDoc(docRef)
-      .then((querySnapshot) => {
-        const url = querySnapshot.data().URL;
-        const imageRef = ref(storage, url);
-        deleteObject(imageRef);
-      })
-      .catch(err => { });
-  }
-  //Throws error if category image and database doc doesn't exist
-  catch (err) { }
+  return new Promise((resolved, rejected) => {
+    try {
+      const docRef = doc(db, collectionName, documentName);
+      getDoc(docRef)
+        .then((querySnapshot) => {
+          const url = querySnapshot.data().URL;
+          const imageRef = ref(storage, url);
+          deleteObject(imageRef);
+          resolved();
+        })
+        .catch(err => { });
+    }
+    catch (err) { rejected(); }
+  });
 }
 
 /** 
