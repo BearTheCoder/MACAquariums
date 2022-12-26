@@ -1,5 +1,5 @@
 import { setDoc, doc, db, deleteDoc, importCollection, getDoc, ref, storage, deleteObject, pullURLandDeleteImage } from "../../exports/firebaseConfigExports.js";
-import { returnRenameInputContainer } from "../../exports/elementsExports.js";
+import { hideLoadingScreen, returnRenameInputContainer, showLoadingScreen } from "../../exports/elementsExports.js";
 
 const addCategoryButton = document.getElementById("addCategoryButton");
 const deleteButton = document.getElementById("deleteCategoryButton");
@@ -8,17 +8,30 @@ const renameInputContainer = document.getElementById("renameInputContainer");
 const editCategoryInput = document.getElementById("editCategoryInput");
 
 addCategoryButton.onclick = () => {
+  addCategoryButton.disabled = true;
+  showLoadingScreen();
   addCategory(document.getElementById("addCategoryInput").value)
-    .then(() => location.reload());
+    .then(() => {
+      hideLoadingScreen();
+      location.reload();
+    });
 };
 
 deleteButton.onclick = () => {
+  showLoadingScreen();
   deleteButton.disabled = true;
   let deleteCategory = document.getElementById("editCategoryInput").value;
   const catRef = doc(db, "Categories", deleteCategory);
-  deleteDoc(catRef);
+  const thisPromise = deleteDoc(catRef);
   importCollection(deleteCategory)
     .then(col => {
+      if (col.size === 0) {
+        thisPromise.then(() => {
+          console.log(`col = 0`);
+          hideLoadingScreen();
+          location.reload();
+        });
+      }
       deleteEverythingInCategory(col, deleteCategory);
     });
 };
@@ -28,10 +41,13 @@ function deleteEverythingInCategory (col, deleteCategory) {
   col.forEach((document) => {
     const docRef = doc(db, deleteCategory, document.id);
     pullURLandDeleteImage(deleteCategory, document.id)
+      .then(() => deleteDoc(docRef))
       .then(() => {
-        deleteDoc(docRef);
         counter++;
-        if (counter === col.size) location.reload();
+        if (counter === col.size) {
+          hideLoadingScreen();
+          location.reload();
+        }
       });
   });
 }
@@ -42,9 +58,13 @@ renameButton.onclick = () => {
   listenForRenameSubmit(editCategoryInput.value);
 };
 
+// I don't know how to refactor this function yet, but it needs to be done.
 function listenForRenameSubmit (editCategoryInputValue) {
   const renameCategoryInput = document.getElementById("renameCategoryInput");
-  document.getElementById("renameCategorySubmit").onclick = () => {
+  const submitRenameButton = document.getElementById("renameCategorySubmit");
+  submitRenameButton.onclick = () => {
+    submitRenameButton.disabled = true;
+    showLoadingScreen();
     importCollection(editCategoryInputValue)
       .then(col => {
         if (col.size === 0) renameCategory(renameCategoryInput.value, editCategoryInputValue);
@@ -60,7 +80,7 @@ function listenForRenameSubmit (editCategoryInputValue) {
                 category: renameCategoryInput.value,
                 price: querySnapshot.data().price,
                 importance: querySnapshot.data().importance,
-                URL: querySnapshot.data().imageURLS,
+                URL: querySnapshot.data().URL,
               });
             })
             .then(() => {
@@ -82,6 +102,8 @@ function renameCategory (newValue, oldValue) {
     .then(() => {
       const catRef = doc(db, "Categories", oldValue);
       deleteDoc(catRef);
+      alert("Category renamed.");
+      hideLoadingScreen();
       location.reload();
     });
 }

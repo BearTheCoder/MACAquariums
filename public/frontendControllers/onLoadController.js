@@ -42,3 +42,22 @@ importCollection("Gallery Images")
     const rightButton = document.getElementById("rightButton");
     registerButtons(leftButton, rightButton);
   });
+
+let categoryDiv = ``;
+let categoryData = [];
+importCollection("Category Images")
+  .then(col => {
+    col.forEach(element => {
+      categoryData.push(element.data());
+    });
+    categoryData.forEach(data => {
+      console.log(data);
+      categoryDiv += `
+      <div class="post addBorder postBG categoryPost">
+        <img src="${data.URL}" class="categoryImage">
+        <h4 class="fontColor categoryTitle">${data.title}</h4>
+      </div>
+      `;
+    });
+    document.getElementById("categoryGallery").innerHTML = categoryDiv;
+  });

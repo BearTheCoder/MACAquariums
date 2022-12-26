@@ -18,177 +18,180 @@
 </head>
 
 <body class="accentColor h100p w100p addFlex">
-
-  <div class="w100p addFlex webHeader">
-    <div class="iconHeader addFlex">
-      <img id="iconTest" src="../images/fish.png" alt="">
-      <h2 class="headerContent accentFontColor">Mikey's Fishtanks</h3>
+  <div class="blurable">
+    <div class="w100p addFlex webHeader">
+      <div class="iconHeader addFlex">
+        <img id="iconTest" src="../images/fish.png" alt="">
+        <h2 class="headerContent accentFontColor">Mikey's Fishtanks</h3>
+      </div>
+      <img id="menuIcon" src="../images/menu.png" alt="">
     </div>
-    <img id="menuIcon" src="../images/menu.png" alt="">
+
+    <div class="backgroundColor addFlex w100p main">
+
+      <div id="inputForm" class="form addFlex addBorder postBG borderColor">
+        <div class="titleHeader">
+          <h3 class="fontColor">Post</h3>
+          <hr class="addBorder accentColorNoHover">
+          <br>
+        </div>
+        <label for="titleInput" class="formLabel fontColor">Title: </label>
+        <input type="text" id="titleInput" class="formInput addBorder borderColor placeholderColor" placeholder="Title must be unique..." \>
+        <br>
+        <label for="descInput" class="formLabel fontColor">Description: </label>
+        <textarea id="descInput" rows="10" class="addBorder w100p borderColor"></textarea>
+        <br>
+        <select id="uploadCategoryInput" class="categoryInput addBorder placeholderColor borderColor textHoverColor"></select>
+        <br>
+        <label for="priceInput" class="formLabel fontColor">Price: </label>
+        <input type="number" id="priceInput" class="formInput addBorder borderColor placeholderColor" placeholder="Input Price...">
+        <br>
+        <label for="importance" class="formLabel fontColor">Importance: </label>
+        <input type="number" id="importance" class="formInput addBorder borderColor placeholderColor" placeholder="Low to High...">
+        <br>
+        <input type="file" id="imageInput" class="hoverColor addFlex addBorder borderColor accentFontColor accentColor" accept=".png, .jpg">
+        <br>
+        <button id="uploadButton" class="accentColor addBorder borderColor accentFontColor hoverColor">Submit</button>
+      </div>
+
+      <div id="categoryForm" class="form addBorder postBG addFlex borderColor">
+        <div class="titleHeader">
+          <h3 class="fontColor">Edit Categories</h3>
+          <hr class="addBorder accentColorNoHover">
+          <br>
+        </div>
+        <div id="categorySelect" class="addFlex">
+          <input type="text" id="addCategoryInput" class="formInput w100p addBorder borderColor placeholderColor" placeholder="Category Name" \>
+          <button id="addCategoryButton" class="h100p accentColor addBorder borderColor accentFontColor hoverColor">Add
+            Category</button>
+        </div>
+        <br>
+        <div id="categorySelect" class="w100p addFlex">
+          <select id="editCategoryInput" class="categoryInput w100p addBorder placeholderColor borderColor textHoverColor"></select>
+          <button id="deleteCategoryButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Delete</button>
+          <button id="renameCategoryButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Rename</button>
+        </div>
+        <br>
+        <div id="renameInputContainer" class="addFlex"></div>
+        <br>
+        <hr class="addBorder accentColorNoHover">
+        <p class="fontColor">
+          Your website is sorted by categories.
+          The more categories you have, the more pages you have at your disposal to sort your website.
+          <br><br>
+          Deleting a category will delete all posts inside it.
+          <br><br>
+          Renaming a category will move all posts to the new category.
+          <br><br>
+          If you are renaming a category with multiple posts, it make take some time. Try not to shut down the tab after
+          submitting the rename.
+        </p>
+      </div>
+
+      <div id="editForm" class="form addFlex addBorder postBG borderColor">
+        <div class="titleHeader">
+          <h3 class="fontColor">Edit Posts</h3>
+          <hr class="addBorder accentColorNoHover">
+          <br>
+        </div>
+        <div id="categorySelect" class="addFlex">
+          <select id="importCategoryInput" class="categoryInput flexGrow1 addBorder placeholderColor borderColor textHoverColor"></select>
+          <button id="importButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Import</button>
+        </div>
+        <br>
+        <p class="fontColor">Select a category above. Anything can be edited on a post
+          except
+          for the images. To change images, the post needs to be delete and recreated.
+        </p>
+        <br>
+        <hr class="addBorder accentColorNoHover">
+        <br>
+        <div id="primaryPostContainer">
+          <div id="postContainer" class="addBorder"></div>
+        </div>
+      </div>
+
+      <div id="colorsForm" class="form addFlex addBorder postBG borderColor">
+        <div class="titleHeader">
+          <h3 class="fontColor">Change Colors</h3>
+          <hr class="addBorder accentColorNoHover">
+          <br>
+
+          <label for="accentColor" class="fontColor">Accent Color:</label>
+          <input id="accentColor" type="color" class="w100p color addBorder borderColor">
+          <label for="borderColor" class="fontColor">Border Color:</label>
+          <input id="borderColor" type="color" class="w100p color addBorder borderColor">
+          <label for="backgroundColor" class="fontColor">Background Color:</label>
+          <input id="backgroundColor" type="color" class="w100p color addBorder borderColor">
+          <label for="hoverColor" class="fontColor">Hover Color:</label>
+          <input id="hoverColor" type="color" class="w100p color addBorder borderColor">
+          <label for="postColor" class="fontColor">Post Color:</label>
+          <input id="postColor" type="color" class="w100p color addBorder borderColor">
+          <label for="postHoverColor" class="fontColor">Post Hover Color:</label>
+          <input id="postHoverColor" type="color" class="w100p color addBorder borderColor">
+          <label for="accentFontColor" class="fontColor">Accent Font Color:</label>
+          <input id="accentFontColor" type="color" class="w100p color addBorder borderColor">
+          <label for="fontColor" class="fontColor">Font Color:</label>
+          <input id="fontColor" type="color" class="w100p color addBorder borderColor">
+          <br><br>
+          <button id="testColorButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor">Test Color</button>
+          <br><br>
+          <button id="submitColorsButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor">Submit</button>
+        </div>
+      </div>
+
+      <div id="galleryForm" class="form addFlex addBorder postBG borderColor">
+        <div class="titleHeader">
+          <h3 class="fontColor">Gallery</h3>
+          <hr class="addBorder accentColorNoHover">
+          <br>
+        </div>
+        <label for="galleryInput">Add Images: </label>
+        <div id="galleryInput" class="addFlex">
+          <input type="file" id="galleryImageInput" class="hoverColor addFlex addBorder borderColor accentFontColor accentColor" accept=".png, .jpg" multiple>
+          <button id="galleryImageSubmitButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">submit</button>
+        </div>
+        <br><br>
+        <label for="categoryGallerySelect">Category Image: </label>
+        <select id="categoryGallerySelect" class="categoryInput addBorder placeholderColor borderColor textHoverColor"></select>
+        <br>
+        <div class="addFlex">
+          <input type="file" id="categoryImageInput" class="hoverColor addFlex addBorder borderColor accentFontColor accentColor" accept=".png, .jpg">
+          <button id="catergoryImageSubmitButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">submit</button>
+        </div>
+        <br>
+        <hr class="accentColorNoHover addBorder">
+      </div>
+
+      <div id="infoForm" class="form addFlex addBorder postBG borderColor">
+        <div class="titleHeader">
+          <h3 class="fontColor">More Information</h3>
+          <hr class="addBorder accentColorNoHover">
+          <br>
+        </div>
+        <div id="infoCategorySelect" class="addFlex">
+          <select id="infoSelectInput" class="flexGrow1 addBorder placeholderColor borderColor textHoverColor"></select>
+          <button id="infoSelectButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Show Info</button>
+        </div>
+        <br>
+        <hr class="addBorder accentColorNoHover">
+        <br>
+        <div id="infoDisplayContainer" class="postBG"></div>
+      </div>
+    </div>
+
+    <footer class="w100p addFlex footer">
+      <a class="accentFontColor linkHoverColor" href="">Check Out the Code</a>
+      <a class="accentFontColor linkHoverColor" href="">Contact Me</a>
+      <a class="accentFontColor linkHoverColor" href="">Terms of Service</a>
+      <a class="accentFontColor linkHoverColor" href="">Privacy Agreement</a>
+      <a class="accentFontColor linkHoverColor" href="">About me</a>
+    </footer>
   </div>
-
-  <div class="backgroundColor addFlex w100p main">
-
-    <div id="inputForm" class="form addFlex addBorder postBG borderColor">
-      <div class="titleHeader">
-        <h3 class="fontColor">Post</h3>
-        <hr class="addBorder accentColorNoHover">
-        <br>
-      </div>
-      <label for="titleInput" class="formLabel fontColor">Title: </label>
-      <input type="text" id="titleInput" class="formInput addBorder borderColor placeholderColor" placeholder="Title must be unique..." \>
-      <br>
-      <label for="descInput" class="formLabel fontColor">Description: </label>
-      <textarea id="descInput" rows="10" class="addBorder w100p borderColor"></textarea>
-      <br>
-      <select id="uploadCategoryInput" class="categoryInput addBorder placeholderColor borderColor textHoverColor"></select>
-      <br>
-      <label for="priceInput" class="formLabel fontColor">Price: </label>
-      <input type="number" id="priceInput" class="formInput addBorder borderColor placeholderColor" placeholder="Input Price...">
-      <br>
-      <label for="importance" class="formLabel fontColor">Importance: </label>
-      <input type="number" id="importance" class="formInput addBorder borderColor placeholderColor" placeholder="Low to High...">
-      <br>
-      <input type="file" id="imageInput" class="hoverColor addFlex addBorder borderColor accentFontColor accentColor" accept=".png, .jpg">
-      <br>
-      <button id="uploadButton" class="accentColor addBorder borderColor accentFontColor hoverColor">Submit</button>
-    </div>
-
-    <div id="categoryForm" class="form addBorder postBG addFlex borderColor">
-      <div class="titleHeader">
-        <h3 class="fontColor">Edit Categories</h3>
-        <hr class="addBorder accentColorNoHover">
-        <br>
-      </div>
-      <div id="categorySelect" class="addFlex">
-        <input type="text" id="addCategoryInput" class="formInput w100p addBorder borderColor placeholderColor" placeholder="Category Name" \>
-        <button id="addCategoryButton" class="h100p accentColor addBorder borderColor accentFontColor hoverColor">Add
-          Category</button>
-      </div>
-      <br>
-      <div id="categorySelect" class="w100p addFlex">
-        <select id="editCategoryInput" class="categoryInput w100p addBorder placeholderColor borderColor textHoverColor"></select>
-        <button id="deleteCategoryButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Delete</button>
-        <button id="renameCategoryButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Rename</button>
-      </div>
-      <br>
-      <div id="renameInputContainer" class="addFlex"></div>
-      <br>
-      <hr class="addBorder accentColorNoHover">
-      <p class="fontColor">
-        Your website is sorted by categories.
-        The more categories you have, the more pages you have at your disposal to sort your website.
-        <br><br>
-        Deleting a category will delete all posts inside it.
-        <br><br>
-        Renaming a category will move all posts to the new category.
-        <br><br>
-        If you are renaming a category with multiple posts, it make take some time. Try not to shut down the tab after
-        submitting the rename.
-      </p>
-    </div>
-
-    <div id="editForm" class="form addFlex addBorder postBG borderColor">
-      <div class="titleHeader">
-        <h3 class="fontColor">Edit Posts</h3>
-        <hr class="addBorder accentColorNoHover">
-        <br>
-      </div>
-      <div id="categorySelect" class="addFlex">
-        <select id="importCategoryInput" class="categoryInput flexGrow1 addBorder placeholderColor borderColor textHoverColor"></select>
-        <button id="importButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Import</button>
-      </div>
-      <br>
-      <p class="fontColor">Select a category above. Anything can be edited on a post
-        except
-        for the images. To change images, the post needs to be delete and recreated.
-      </p>
-      <br>
-      <hr class="addBorder accentColorNoHover">
-      <br>
-      <div id="primaryPostContainer">
-        <div id="postContainer" class="addBorder"></div>
-      </div>
-    </div>
-
-    <div id="colorsForm" class="form addFlex addBorder postBG borderColor">
-      <div class="titleHeader">
-        <h3 class="fontColor">Change Colors</h3>
-        <hr class="addBorder accentColorNoHover">
-        <br>
-
-        <label for="accentColor" class="fontColor">Accent Color:</label>
-        <input id="accentColor" type="color" class="w100p color addBorder borderColor">
-        <label for="borderColor" class="fontColor">Border Color:</label>
-        <input id="borderColor" type="color" class="w100p color addBorder borderColor">
-        <label for="backgroundColor" class="fontColor">Background Color:</label>
-        <input id="backgroundColor" type="color" class="w100p color addBorder borderColor">
-        <label for="hoverColor" class="fontColor">Hover Color:</label>
-        <input id="hoverColor" type="color" class="w100p color addBorder borderColor">
-        <label for="postColor" class="fontColor">Post Color:</label>
-        <input id="postColor" type="color" class="w100p color addBorder borderColor">
-        <label for="postHoverColor" class="fontColor">Post Hover Color:</label>
-        <input id="postHoverColor" type="color" class="w100p color addBorder borderColor">
-        <label for="accentFontColor" class="fontColor">Accent Font Color:</label>
-        <input id="accentFontColor" type="color" class="w100p color addBorder borderColor">
-        <label for="fontColor" class="fontColor">Font Color:</label>
-        <input id="fontColor" type="color" class="w100p color addBorder borderColor">
-        <br><br>
-        <button id="testColorButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor">Test Color</button>
-        <br><br>
-        <button id="submitColorsButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor">Submit</button>
-      </div>
-    </div>
-
-    <div id="galleryForm" class="form addFlex addBorder postBG borderColor">
-      <div class="titleHeader">
-        <h3 class="fontColor">Gallery</h3>
-        <hr class="addBorder accentColorNoHover">
-        <br>
-      </div>
-      <label for="galleryInput">Add Images: </label>
-      <div id="galleryInput" class="addFlex">
-        <input type="file" id="galleryImageInput" class="hoverColor addFlex addBorder borderColor accentFontColor accentColor" accept=".png, .jpg" multiple>
-        <button id="galleryImageSubmitButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">submit</button>
-      </div>
-      <br><br>
-      <label for="categoryGallerySelect">Category Image: </label>
-      <select id="categoryGallerySelect" class="categoryInput addBorder placeholderColor borderColor textHoverColor"></select>
-      <br>
-      <div class="addFlex">
-        <input type="file" id="categoryImageInput" class="hoverColor addFlex addBorder borderColor accentFontColor accentColor" accept=".png, .jpg">
-        <button id="catergoryImageSubmitButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">submit</button>
-      </div>
-      <br>
-      <hr class="accentColorNoHover addBorder">
-    </div>
-
-    <div id="infoForm" class="form addFlex addBorder postBG borderColor">
-      <div class="titleHeader">
-        <h3 class="fontColor">More Information</h3>
-        <hr class="addBorder accentColorNoHover">
-        <br>
-      </div>
-      <div id="infoCategorySelect" class="addFlex">
-        <select id="infoSelectInput" class="flexGrow1 addBorder placeholderColor borderColor textHoverColor"></select>
-        <button id="infoSelectButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Import</button>
-      </div>
-      <br>
-      <hr class="addBorder accentColorNoHover">
-      <br>
-      <div id="infoDisplayContainer" class="postBG"></div>
-    </div>
-  </div>
-
-  <footer class="w100p addFlex footer">
-    <a class="accentFontColor linkHoverColor" href="">Check Out the Code</a>
-    <a class="accentFontColor linkHoverColor" href="">Contact Me</a>
-    <a class="accentFontColor linkHoverColor" href="">Terms of Service</a>
-    <a class="accentFontColor linkHoverColor" href="">Privacy Agreement</a>
-    <a class="accentFontColor linkHoverColor" href="">About me</a>
-  </footer>
-
 </body>
+
+<img id="loadingImage" src="../images/loadingImage.gif" alt="" srcset="" width="100px">
+
 <script type="module" src="./controllers/editPostController.js"></script>
 <script type="module" src="./controllers/newPostController.js"></script>
 <script type="module" src="./controllers/categoryController.js"></script>

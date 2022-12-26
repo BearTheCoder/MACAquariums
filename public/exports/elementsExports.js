@@ -23,7 +23,7 @@ export const defaultRGB = {
 export function returnPostDiv (data) {
   return `
     <div class="post addBorder postBG">
-      <img src="${data.imageURLS[0]}" width="100%">
+      <img src="${data.URL}" width="100%">
       <h4 class="fontColor">${data.title}</h4>
       <hr class="addBorder accentColorNoHover">
       <p>${data.description}</p>
@@ -47,8 +47,8 @@ export function returnPostDiv (data) {
 export function returnRenameInputContainer (value) {
   return `
   <br>
-  <input type="text" id="renameCategoryInput" class="formInput w100p" value="${value}"\>
-  <button id="renameCategorySubmit" class="h100p">Submit Rename</button>
+  <input type="text" id="renameCategoryInput" class="formInput w100p addBorder borderColor placeholderColor" value="${value}"\>
+  <button id="renameCategorySubmit" class="h100p accentColor addBorder borderColor accentFontColor hoverColor">Submit Rename</button>
   `;
 }
 
@@ -96,6 +96,18 @@ export function registerButtons (leftButton, rightButton) {
   rightButton.onclick = () => {
     slideIndex = showSlides(slideIndex + 1);
   };
+}
+
+export function showLoadingScreen () {
+  let root = document.documentElement;
+  root.style.setProperty("--blur-pixels", "2px");
+  document.getElementById("loadingImage").style = "display: block;";
+}
+
+export function hideLoadingScreen () {
+  let root = document.documentElement;
+  root.style.setProperty("--blur-pixels", "0px");
+  document.getElementById("loadingImage").style = "display: none;";
 }
 
 

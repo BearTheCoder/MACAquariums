@@ -1,4 +1,5 @@
-import { ref, storage, uploadBytes, getDownloadURL, setDoc, doc, db, importCollection } from "../../exports/firebaseConfigExports.js";
+import { hideLoadingScreen, showLoadingScreen } from "../../exports/elementsExports.js";
+import { setDoc, doc, db } from "../../exports/firebaseConfigExports.js";
 
 let root = document.documentElement;
 let testColorButton = document.getElementById("testColorButton");
@@ -18,6 +19,7 @@ testColorButton.onclick = () => {
 
 submitButton.onclick = () => {
   submitButton.disabled = true;
+  showLoadingScreen();
   const categoryDoc = doc(db, "colors", "colors");
   setDoc(categoryDoc, {
     0: { name: "--accentColor", value: colorSelectors[0].value },
@@ -31,6 +33,7 @@ submitButton.onclick = () => {
   })
     .then(() => {
       submitButton.disabled = false;
+      hideLoadingScreen();
       alert("Default website colors updated.");
     });
 };

@@ -1,14 +1,16 @@
 import { importCollection, uploadDataToDatabase, uploadImagesToStorage } from "../../exports/firebaseConfigExports.js";
-import { uploadFormElements } from "../../exports/elementsExports.js";
+import { hideLoadingScreen, showLoadingScreen, uploadFormElements } from "../../exports/elementsExports.js";
 
 const uploadButton = document.getElementById("uploadButton");
 
 uploadButton.onclick = () => {
+  showLoadingScreen();
   uploadButton.disabled = true;
   for (const prop in uploadFormElements) {
     if (uploadFormElements[prop].value.length !== 0) continue;
     alert("Please fill out all fields in the form.");
     uploadButton.disabled = false;
+    hideLoadingScreen();
     return;
   };
 
@@ -38,6 +40,7 @@ uploadButton.onclick = () => {
     })
     .then(() => {
       alert("Post uploaded to database.");
+      hideLoadingScreen();
       location.reload();
     });
 };
