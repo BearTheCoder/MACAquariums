@@ -43,21 +43,22 @@ importCollection("Gallery Images")
     registerButtons(leftButton, rightButton);
   });
 
-let categoryDiv = ``;
+let categoryDiv = [``, ``, ``,];
 let categoryData = [];
 importCollection("Category Images")
   .then(col => {
     col.forEach(element => {
       categoryData.push(element.data());
     });
-    categoryData.forEach(data => {
-      console.log(data);
-      categoryDiv += `
-      <div class="post addBorder postBG categoryPost">
+    categoryData.forEach((data, index) => {
+      categoryDiv[index % 3] += `
+      <div class="addBorder borderColor postBG categoryPost">
         <img src="${data.URL}" class="categoryImage">
         <h4 class="fontColor categoryTitle">${data.title}</h4>
       </div>
       `;
     });
-    document.getElementById("categoryGallery").innerHTML = categoryDiv;
+    categoryDiv.forEach((el, index) => {
+      document.getElementById(`categoryGallery_${index}`).innerHTML = el;
+    });
   });

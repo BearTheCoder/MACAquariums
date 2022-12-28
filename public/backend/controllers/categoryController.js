@@ -21,18 +21,32 @@ deleteButton.onclick = () => {
   showLoadingScreen();
   deleteButton.disabled = true;
   let deleteCategory = document.getElementById("editCategoryInput").value;
-  const catRef = doc(db, "Categories", deleteCategory);
-  const thisPromise = deleteDoc(catRef);
+
+  const deleteCategoryPromise = deleteDoc(doc(db, "Categories", deleteCategory));
   importCollection(deleteCategory)
     .then(col => {
       if (col.size === 0) {
-        thisPromise.then(() => {
-          console.log(`col = 0`);
+        deleteCategoryPromise.then(() => {
           hideLoadingScreen();
           location.reload();
         });
       }
       deleteEverythingInCategory(col, deleteCategory);
+    });
+
+  importCollection("Category Images")
+    .then(col => {
+      if (col.size === 0) {
+        deleteCategoryPromise.then(() => {
+          hideLoadingScreen();
+          location.reload();
+        });
+      }
+      col.forEach(el => {
+        if (el.id === deleteCategory) {
+          deleteDoc(doc(db, "Category Images", deleteCategory));
+        }
+      });
     });
 };
 

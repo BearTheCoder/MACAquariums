@@ -24,33 +24,45 @@
 
 /*      *****     WORKING ELEMENTS    *****       */
 
-#categoryGallery {
-  justify-content: center;
-  max-width: 94%;
-  flex-wrap: wrap;
+#categoryContainer {
+  margin-top: 10px;
+  justify-content: space-evenly;
+  width: 90%;
   flex-direction: row;
+}
+
+#productsTitle {
+  padding-top: 10px;
+  justify-content: left;
 }
 
 .categoryPost {
   display: flex;
-  flex-grow: 1;
-  flex-shrink: 1;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-width: 28%;
-  max-width: 28%;
-  max-height: 28%;
+  margin-bottom: 10px;
 }
 
 .categoryImage {
-  max-width: 90%;
-  max-height: 90%;
+  width: 100%;
+  object-fit: contain;
+  flex: 1 1 auto;
 }
 
+.categoryClass {
+  flex-direction: column;
+  width: 33.33%;
+}
 
+.categoryClassCenter {
+  margin: 0px 10px;
+}
 
-
+.mainHomepage {
+  flex-direction: column;
+  padding: 40px 20px 100px 20px;
+  align-items: center;
+}
 
 
 
@@ -85,6 +97,11 @@ p {
   font-weight: 100;
   font-size: 16px;
   font-weight: 200;
+}
+
+img {
+  overflow-clip-margin: 0px;
+  overflow: none;
 }
 
 button:disabled {
@@ -146,7 +163,7 @@ input::file-selector-button {
   width: 90%;
   height: 600px;
   background-color: rgb(40, 40, 40);
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 #rightButton,
@@ -193,6 +210,7 @@ input::file-selector-button {
 }
 
 
+
 /*      *****     Base Class Modifiers     *****       */
 .headerContent {
   padding: 5px 10px;
@@ -213,6 +231,8 @@ input::file-selector-button {
   padding: 40px 20px 100px 20px;
   justify-content: center;
 }
+
+
 
 .mySlides {
   display: none;
@@ -313,6 +333,8 @@ input::file-selector-button {
 .addFlex {
   display: flex;
 }
+
+
 
 /*      *****     Color Modifiers     *****       */
 /* BG COLOR */
