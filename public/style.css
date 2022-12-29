@@ -334,6 +334,10 @@ input::file-selector-button {
   display: flex;
 }
 
+.onClickHover {
+  cursor: pointer;
+}
+
 
 
 /*      *****     Color Modifiers     *****       */
@@ -403,4 +407,12 @@ input::file-selector-button {
 .galleryButton:hover {
   background-color: var(--hoverColor);
   opacity: 0.6;
+}
+
+.categoryImage:hover {
+  opacity: .75;
+}
+
+.categoryPost:hover {
+  background-color: var(--hoverColor);
 }
