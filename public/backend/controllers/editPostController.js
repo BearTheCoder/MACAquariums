@@ -62,7 +62,7 @@ function editButtonOnClick (category, buttonElement) {
               category: newCategory,
               price: document.getElementById("newPriceInput").value,
               importance: document.getElementById("newImportance").value,
-              imageURLS: data.imageURLS
+              URL: data.URL
             })
               .then(() => {
                 if (data.title !== newTitle || data.category !== newCategory) {

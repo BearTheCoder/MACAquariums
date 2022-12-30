@@ -27,7 +27,17 @@
   </div>
 
   <div class="backgroundColor addFlex mainHomepage">
-
+    <div id="contentHeader" class="addFlex webHeader w100p">
+      <h3 id="contentHeaderTitle">Header</h3>
+      <p id="contentHeaderDesc">This is the header description.</p>
+    </div>
+    <hr class="w100p">
+    <div id="contentContainer" class="addFlex w100p h100p">
+      <div id="postGallery_0" class="categoryClass"></div>
+      <div id="postGallery_1" class="categoryClass categoryClassCenter"></div>
+      <div id="postGallery_2" class="categoryClass categoryClassCenter_Right"></div>
+      <div id="postGallery_3" class="categoryClass"></div>
+    </div>
   </div>
 
   <footer class="w100p addFlex footer">
@@ -43,5 +53,6 @@
 <!-- Scripts -->
 <script type="module" src="./frontendControllers/onLoadController.js"></script>
 <script src="./frontendControllers/frontendOnClickEvents.js"></script>
+<script type="module" src="./frontendControllers/contentPage/contentPage_OnLoadController.js"></script>
 
 </html>

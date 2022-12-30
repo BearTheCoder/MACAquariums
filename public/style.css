@@ -31,6 +31,12 @@
   flex-direction: row;
 }
 
+#contentContainer {
+  margin-top: 10px;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
 #productsTitle {
   padding-top: 10px;
   justify-content: left;
@@ -43,7 +49,24 @@
   margin-bottom: 10px;
 }
 
+.contentPost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contentPostFooter {
+  width: 90%;
+}
+
 .categoryImage {
+  width: 100%;
+  object-fit: contain;
+  flex: 1 1 auto;
+}
+
+.contentPostImage {
   width: 100%;
   object-fit: contain;
   flex: 1 1 auto;
@@ -52,10 +75,15 @@
 .categoryClass {
   flex-direction: column;
   width: 33.33%;
+  justify-content: start;
 }
 
 .categoryClassCenter {
   margin: 0px 10px;
+}
+
+.categoryClassCenter_Right {
+  margin-right: 10px;
 }
 
 .mainHomepage {
@@ -64,6 +92,9 @@
   align-items: center;
 }
 
+.padding5p {
+  padding: 0px 2px;
+}
 
 
 /*      *****     ELEMENT SELECTORS     *****       */
@@ -90,6 +121,7 @@ h3 {
 h4 {
   letter-spacing: 3px;
   font-size: 16px;
+  font-weight: 400;
 }
 
 p {
@@ -110,6 +142,10 @@ button:disabled {
 
 input::file-selector-button {
   display: none;
+}
+
+textarea {
+  padding: 5px;
 }
 
 /*      *****     ID SELECTORS     *****       */
@@ -232,7 +268,9 @@ input::file-selector-button {
   justify-content: center;
 }
 
-
+.postDescription {
+  justify-content: left;
+}
 
 .mySlides {
   display: none;
