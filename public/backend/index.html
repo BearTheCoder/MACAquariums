@@ -20,9 +20,9 @@
 <body class="accentColor h100p w100p addFlex">
   <div class="blurable">
     <div class="w100p addFlex webHeader">
-      <div class="iconHeader addFlex">
+      <div class="iconHeader addFlex onClickHover" onclick="loadHomepage()">
         <img id="iconTest" src="../images/fish.png" alt="">
-        <h2 class="headerContent accentFontColor">Mikey's Fishtanks</h3>
+        <h2 class="headerContent accentFontColor">MAC Aquariums</h3>
       </div>
       <img id="menuIcon" src="../images/menu.png" alt="">
     </div>
@@ -39,7 +39,7 @@
         <input type="text" id="titleInput" class="formInput addBorder borderColor placeholderColor" placeholder="Title must be unique..." \>
         <br>
         <label for="descInput" class="formLabel fontColor">Description: </label>
-        <textarea id="descInput" rows="10" class="addBorder w100p borderColor"></textarea>
+        <textarea id="descInput" rows="10" class="addBorder w100p borderColor" placeholder="Input description..."></textarea>
         <br>
         <select id="uploadCategoryInput" class="categoryInput addBorder placeholderColor borderColor textHoverColor"></select>
         <br>
@@ -198,5 +198,6 @@
 <script type="module" src="./controllers/colorController.js"></script>
 <script type="module" src="./controllers/informationController.js"></script>
 <script type="module" src="./controllers/galleryController.js"></script>
+<script src="../frontendControllers/OnClickEvents.js"></script>
 
 </html>
