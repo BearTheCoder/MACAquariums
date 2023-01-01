@@ -1,4 +1,4 @@
-import { information } from "../../exports/informationExports.js";
+import { information } from "../exports/informationExports.js";
 
 let importInfoButton = document.getElementById("infoSelectButton");
 

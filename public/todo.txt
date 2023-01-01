@@ -1,6 +1,0 @@
-multiple images for posts?
-front end start
-Image Cacheing?
-  From what I understand the biggest drawback of using Firebase is the amount of images that needs to be taken from storage.
-Finalize data abase rules when website is finished.
-Use firebase auth to allow Mike to login.

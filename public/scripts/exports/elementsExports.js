@@ -9,12 +9,12 @@ export const uploadFormElements = {
 };
 
 export const defaultRGB = {
-  0: { name: "--accentColor", value: "#71B4D1" },
-  1: { name: "--borderColor", value: "#AFAFAF" },
-  2: { name: "--backgroundColor", value: "#FAFAFA" },
-  3: { name: "--hoverColor", value: "#8CD2BE" },
-  4: { name: "--postColor", value: "#FAFAFA" },
-  5: { name: "--postHoverColor", value: "#FFFFFF" },
+  0: { name: "--accentColor", value: "#2f4083" },
+  1: { name: "--borderColor", value: "#dbdbdb" },
+  2: { name: "--backgroundColor", value: "#f5f5fa" },
+  3: { name: "--hoverColor", value: "#88e1e2" },
+  4: { name: "--postColor", value: "#ffffff" },
+  5: { name: "--postHoverColor", value: "#fafafa" },
   6: { name: "--accentFontColor", value: "#FFFFFF" },
   7: { name: "--fontColor", value: "#000000" },
 };
@@ -44,11 +44,15 @@ export function returnPostDiv (data) {
      `;
 }
 
-export function returnRenameInputContainer (value) {
+export function returnRenameInputContainer (data) {
   return `
-  <br>
-  <input type="text" id="renameCategoryInput" class="formInput w100p addBorder borderColor placeholderColor" value="${value}"\>
-  <button id="renameCategorySubmit" class="h100p accentColor addBorder borderColor accentFontColor hoverColor">Submit Rename</button>
+  <div class="w100p" style="padding-bottom: 20px">
+    <div class="addFlex" style="padding-bottom: 5px">
+      <input type="text" id="editCategoryName" class="formInput w100p addBorder borderColor placeholderColor" value="${data.category}"\>
+      <button id="editCategorySubmit" class="h100p accentColor addBorder borderColor accentFontColor hoverColor">Submit Edit</button>
+    </div>
+    <input type="text" id="editCategoryDescription" class="formInput w100p addBorder borderColor placeholderColor" value="${data.description}"\>
+  </div>
   `;
 }
 

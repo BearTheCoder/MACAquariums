@@ -75,7 +75,7 @@ export function uploadImagesToStorage (fileList) {
 }
 
 /** 
-* @param {object} data *must have property named URL*
+* @param {object} data *must have property named URL if dealing with images*
 * @param {string} collectionName
 * @param {string} documentName
 * @returns {Promise<void>} Empty promise

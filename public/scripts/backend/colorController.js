@@ -1,5 +1,5 @@
-import { hideLoadingScreen, showLoadingScreen } from "../../exports/elementsExports.js";
-import { setDoc, doc, db } from "../../exports/firebaseConfigExports.js";
+import { hideLoadingScreen, showLoadingScreen } from "../exports/elementsExports.js";
+import { setDoc, doc, db } from "../exports/firebaseConfigExports.js";
 
 let root = document.documentElement;
 let testColorButton = document.getElementById("testColorButton");

@@ -13,17 +13,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="../stylesheets/style.css">
 </head>
 
 <body class="accentColor h100p w100p addFlex">
 
   <div class="w100p addFlex webHeader">
     <div class="iconHeader addFlex onClickHover" onclick="loadHomepage()">
-      <img id="iconTest" src="./images/fish.png" alt="">
+      <img id="iconTest" src="../images/fish.png" alt="">
       <h2 class="headerContent accentFontColor">MAC Aquariums</h3>
     </div>
-    <img id="menuIcon" src="./images/menu.png" alt="">
+    <img id="menuIcon" src="../images/menu.png" alt="">
   </div>
 
   <div class="backgroundColor addFlex mainHomepage">
@@ -33,10 +33,10 @@
     </div>
     <hr class="w100p">
     <div id="contentContainer" class="addFlex w100p h100p">
-      <div id="postGallery_0" class="categoryClass"></div>
-      <div id="postGallery_1" class="categoryClass categoryClassCenter"></div>
-      <div id="postGallery_2" class="categoryClass categoryClassCenter_Right"></div>
-      <div id="postGallery_3" class="categoryClass"></div>
+      <div id="postGallery_0" class="postClass"></div>
+      <div id="postGallery_1" class="postClass categoryClassCenter"></div>
+      <div id="postGallery_2" class="postClass categoryClassCenter_Right"></div>
+      <div id="postGallery_3" class="postClass"></div>
     </div>
   </div>
 
@@ -51,8 +51,8 @@
 </body>
 
 <!-- Scripts -->
-<script type="module" src="./frontendControllers/onLoadController.js"></script>
-<script src="./frontendControllers/OnClickEvents.js"></script>
-<script type="module" src="./frontendControllers/contentPage/contentPage_OnLoadController.js"></script>
+<script type="module" src="../scripts/globalScripts/global_OnLoadController.js"></script>
+<script src="../scripts/globalScripts/global_OnClickEvents.js"></script>
+<script type="module" src="../scripts/contentPage/contentPage_OnLoadController.js"></script>
 
 </html>

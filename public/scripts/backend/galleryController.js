@@ -1,5 +1,5 @@
-import { hideLoadingScreen, showLoadingScreen } from "../../exports/elementsExports.js";
-import { pullURLandDeleteImage, uploadImagesToStorage, uploadDataToDatabase } from "../../exports/firebaseConfigExports.js";
+import { hideLoadingScreen, showLoadingScreen } from "../exports/elementsExports.js";
+import { pullURLandDeleteImage, uploadImagesToStorage, uploadDataToDatabase } from "../exports/firebaseConfigExports.js";
 
 const galleryImageSubmitButton = document.getElementById("galleryImageSubmitButton");
 const catergoryImageSubmitButton = document.getElementById("catergoryImageSubmitButton");
@@ -33,19 +33,20 @@ catergoryImageSubmitButton.onclick = () => {
   showLoadingScreen();
   const categoryGallerySelect = document.getElementById("categoryGallerySelect").value;
   const categoryImageInput = document.getElementById("categoryImageInput");
+
+  if (categoryGallerySelect === "" || categoryImageInput.files.length === 0) {
+    alert("Please select an image and select a category.");
+    hideLoadingScreen();
+    catergoryImageSubmitButton.disabled = false;
+    return;
+  }
+
   pullURLandDeleteImage("Category Images", categoryGallerySelect);
   uploadImagesToStorage(categoryImageInput.files)
-    .then(urls => {
-      if (urls.length === 0) return Promise.reject();
-      return uploadDataToDatabase({ URL: urls[0], title: categoryGallerySelect, }, "Category Images", categoryGallerySelect);
-    })
+    .then(urls => { uploadDataToDatabase({ URL: urls[0], title: categoryGallerySelect, }, "Category Images", categoryGallerySelect); })
     .then(() => {
       alert("Category image updated...");
       hideLoadingScreen();
       location.reload();
-    })
-    .catch((err) => {
-      alert("Please select an image and select a category.");
-      catergoryImageSubmitButton.disabled = false;
     });
 };

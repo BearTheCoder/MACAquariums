@@ -1,6 +1,5 @@
-import { importCollection } from "../../exports/firebaseConfigExports.js";
-import { showSlides, registerButtons } from "../../exports/elementsExports.js";
-
+import { importCollection } from "../exports/firebaseConfigExports.js";
+import { showSlides, registerButtons } from "../exports/elementsExports.js";
 
 let galleryDiv = ``;
 importCollection("Gallery Images")
@@ -8,7 +7,7 @@ importCollection("Gallery Images")
     let index = 0;
     col.forEach((el) => {
       galleryDiv += `
-      <div class="mySlides addFlex imageContainer">
+      <div class="mySlides addFlex imageContainer addDropShadowNoHover">
         <img class="mainImage addFlex" src="${el.data().URL}">
       </div>
       `;
@@ -18,7 +17,7 @@ importCollection("Gallery Images")
     <a id="leftButton" class="galleryButton accentColor">&#10094;</a>
     <a id="rightButton" class="galleryButton accentColor">&#10095;</a>
     `;
-    document.getElementById("gallery").innerHTML = galleryDiv;
+    document.getElementById("gallery").innerHTML += galleryDiv;
     showSlides(1, 1);
     const leftButton = document.getElementById("leftButton");
     const rightButton = document.getElementById("rightButton");
@@ -34,7 +33,7 @@ importCollection("Category Images")
     });
     categoryData.forEach((data, index) => {
       categoryDiv[index % 3] += `
-      <div class="addBorder borderColor postBG categoryPost" onclick="loadContentPage(event)">
+      <div class="addBorder borderColor postBG categoryPost onClickHover addDropShadow" onclick="loadContentPage(event)">
         <img src="${data.URL}" class="categoryImage">
         <h4 class="fontColor categoryTitle">${data.title}</h4>
       </div>

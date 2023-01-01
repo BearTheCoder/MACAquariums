@@ -31,15 +31,30 @@
   flex-direction: row;
 }
 
+#addCategoryDescription {
+  margin-bottom: 5px;
+}
+
 #contentContainer {
   margin-top: 10px;
   flex-direction: row;
   align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #productsTitle {
   padding-top: 10px;
   justify-content: left;
+}
+
+#missionStatement {
+  width: 33%;
+  padding: 0px 50px;
+}
+
+#mainHeader {
+  justify-content: center;
 }
 
 .categoryPost {
@@ -76,6 +91,30 @@
   flex-direction: column;
   width: 33.33%;
   justify-content: start;
+}
+
+@media screen and (max-width: 400px) {
+  .postClass {
+    flex-direction: column;
+    min-width: 24%;
+    justify-content: start;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 700px) {
+  .postClass {
+    flex-direction: column;
+    max-width: 47.5%;
+    justify-content: start;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .postClass {
+    flex-direction: column;
+    max-width: 24.2%;
+    justify-content: start;
+  }
 }
 
 .categoryClassCenter {
@@ -169,7 +208,7 @@ textarea {
 }
 
 #addCategoryButton,
-#renameCategorySubmit {
+#editCategorySubmit {
   min-width: 100px;
   margin-left: 10px;
 }
@@ -193,13 +232,14 @@ textarea {
 }
 
 #gallery {
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: relative;
   width: 90%;
-  height: 600px;
-  background-color: rgb(40, 40, 40);
+  height: 500px;
+  background-color: rgb(255, 255, 255);
   border-radius: 5px;
+  padding: 50px;
 }
 
 #rightButton,
@@ -217,12 +257,16 @@ textarea {
 
 #rightButton {
   right: 0;
-  border-radius: 3px 0 0 3px;
+  border-radius: 3px;
+  opacity: .33;
+  margin-right: 5px;
 }
 
 #leftButton {
   left: 0;
-  border-radius: 3px 0 0 3px;
+  border-radius: 3px;
+  opacity: .33;
+  margin-left: 5px;
 }
 
 #loadingImage {
@@ -283,7 +327,9 @@ textarea {
 }
 
 .imageContainer {
-  height: 90%;
+  height: 100%;
+  padding-right: 50px;
+  max-width: 100%;
 }
 
 .imageText {
@@ -376,8 +422,6 @@ textarea {
   cursor: pointer;
 }
 
-
-
 /*      *****     Color Modifiers     *****       */
 /* BG COLOR */
 .postBG {
@@ -398,6 +442,14 @@ textarea {
 
 .backgroundColor {
   background-color: var(--backgroundColor);
+}
+
+.addDropShadow {
+  filter: drop-shadow(5px 5px 2px lightgray);
+}
+
+.addDropShadowNoHover {
+  filter: drop-shadow(5px 5px 2px lightgray);
 }
 
 /* BORDER COLOR */
@@ -447,10 +499,11 @@ textarea {
   opacity: 0.6;
 }
 
-.categoryImage:hover {
-  opacity: .75;
+.addDropShadow:hover {
+  filter: drop-shadow(1px 1px 4px var(--hoverColor));
 }
 
 .categoryPost:hover {
   background-color: var(--hoverColor);
+  opacity: .8;
 }
