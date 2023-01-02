@@ -17,6 +17,7 @@ getDoc(doc(db, "colors", "colors"))
   });
 
 let catergoryNames = [];
+
 importCollection("Categories")
   .then(importedCollection => {
     importedCollection.forEach(document => {
@@ -26,18 +27,31 @@ importCollection("Categories")
     menu.innerHTML += loadMenu(catergoryNames);
     menu.style.right = `0px`;
     menu.style.top = `44px`;
+    registerMenuOnClick();
+
   });
+
+function registerMenuOnClick () {
+  const menuItemArray = Array.from(document.getElementsByClassName("menuItem"));
+  menuItemArray.forEach(item => {
+    item.onclick = () => {
+      if (item.innerText === "Contact Me") {
+        location = `${location.origin}/public/html/contactMe.html`;
+      }
+      else {
+        document.getElementById("menuForm").setAttribute("action", `${location.origin}/public/html/contentPage.html`);
+        document.getElementById("categorySelector").value = item.innerText;
+        document.getElementById("categorySelectorButton").click();
+      }
+    };
+  });
+}
 
 let menuShown = false;
 document.getElementById("menuIcon").onclick = () => {
-  if (!menuShown) {
-    menu.style.display = "block";
-    document.getElementById("menuIcon").style.opacity = "0.5";
-  }
-
-  else {
-    menu.style.display = "none";
-    document.getElementById("menuIcon").style.opacity = "1";
-  }
+  let menuIcon = document.getElementById("menuIcon");;
+  menuShown ? menuIcon.style.opacity = "1" : menuIcon.style.opacity = "0.5";
+  menuShown ? menu.style.display = "none" : menu.style.display = "block";
   menuShown = !menuShown;
 };
+
