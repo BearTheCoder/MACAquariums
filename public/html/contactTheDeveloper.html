@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact the Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+
+<body class="accentColor h100p w100p addFlex">
+
+  <div class="w100p addFlex webHeader">
+    <div class="iconHeader addFlex onClickHover" onclick="loadHomepage()">
+      <img id="iconTest" src="../images/fish.png" alt="">
+      <h2 class="headerContent accentFontColor">MAC Aquariums</h3>
+    </div>
+    <img id="menuIcon" src="../images/menu.png" alt="" class="onClickHover">
+  </div>
+
+  <div class="backgroundColor addFlex w100p tos" style="padding: 140px 0px; flex-direction: column; align-items: center;">
+    <div class="addFlex">
+      <img src="../images/Bear_Paw_Favicon.png" alt="">
+      <div style="padding-left: 20px;">
+        <h2>Aaron Adkins</h2>
+        <h6>Full-Stack WebDev &#8226; C# & Unity Developer &#8226; Twitch & Discord Dev &#8226; Firebase </h6>
+      </div>
+    </div>
+    <div class="addFlex" style="flex-direction: column; width: 560px;">
+      <input id="devContactSubject" type="text" placeholder="Subject..." style="margin: 10px 0px; padding: 5px;" class="addBorder borderColor w100p">
+      <textarea id="devContactBody" placeholder="Body..." style="margin-bottom: 10px; padding: 5px;" rows="20" class="addBorder borderColor w100p"></textarea>
+      <button id="emailDeveloperButton" class="hoverColor addBorder borderColor accentColor accentFontColor w100p" style="padding: 5px; width: 572px;">Open Email Client!</button>
+      <button id="copyEmailButton" class="hoverColor addBorder borderColor accentColor accentFontColor w100p" style="padding: 5px; width: 572px;">Copy Email!</button>
+    </div>
+    <p style="padding-top: 20px;">Or contact me by phone <strong>(727)666-2315</strong></p>
+  </div>
+
+  <footer class=" w100p addFlex footer">
+    <a class="accentFontColor linkHoverColor" href=""">Contact Me</a>
+    <a class=" accentFontColor linkHoverColor" href="">About MAC Aquariums</a>
+    <a class=" accentFontColor linkHoverColor" href="./contactTheDeveloper.html">Contact the Developer</a>
+    <a class="accentFontColor linkHoverColor" href="./html/tos.html">Terms of Service</a>
+    <a class="accentFontColor linkHoverColor" href="./html/privacyAgreement.html">Privacy Agreement</a>
+  </footer>
+
+</body>
+
+<script src="../scripts/globalScripts/global_OnClickEvents.js"></script>
+<script type="module" src="../scripts/globalScripts/global_OnLoadController.js"></script>
+<script src="../scripts/footer/developerContactController.js"></script>
+
+</html>

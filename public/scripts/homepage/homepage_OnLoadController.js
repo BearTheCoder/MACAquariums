@@ -1,4 +1,4 @@
-import { importCollection } from "../exports/firebaseConfigExports.js";
+import { importCollection, getDoc, db, doc } from "../exports/firebaseConfigExports.js";
 import { showSlides, registerButtons } from "../exports/elementsExports.js";
 
 let galleryDiv = ``;
@@ -42,4 +42,11 @@ importCollection("Category Images")
     categoryDiv.forEach((el, index) => {
       document.getElementById(`categoryGallery_${index}`).innerHTML = el;
     });
+  });
+
+getDoc(doc(db, "Mission Statement", "Mission Statement"))
+  .then(importedDocument => {
+    const data = importedDocument.data();
+    document.getElementById("missionTitle").innerText = data.missionTitle;
+    document.getElementById("missionDescription").innerText = data.missionDescription;
   });
