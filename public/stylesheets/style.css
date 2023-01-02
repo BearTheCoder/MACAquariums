@@ -117,6 +117,31 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  #contactMeDiv {
+    flex-direction: column;
+  }
+
+  #contactFormDiv {
+    min-width: 300px;
+    max-width: 500px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #contactMeDiv {
+    flex-direction: row;
+  }
+
+  #contactFormDiv {
+    min-width: 500px;
+  }
+}
+
+#contactMeDiv {
+  align-items: center;
+}
+
 .categoryClassCenter {
   margin: 0px 10px;
 }
@@ -300,7 +325,20 @@ textarea {
 
 #loadingImage {
   display: none;
-  position: absolute;
+  position: fixed;
+  z-index: 1000;
+}
+
+#menu {
+  width: 100px;
+  align-items: center;
+  display: none;
+  position: fixed;
+  z-index: 1000;
+}
+
+.menuItem {
+  padding: 5px;
 }
 
 /*      *****     Scrollbar Modifiers     *****       */

@@ -40,11 +40,12 @@ getDoc(doc(db, "Mission Statement", "Mission Statement"))
     document.getElementById("missionStatementDescription").value = data.missionDescription;
   });
 
-getDoc(doc(db, "Contact Info", "Contact Info"))
+getDoc(doc(db, "Contact Page", "Contact Page"))
   .then(importedDocument => {
     const data = importedDocument.data();
     document.getElementById("phoneInput").value = data.phoneNumber;
     document.getElementById("emailInput").value = data.email;
+    document.getElementById("bioInput").value = data.bio;
   });
 
 let options = `<option>Select a Topic</option>`;

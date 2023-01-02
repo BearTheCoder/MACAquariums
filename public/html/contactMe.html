@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+
+<body class="accentColor h100p w100p addFlex blurable">
+
+  <div class="w100p addFlex webHeader">
+    <div class="iconHeader addFlex onClickHover" onclick="loadHomepage()">
+      <img id="iconTest" src="../images/fish.png" alt="">
+      <h2 class="headerContent accentFontColor">MAC Aquariums</h3>
+    </div>
+    <img id="menuIcon" src="../images/menu.png" alt="" class="onClickHover">
+  </div>
+
+  <div id="menu" class="accentColor">
+    <p class="w100p menuItem accentFontColor onClickHover hoverColor">Contact Me</p>
+  </div>
+
+  <div class="backgroundColor addFlex w100p tos" style="padding: 140px 0px; flex-direction: column; align-items: center;">
+    <div id="contactMeDiv" class="addFlex">
+      <div class="addFlex" style="flex-direction: column;">
+        <div class="addFlex">
+          <img src="../images/fish.png" alt="" width="50px" height="50px">
+          <div style="padding-left: 20px;">
+            <h2>Michael Carlesimo</h2>
+            <h6>Fish &#8226; Plants &#8226; Shrimp &#8226; Tanks </h6>
+          </div>
+        </div>
+        <div id="contactFormDiv" class="addFlex" style="flex-direction: column;">
+          <input id="devContactSubject" type="text" placeholder="Subject..." style="margin: 10px 0px;" class="addBorder borderColor w100p">
+          <textarea id="devContactBody" placeholder="Body..." style="margin-bottom: 10px; padding: 0px;" rows="20" class="addBorder borderColor w100p"></textarea>
+          <button id="emailMeButton" class="hoverColor addBorder borderColor accentColor accentFontColor w100p" style="padding: 5px;">Open Email Client!</button>
+          <button id="copyMyEmailButton" class="hoverColor addBorder borderColor accentColor accentFontColor w100p" style="padding: 5px;">Copy Email!</button>
+        </div>
+        <div class="addFlex w100p" style="justify-content: center;">
+          <p style="padding-top: 20px;">Or contact me by phone <strong id="contactNumber">(000)000-0000</strong></p>
+        </div>
+      </div>
+      <div style="max-width: 600px;margin-left: 20px; margin-top: 20px; max-height: 700px" class="addFlex">
+        <p id="contactBio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos exercitationem magni quas voluptatum assumenda laudantium reprehenderit fugit itaque maiores, voluptates porro consectetur nulla sapiente? Molestiae dolores minima nulla ipsum nemo.
+          Beatae aliquam a consectetur ipsa incidunt officiis tempore in magni consequuntur sapiente velit voluptas, minima voluptatibus? Labore obcaecati voluptas facilis laborum nemo quaerat nulla, aut sit harum expedita incidunt. Esse!
+          Praesentium quasi tempora voluptatum ab libero eaque cumque fugit dolorum perspiciatis, repellendus maxime distinctio et, officia in exercitationem. Natus aut voluptas modi vitae quas corporis maiores ratione, earum quae repellendus.
+          Reprehenderit eum neque laborum impedit praesentium unde, maxime veniam aliquid illo! Asperiores officiis quia architecto sequi ad excepturi praesentium cum obcaecati soluta illum rem saepe, aliquid fuga hic facere a.
+          Rerum minima cumque tempora voluptatum soluta doloremque, ut quasi porro fugit. Ex, nihil aliquid expedita cum accusantium distinctio iste. Cum, quasi nobis aperiam voluptatum provident consectetur! Quas accusamus cumque possimus?
+          Vitae ut quas atque numquam autem possimus optio vero cumque officia, blanditiis laboriosam voluptatibus! Adipisci ex eaque eveniet explicabo earum at amet. Veritatis, minus impedit. Pariatur tempore laudantium dolorem quos!
+          Eaque enim quo id error modi nemo magni, repellat delectus atque voluptatem minus, ratione nisi obcaecati cum consectetur expedita magnam voluptate explicabo quidem illum corporis placeat. Tempora nobis cum animi!
+          Nostrum debitis dicta ex ipsum! Iste beatae adipisci omnis, nemo alias nulla quo voluptatibus? Sit similique deleniti magnam nemo eos sequi consequuntur, suscipit, esse optio harum hic a eum minima?
+          Perferendis accusamus deleniti, et provident ipsum corrupti, sequi quas eum magni tempore soluta laboriosam ipsa quo natus in. Dolorum tenetur voluptas blanditiis dolor delectus ratione culpa unde corporis rerum vel?
+          Esse quibusdam consequuntur, ad id, praesentium tempore accusantium numquam quisquam officiis magnam qui pariatur aliquid dolor molestias incidunt voluptas aperiam mollitia facilis adipisci eum optio ab reiciendis corporis magni. Explicabo!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer class=" w100p addFlex footer">
+    <a class="accentFontColor linkHoverColor" href="./contactMe.html">Contact Me</a>
+    <a class=" accentFontColor linkHoverColor" href="./contactTheDeveloper.html">Contact the Developer</a>
+    <a class="accentFontColor linkHoverColor" href="./tos.html">Terms of Service</a>
+    <a class="accentFontColor linkHoverColor" href="./privacyAgreement.html">Privacy Agreement</a>
+  </footer>
+
+</body>
+
+<script src="../scripts/globalScripts/global_OnClickEvents.js"></script>
+<script type="module" src="../scripts/globalScripts/global_OnLoadController.js"></script>
+<script type="module" src="../scripts/footer/contactMePageController.js"></script>
+
+</html>

@@ -105,13 +105,22 @@ export function registerButtons (leftButton, rightButton) {
 export function showLoadingScreen () {
   let root = document.documentElement;
   root.style.setProperty("--blur-pixels", "2px");
-  document.getElementById("loadingImage").style = "display: block;";
+  console.log(document.getElementById("loadingImage"));
+  document.getElementById("loadingImage") === null ? null : document.getElementById("loadingImage").style = "display: block;";
 }
 
 export function hideLoadingScreen () {
   let root = document.documentElement;
   root.style.setProperty("--blur-pixels", "0px");
-  document.getElementById("loadingImage").style = "display: none;";
+  document.getElementById("loadingImage") === null ? null : document.getElementById("loadingImage").style = "display: none;";
+}
+
+export function loadMenu (categoryNames) {
+  let menuDiv = ``;
+  categoryNames.forEach(category => {
+    menuDiv += `<p class="w100p menuItem accentFontColor onClickHover hoverColor">${category}</p>`;
+  });
+  return menuDiv;
 }
 
 
