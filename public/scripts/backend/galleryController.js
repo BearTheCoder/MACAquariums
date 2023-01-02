@@ -1,8 +1,9 @@
 import { hideLoadingScreen, showLoadingScreen } from "../exports/elementsExports.js";
-import { pullURLandDeleteImage, uploadImagesToStorage, uploadDataToDatabase } from "../exports/firebaseConfigExports.js";
+import { pullURLandDeleteImage, uploadImagesToStorage, uploadDataToDatabase, importCollection, deleteDoc, db, doc } from "../exports/firebaseConfigExports.js";
 
 const galleryImageSubmitButton = document.getElementById("galleryImageSubmitButton");
 const catergoryImageSubmitButton = document.getElementById("catergoryImageSubmitButton");
+const clearGalleryButton = document.getElementById("clearGalleryButton");
 
 galleryImageSubmitButton.onclick = () => {
   galleryImageSubmitButton.disabled = true;
@@ -50,3 +51,29 @@ catergoryImageSubmitButton.onclick = () => {
       location.reload();
     });
 };
+
+clearGalleryButton.onclick = () => {
+  showLoadingScreen();
+  clearGalleryButton.disabled = true;
+  importCollection("Gallery Images")
+    .then(importedCollection => iterateThroughCollection(importedCollection))
+    .then(() => {
+      alert("Gallery Cleared...");
+      hideLoadingScreen();
+      clearGalleryButton.disabled = false;
+    });
+};
+
+function iterateThroughCollection (importedCollection) {
+  return new Promise(fulfilled => {
+    let index = 0;
+    importedCollection.forEach(importedDocument => {
+      pullURLandDeleteImage("Gallery Images", importedDocument.id)
+        .then(() => deleteDoc(doc(db, "Gallery Images", importedDocument.id)))
+        .then(() => {
+          index++;
+          if (index === importedCollection.size) fulfilled("");
+        });
+    });
+  });
+}

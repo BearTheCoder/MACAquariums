@@ -4,7 +4,6 @@ const selectedCategory = location.href.split("category=")[1];
 
 getDoc(doc(db, "Categories", selectedCategory))
   .then((categoryData) => {
-    console.log(categoryData);
     document.getElementById("contentHeaderDesc").innerText = categoryData.data().description;
     document.getElementById("contentHeaderTitle").innerHTML = categoryData.data().category;
   });
@@ -16,7 +15,10 @@ importCollection(selectedCategory)
     col.forEach(element => {
       postData.push(element.data());
     });
-    postData.forEach((data, index) => {
+    const sortedArray = postData.sort((a, b) => a.importance - b.importance);
+
+    console.log(sortedArray);
+    sortedArray.forEach((data, index) => {
       postGalleryDiv[index % 4] += `
       <div class="postBG contentPost addBorder borderColor addDropShadow">
         <img src="${data.URL}" class="contentPostImage">

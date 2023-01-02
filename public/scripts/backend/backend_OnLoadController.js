@@ -40,6 +40,13 @@ getDoc(doc(db, "Mission Statement", "Mission Statement"))
     document.getElementById("missionStatementDescription").value = data.missionDescription;
   });
 
+getDoc(doc(db, "Contact Info", "Contact Info"))
+  .then(importedDocument => {
+    const data = importedDocument.data();
+    document.getElementById("phoneInput").value = data.phoneNumber;
+    document.getElementById("emailInput").value = data.email;
+  });
+
 let options = `<option>Select a Topic</option>`;
 information.forEach((el) => {
   options += `<option>${el.name}</option>`;
