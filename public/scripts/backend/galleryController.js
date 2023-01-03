@@ -44,7 +44,7 @@ catergoryImageSubmitButton.onclick = () => {
 
   pullURLandDeleteImage("Category Images", categoryGallerySelect);
   uploadImagesToStorage(categoryImageInput.files)
-    .then(urls => { uploadDataToDatabase({ URL: urls[0], title: categoryGallerySelect, }, "Category Images", categoryGallerySelect); })
+    .then(urls => uploadDataToDatabase({ URL: urls[0], title: categoryGallerySelect, }, "Category Images", categoryGallerySelect))
     .then(() => {
       alert("Category image updated...");
       hideLoadingScreen();

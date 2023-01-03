@@ -4,14 +4,12 @@ import { showSlides, registerButtons } from "../exports/elementsExports.js";
 let galleryDiv = ``;
 importCollection("Gallery Images")
   .then(col => {
-    let index = 0;
     col.forEach((el) => {
       galleryDiv += `
       <div class="mySlides addFlex imageContainer addDropShadowNoHover">
         <img class="mainImage addFlex" src="${el.data().URL}">
       </div>
       `;
-      index++;
     });
     galleryDiv += `
     <a id="leftButton" class="galleryButton accentColor">&#10094;</a>

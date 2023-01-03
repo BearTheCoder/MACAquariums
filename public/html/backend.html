@@ -27,7 +27,7 @@
       <img id="menuIcon" src="../images/menu.png" alt="" class="onClickHover">
     </div>
 
-    <div id="menu" class="accentColor">
+    <div id="menu" class="accentColor addDropShadow addBorder borderColor">
       <p class="w100p menuItem accentFontColor onClickHover hoverColor">Contact Me</p>
       <form id="menuForm" style="display: none;">
         <input id="categorySelector" name="category" type="text">
@@ -50,7 +50,7 @@
         <input type="text" id="titleInput" class="formInput addBorder borderColor placeholderColor" placeholder="Title must be unique..." \>
         <br>
         <label for="descInput" class="formLabel fontColor">Description: </label>
-        <textarea id="descInput" rows="10" class="addBorder w100p borderColor" placeholder="Input description..."></textarea>
+        <textarea id="descInput" rows="10" class="addBorder w100p borderColor" placeholder="Input description..." style="padding: 0px;"></textarea>
         <br>
         <select id="uploadCategoryInput" class="categoryInput addBorder placeholderColor borderColor textHoverColor"></select>
         <br>
@@ -128,7 +128,11 @@
         </div>
         <input type="text" id="missionStatementTitle" class="addBorder borderColor">
         <br>
-        <textarea rows="20" id="missionStatementDescription" class="addBorder borderColor"></textarea>
+        <textarea rows="15" maxlength="500" id="missionStatementDescription" class="addBorder borderColor"></textarea>
+        <br>
+        <div class="w100p addFlex" style="justify-content: right;">
+          <p id="characterCount">Character Count: 500</p>
+        </div>
         <br>
         <button id="updateStatementButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor">Update Mission Statement</button>
       </div>

@@ -330,14 +330,19 @@ textarea {
 }
 
 #menu {
-  width: 100px;
+  width: 150px;
   align-items: center;
   display: none;
-  position: fixed;
+  position: absolute;
   z-index: 1000;
 }
 
 .menuItem {
+  margin: 10px
+}
+
+.menuItem:hover {
+  font-size: 20px;
   padding: 5px;
 }
 

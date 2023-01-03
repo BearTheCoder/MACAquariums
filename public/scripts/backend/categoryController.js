@@ -1,8 +1,8 @@
-import { setDoc, doc, db, deleteDoc, importCollection, getDoc, ref, storage, deleteObject, pullURLandDeleteImage } from "../exports/firebaseConfigExports.js";
+import { setDoc, doc, db, deleteDoc, importCollection, getDoc, pullURLandDeleteImage } from "../exports/firebaseConfigExports.js";
 import { hideLoadingScreen, returnRenameInputContainer, showLoadingScreen } from "../exports/elementsExports.js";
 
-const newCategoryDescription = document.getElementById("addCategoryDescription").value;
-const newCategoryName = document.getElementById("addCategoryInput").value;
+const newCategoryDescription = document.getElementById("addCategoryDescription");
+const addCategoryName = document.getElementById("addCategoryInput");
 const addCategoryButton = document.getElementById("addCategoryButton");
 const editCategoryInput = document.getElementById("editCategoryInput");
 const deleteButton = document.getElementById("deleteCategoryButton");
@@ -12,8 +12,9 @@ const editCategoryContainer = document.getElementById("editCategoryContainer");
 addCategoryButton.onclick = () => {
   addCategoryButton.disabled = true;
   showLoadingScreen();
-  addCategory(newCategoryName, newCategoryDescription)
+  addCategory(addCategoryName.value, newCategoryDescription.value)
     .then(() => {
+      alert("New category added...");
       hideLoadingScreen();
       location.reload();
     });
@@ -108,10 +109,10 @@ function renameCategory (newValue, oldValue, newDescription) {
     });
 }
 
-function addCategory (newCategoryValue, newCategoryDescription) {
+function addCategory (addCategoryValue, newCategoryDescription) {
   addCategoryButton.disabled = true;
-  const categoryDoc = doc(db, "Categories", newCategoryValue);
-  return setDoc(categoryDoc, { category: newCategoryValue, description: newCategoryDescription, });
+  const categoryDoc = doc(db, "Categories", addCategoryValue);
+  return setDoc(categoryDoc, { category: addCategoryValue, description: newCategoryDescription, });
 }
 
 function createNewPost_DeleteOld (oldCategoryName, newCategoryName, importedDocument) {

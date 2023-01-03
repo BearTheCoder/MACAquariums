@@ -1,5 +1,4 @@
 document.getElementById("emailDeveloperButton").onclick = () => {
-  console.log("here");
   const subject = document.getElementById("devContactSubject").value;
   const body = document.getElementById("devContactBody").value;
   document.location.href = `mailto:mail.aaronadkins@gmail.com?subject=${subject}&body=${body}`;

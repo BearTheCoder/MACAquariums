@@ -38,6 +38,7 @@ getDoc(doc(db, "Mission Statement", "Mission Statement"))
     const data = importedDocument.data();
     document.getElementById("missionStatementTitle").value = data.missionTitle;
     document.getElementById("missionStatementDescription").value = data.missionDescription;
+    document.getElementById("characterCount").innerText = `Character count: ${missionStatementArea.value.length}`;
   });
 
 getDoc(doc(db, "Contact Page", "Contact Page"))
@@ -48,9 +49,14 @@ getDoc(doc(db, "Contact Page", "Contact Page"))
     document.getElementById("bioInput").value = data.bio;
   });
 
-let options = `<option>Select a Topic</option>`;
+let options = `<option> Select a Topic</option > `;
 information.forEach((el) => {
-  options += `<option>${el.name}</option>`;
+  options += `<option> ${el.name}</option>`;
 });
 document.getElementById("infoSelectInput").innerHTML = options;
 
+const missionStatementArea = document.getElementById("missionStatementDescription");
+
+missionStatementArea.addEventListener("input", () => {
+  document.getElementById("characterCount").innerText = `Character count: ${missionStatementArea.value.length}`;
+});

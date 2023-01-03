@@ -1,6 +1,8 @@
 import { getDoc, db, doc, importCollection } from "../exports/firebaseConfigExports.js";
 import { defaultRGB, loadMenu } from "../exports/elementsExports.js";
 
+document.getElementById("menuForm").setAttribute("action", `${location.origin}/public/html/contentPage.html`);
+
 const root = document.documentElement;
 getDoc(doc(db, "colors", "colors"))
   .then(importedDocument => {
@@ -25,8 +27,8 @@ importCollection("Categories")
     });
     const menu = document.getElementById("menu");
     menu.innerHTML += loadMenu(catergoryNames);
-    menu.style.right = `0px`;
-    menu.style.top = `44px`;
+    menu.style.right = `30px`;
+    menu.style.top = `40px`;
     registerMenuOnClick();
 
   });
@@ -39,7 +41,7 @@ function registerMenuOnClick () {
         location = `${location.origin}/public/html/contactMe.html`;
       }
       else {
-        document.getElementById("menuForm").setAttribute("action", `${location.origin}/public/html/contentPage.html`);
+
         document.getElementById("categorySelector").value = item.innerText;
         document.getElementById("categorySelectorButton").click();
       }

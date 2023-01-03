@@ -105,7 +105,6 @@ export function registerButtons (leftButton, rightButton) {
 export function showLoadingScreen () {
   let root = document.documentElement;
   root.style.setProperty("--blur-pixels", "2px");
-  console.log(document.getElementById("loadingImage"));
   document.getElementById("loadingImage") === null ? null : document.getElementById("loadingImage").style = "display: block;";
 }
 

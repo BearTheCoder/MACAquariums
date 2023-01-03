@@ -16,6 +16,7 @@ updateMissionButton.onclick = () => {
 
   uploadDataToDatabase(missionStatement, "Mission Statement", "Mission Statement")
     .then(() => {
+      alert("Mission statement updated...");
       hideLoadingScreen();
       updateMissionButton.disabled = false;
     });

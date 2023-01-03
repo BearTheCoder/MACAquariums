@@ -17,7 +17,6 @@ importCollection(selectedCategory)
     });
     const sortedArray = postData.sort((a, b) => a.importance - b.importance);
 
-    console.log(sortedArray);
     sortedArray.forEach((data, index) => {
       postGalleryDiv[index % 4] += `
       <div class="postBG contentPost addBorder borderColor addDropShadow">
