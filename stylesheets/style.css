@@ -48,10 +48,7 @@
   justify-content: left;
 }
 
-#missionStatement {
-  width: 33%;
-  padding: 0px 50px;
-}
+
 
 #mainHeader {
   justify-content: center;
@@ -99,6 +96,15 @@
     min-width: 24%;
     justify-content: start;
   }
+
+  #imageContainer {
+    display: none;
+  }
+
+  #missionStatement {
+    width: 100%;
+    padding: 0px 50px;
+  }
 }
 
 @media screen and (min-width: 400px) and (max-width: 700px) {
@@ -107,6 +113,15 @@
     max-width: 47.5%;
     justify-content: start;
   }
+
+  #imageContainer {
+    display: none;
+  }
+
+  #missionStatement {
+    width: 100%;
+    padding: 0px 50px;
+  }
 }
 
 @media screen and (min-width: 700px) {
@@ -114,6 +129,28 @@
     flex-direction: column;
     max-width: 24.2%;
     justify-content: start;
+  }
+
+  #gallery {
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    padding: 50px;
+  }
+
+  #imageContainer {
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 50%;
+    height: 450px;
+    padding: 50px;
+  }
+
+  #missionStatement {
+    width: 33%;
   }
 }
 
@@ -285,16 +322,7 @@ textarea {
   padding-right: 10px;
 }
 
-#gallery {
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  width: 90%;
-  height: 500px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 5px;
-  padding: 50px;
-}
+
 
 #rightButton,
 #leftButton {
@@ -348,47 +376,17 @@ textarea {
 
 /*      *****     Scrollbar Modifiers     *****       */
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--hoverColor);
+  border: 1px solid var(--accentColor);
 }
 
 ::-webkit-scrollbar-track {
   box-shadow: inset 100px 1px 200px lightgray;
   border-radius: 0px;
 }
-
-::-webkit-scrollbar-button:single-button {
-  background-color: #bbbbbb;
-  display: block;
-  border-style: solid;
-  height: 13px;
-  width: 16px;
-}
-
-/* Up */
-::-webkit-scrollbar-button:single-button:vertical:decrement {
-  border-width: 0 8px 8px 8px;
-  border-color: transparent transparent #555555 transparent;
-}
-
-::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
-  border-color: transparent transparent #777777 transparent;
-}
-
-/* Down */
-::-webkit-scrollbar-button:single-button:vertical:increment {
-  border-width: 8px 8px 0 8px;
-  border-color: #555555 transparent transparent transparent;
-}
-
-::-webkit-scrollbar-button:vertical:single-button:increment:hover {
-  border-color: #777777 transparent transparent transparent;
-}
-
-
 
 /*      *****     Base Class Modifiers     *****       */
 .headerContent {
@@ -427,7 +425,6 @@ textarea {
 
 .imageContainer {
   height: 100%;
-  padding-right: 50px;
   max-width: 100%;
 }
 
@@ -527,6 +524,10 @@ textarea {
   background-color: var(--postColor);
 }
 
+.postBGNoHover {
+  background-color: var(--postColor);
+}
+
 .postBG:hover {
   background-color: var(--postHoverColor);
 }
@@ -557,6 +558,10 @@ textarea {
 }
 
 .borderColor {
+  border-color: var(--borderColor);
+}
+
+.borderColorNoHover {
   border-color: var(--borderColor);
 }
 

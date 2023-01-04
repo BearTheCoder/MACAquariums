@@ -1,5 +1,5 @@
-import { setDoc, doc, db, deleteDoc, importCollection, getDoc, pullURLandDeleteImage } from "../exports/firebaseConfigExports.js";
-import { hideLoadingScreen, returnRenameInputContainer, showLoadingScreen } from "../exports/elementsExports.js";
+import { setDoc, doc, db, deleteDoc, importCollection, getDoc, pullURLandDeleteImage } from "../../scripts/exports/firebaseConfigExports.js";
+import { hideLoadingScreen, returnRenameInputContainer, showLoadingScreen } from "../../scripts/exports/elementsExports.js";
 
 const newCategoryDescription = document.getElementById("addCategoryDescription");
 const addCategoryName = document.getElementById("addCategoryInput");

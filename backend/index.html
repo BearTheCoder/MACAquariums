@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../stylesheets/style.css">
-  <title>Backend</title>
+  <title>MAC Aquariums</title>
 </head>
 
 <body class="accentColor h100p w100p addFlex">
@@ -24,7 +24,14 @@
         <img id="iconTest" src="../images/fish.png" alt="">
         <h2 class="headerContent accentFontColor">MAC Aquariums</h3>
       </div>
-      <img id="menuIcon" src="../images/menu.png" alt="" class="onClickHover">
+      <div class="addFlex">
+        <div id="authContainer" class="addFlex">
+          <div class="addFlex" style=" align-items: center;">
+            <button id="signInButton" class="hoverColor addBorder borderColor backgroundColor" style="margin-right: 10px; height: 23px; width: 100px;">Sign in</button>
+          </div>
+        </div>
+        <img id="menuIcon" src="../images/menu.png" alt="" class="onClickHover">
+      </div>
     </div>
 
     <div id="menu" class="accentColor addDropShadow addBorder borderColor">
@@ -120,21 +127,13 @@
         </div>
       </div>
 
-      <div id="missionStatementForm" class="form addFlex addBorder postBG borderColor addDropShadow">
+      <div id="messageForm" class="form addFlex addBorder postBG borderColor addDropShadow" style="overflow-y: scroll; overflow-x: hidden; overflow-wrap: break-word;">
         <div class="titleHeader">
-          <h3 class="fontColor">Homepage Mission Statement</h3>
+          <h3 class="fontColor">Messages</h3>
           <hr class="addBorder accentColorNoHover">
           <br>
         </div>
-        <input type="text" id="missionStatementTitle" class="addBorder borderColor">
-        <br>
-        <textarea rows="15" maxlength="500" id="missionStatementDescription" class="addBorder borderColor"></textarea>
-        <br>
-        <div class="w100p addFlex" style="justify-content: right;">
-          <p id="characterCount">Character Count: 500</p>
-        </div>
-        <br>
-        <button id="updateStatementButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor">Update Mission Statement</button>
+        <div id="messageContainer" style="max-height: 500px;"></div>
       </div>
 
       <div id="colorsForm" class="form addFlex addBorder postBG borderColor addDropShadow">
@@ -168,10 +167,9 @@
       <div id="galleryForm" class="form addFlex addBorder postBG borderColor addDropShadow">
         <div class="titleHeader">
           <h3 class="fontColor">Gallery</h3>
-          <hr class="addBorder accentColorNoHover">
-          <br>
+          <hr class="addBorder accentColorNoHover" style="margin-bottom: 5px;">
         </div>
-        <label for="galleryInput">Add Images: </label>
+        <label for="galleryInput">Add Images to Gallery: </label>
         <div id="galleryInput" class="addFlex">
           <input type="file" id="galleryImageInput" class="hoverColor addFlex addBorder borderColor accentFontColor accentColor" accept=".png, .jpg" multiple style="padding-left: 5px;">
           <button id="galleryImageSubmitButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">submit</button>
@@ -185,6 +183,16 @@
           <button id="catergoryImageSubmitButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">submit</button>
         </div>
         <br>
+        <div class="titleHeader">
+          <h3 class="fontColor">Homepage Mission Statement</h3>
+          <hr class="addBorder accentColorNoHover" style="margin-bottom: 5px;">
+        </div>
+        <input type="text" id="missionStatementTitle" class="addBorder borderColor" style="margin-bottom: 5px;">
+        <textarea rows="10" maxlength="500" id="missionStatementDescription" class="addBorder borderColor"></textarea>
+        <div class="w100p addFlex" style="justify-content: right;">
+          <p id="characterCount">Character Count: 500</p>
+        </div>
+        <button id="updateStatementButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor">Update Mission Statement</button>
       </div>
 
       <div id="contactForm" class="form addFlex addBorder postBG borderColor addDropShadow">
@@ -217,10 +225,10 @@
     </div>
 
     <footer class="w100p addFlex footer">
-      <a class="accentFontColor linkHoverColor" href="./contactMe.html">Contact Me</a>
-      <a class="accentFontColor linkHoverColor" href="./contactTheDeveloper.html">Contact the Developer</a>
-      <a class="accentFontColor linkHoverColor" href="./tos.html">Terms of Service</a>
-      <a class="accentFontColor linkHoverColor" href="./privacyAgreement.html">Privacy Agreement</a>
+      <a class="accentFontColor linkHoverColor" href="../html/contactMe.html">Contact Me</a>
+      <a class="accentFontColor linkHoverColor" href="../html/contactTheDeveloper.html">Contact the Developer</a>
+      <a class="accentFontColor linkHoverColor" href="../html/tos.html">Terms of Service</a>
+      <a class="accentFontColor linkHoverColor" href="../html/privacyAgreement.html">Privacy Agreement</a>
     </footer>
   </div>
 </body>
@@ -229,14 +237,14 @@
 
 <script src="../scripts/globalScripts/global_OnClickEvents.js"></script>
 <script type="module" src="../scripts/globalScripts/global_OnLoadController.js"></script>
-<script type="module" src="../scripts/backend/backend_OnLoadController.js"></script>
-<script type="module" src="../scripts/backend/editPostController.js"></script>
-<script type="module" src="../scripts/backend/newPostController.js"></script>
-<script type="module" src="../scripts/backend/categoryController.js"></script>
-<script type="module" src="../scripts/backend/colorController.js"></script>
-<script type="module" src="../scripts/backend/informationController.js"></script>
-<script type="module" src="../scripts/backend/galleryController.js"></script>
-<script type="module" src="../scripts/backend/missionStatementController.js"></script>
-<script type="module" src="../scripts/backend/contactInfoController.js"></script>
+<script type="module" src="./scripts/backend_OnLoadController.js"></script>
+<script type="module" src="./scripts/editPostController.js"></script>
+<script type="module" src="./scripts/newPostController.js"></script>
+<script type="module" src="./scripts/categoryController.js"></script>
+<script type="module" src="./scripts/colorController.js"></script>
+<script type="module" src="./scripts/informationController.js"></script>
+<script type="module" src="./scripts/galleryController.js"></script>
+<script type="module" src="./scripts/missionStatementController.js"></script>
+<script type="module" src="./scripts/contactInfoController.js"></script>
 
 </html>

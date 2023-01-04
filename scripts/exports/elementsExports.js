@@ -122,6 +122,36 @@ export function loadMenu (categoryNames) {
   return menuDiv;
 }
 
+export function messageDiv (importedDocument) {
+  const data = importedDocument.data();
+  return `
+      <div class="addBorder borderColor" style="margin-bottom: 10px;">
+        <h4 style="padding-left: 10px;">${data.subject}</h4>
+        <hr class="addBorder accentColorNoHover" style="margin: 0px 10px;">
+        <p style="padding-left: 10px;">${data.body}</p>
+        <div class="addFlex" style="justify-content: center;">
+          <button id="${importedDocument.id}" class="accentColor addBorder borderColor accentFontColor hoverColor messageButton" style="margin: 10px 0px; width: 90%;">Delete Message</button>
+        </div>
+      </div>
+      `;
+}
+
+export function signedInBackendDiv (user) {
+  return `
+  <div class="addFlex" style=" align-items: center;">
+    <h4 id="username" class="accentFontColor" style="padding-right: 10px;">${user.displayName}</h4>
+    <button id="signOutButton" class="hoverColor addBorder borderColor backgroundColor" style="margin-right: 10px; height: 23px; width: 100px;">Sign out</button>
+  </div>
+  `;
+}
+
+export function signedOutBackendDiv () {
+  return `
+  <div class="addFlex" style=" align-items: center;">
+    <button id="signInButton" class="hoverColor" style="margin-right: 10px; height: 20px;">Sign in</button>
+  </div>
+  `;
+}
 
 /*      *****     INTERNAL FUNCTIONS     *****       */
 function createSelectionOptions (categories) {

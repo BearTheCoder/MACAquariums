@@ -1,5 +1,5 @@
-import { hideLoadingScreen, showLoadingScreen } from "../exports/elementsExports.js";
-import { uploadDataToDatabase } from "../exports/firebaseConfigExports.js";
+import { hideLoadingScreen, showLoadingScreen } from "../../scripts/exports/elementsExports.js";
+import { uploadDataToDatabase } from "../../scripts/exports/firebaseConfigExports.js";
 
 const missionStatementTitle = document.getElementById("missionStatementTitle");
 const missionStatementDescription = document.getElementById("missionStatementDescription");

@@ -1,7 +1,7 @@
 import { getDoc, db, doc, importCollection } from "../exports/firebaseConfigExports.js";
 import { defaultRGB, loadMenu } from "../exports/elementsExports.js";
 
-document.getElementById("menuForm").setAttribute("action", `${location.origin}/public/html/contentPage.html`);
+document.getElementById("menuForm").setAttribute("action", `${location.origin}/html/contentPage.html`);
 
 const root = document.documentElement;
 getDoc(doc(db, "colors", "colors"))
@@ -38,7 +38,7 @@ function registerMenuOnClick () {
   menuItemArray.forEach(item => {
     item.onclick = () => {
       if (item.innerText === "Contact Me") {
-        location = `${location.origin}/public/html/contactMe.html`;
+        location = `${location.origin}/html/contactMe.html`;
       }
       else {
 

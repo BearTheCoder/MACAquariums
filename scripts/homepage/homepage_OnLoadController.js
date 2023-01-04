@@ -15,7 +15,7 @@ importCollection("Gallery Images")
     <a id="leftButton" class="galleryButton accentColor">&#10094;</a>
     <a id="rightButton" class="galleryButton accentColor">&#10095;</a>
     `;
-    document.getElementById("gallery").innerHTML += galleryDiv;
+    document.getElementById("imageContainer").innerHTML += galleryDiv;
     showSlides(1, 1);
     const leftButton = document.getElementById("leftButton");
     const rightButton = document.getElementById("rightButton");

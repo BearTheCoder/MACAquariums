@@ -1,5 +1,5 @@
-import { importCollection, uploadDataToDatabase, uploadImagesToStorage } from "../exports/firebaseConfigExports.js";
-import { hideLoadingScreen, showLoadingScreen, uploadFormElements } from "../exports/elementsExports.js";
+import { importCollection, uploadDataToDatabase, uploadImagesToStorage } from "../../scripts/exports/firebaseConfigExports.js";
+import { hideLoadingScreen, showLoadingScreen, uploadFormElements } from "../../scripts/exports/elementsExports.js";
 
 const uploadButton = document.getElementById("uploadButton");
 

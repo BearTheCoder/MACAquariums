@@ -1,8 +1,9 @@
 /*      *****     IMPORTS     *****       */
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+import { initializeApp, } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+import { getAuth, onAuthStateChanged, signOut, } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js';
 import { getFirestore, doc, setDoc, getDoc, getDocs, collection, deleteDoc } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
-export { initializeApp, ref, uploadBytes, getDownloadURL, doc, setDoc, getDoc, getDocs, collection, deleteDoc, deleteObject };
+export { initializeApp, ref, uploadBytes, getDownloadURL, doc, setDoc, getDoc, getDocs, collection, deleteDoc, deleteObject, signOut };
 
 /*      *****     CONSTANTS     *****       */
 export const firebaseConfig = {
@@ -17,6 +18,18 @@ export const firebaseConfig = {
 export const app_fb = initializeApp(firebaseConfig);
 export const storage = getStorage(app_fb);
 export const db = getFirestore(app_fb);
+
+export let loggedInUser = null;
+export const loggedAuth = getAuth();
+const loggedIn = new Event("loggedIn");
+onAuthStateChanged(loggedAuth, (user) => {
+  if (user) {
+    loggedInUser = user;
+    document.dispatchEvent(loggedIn);
+  } else {
+
+  }
+});
 
 /** 
 * @param {string} category

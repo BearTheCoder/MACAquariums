@@ -1,5 +1,5 @@
-import { hideLoadingScreen, showLoadingScreen } from "../exports/elementsExports.js";
-import { pullURLandDeleteImage, uploadImagesToStorage, uploadDataToDatabase, importCollection, deleteDoc, db, doc } from "../exports/firebaseConfigExports.js";
+import { hideLoadingScreen, showLoadingScreen } from "../../scripts/exports/elementsExports.js";
+import { pullURLandDeleteImage, uploadImagesToStorage, uploadDataToDatabase, importCollection, deleteDoc, db, doc } from "../../scripts/exports/firebaseConfigExports.js";
 
 const galleryImageSubmitButton = document.getElementById("galleryImageSubmitButton");
 const catergoryImageSubmitButton = document.getElementById("catergoryImageSubmitButton");
@@ -24,7 +24,8 @@ galleryImageSubmitButton.onclick = () => {
       location.reload();
     })
     .catch((err) => {
-      alert("Please select at least one image.");
+      alert("An error has occured, please select an image or ensure you are logged into an authorized account.");
+      hideLoadingScreen();
       galleryImageSubmitButton.disabled = false;
     });
 };
