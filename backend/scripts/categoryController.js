@@ -1,4 +1,4 @@
-import { setDoc, doc, db, deleteDoc, importCollection, getDoc, pullURLandDeleteImage } from "../../scripts/exports/firebaseConfigExports.js";
+import { doc, db, deleteDoc, importCollection, getDoc, pullURLandDeleteImage, globalSetDoc } from "../../scripts/exports/firebaseConfigExports.js";
 import { hideLoadingScreen, returnRenameInputContainer, showLoadingScreen } from "../../scripts/exports/elementsExports.js";
 
 const newCategoryDescription = document.getElementById("addCategoryDescription");
@@ -112,7 +112,7 @@ function renameCategory (newValue, oldValue, newDescription) {
 function addCategory (addCategoryValue, newCategoryDescription) {
   addCategoryButton.disabled = true;
   const categoryDoc = doc(db, "Categories", addCategoryValue);
-  return setDoc(categoryDoc, { category: addCategoryValue, description: newCategoryDescription, });
+  return globalSetDoc(categoryDoc, { category: addCategoryValue, description: newCategoryDescription, });
 }
 
 function createNewPost_DeleteOld (oldCategoryName, newCategoryName, importedDocument) {
@@ -120,7 +120,7 @@ function createNewPost_DeleteOld (oldCategoryName, newCategoryName, importedDocu
   const newDocRef = doc(db, newCategoryName.value, importedDocument.id);
   getDoc(oldDocRef)
     .then(querySnapshot => {
-      return setDoc(newDocRef, {
+      return globalSetDoc(newDocRef, {
         title: querySnapshot.data().title,
         description: querySnapshot.data().description,
         category: newCategoryName.value,

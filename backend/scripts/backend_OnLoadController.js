@@ -1,4 +1,4 @@
-import { getDoc, importCollection, doc, db, deleteDoc, loggedInUser, signOut, loggedAuth, uploadDataToDatabase } from "../../scripts/exports/firebaseConfigExports.js";
+import { getDoc, importCollection, doc, db, deleteDoc, loggedInUser, signOut, loggedAuth, uploadDataToDatabase, getPrivateMessages } from "../../scripts/exports/firebaseConfigExports.js";
 import { information } from "../../scripts/exports/informationExports.js";
 import { defaultRGB, showLoadingScreen, hideLoadingScreen, messageDiv, signedInBackendDiv, signedOutBackendDiv, } from "../../scripts/exports/elementsExports.js";
 
@@ -68,7 +68,7 @@ missionStatementArea.addEventListener("input", () => {
 });
 
 const messageContainer = document.getElementById("messageContainer");
-importCollection("Messages")
+getPrivateMessages("Messages")
   .then(importedCollection => {
     importedCollection.forEach(importedDocument => messageContainer.innerHTML += messageDiv(importedDocument));
     const messageButtons = Array.from(document.getElementsByClassName("messageButton"));
@@ -83,13 +83,17 @@ importCollection("Messages")
           });
       };
     });
+  })
+  .catch(err => {
+    console.log(err);
+    console.log("Must be logged into an authorized account to see messages...");
   });
 
 document.addEventListener("loggedIn", () => {
   if (loggedInUser !== null) {
     const date = new Date();
     const docName = `log_${date.getMonth()}_${date.getDay()}_${date.getHours()}_${date.getMinutes()}`;
-    uploadDataToDatabase({ user: loggedInUser.displayName, }, "Logs", docName)
+    uploadDataToDatabase({ user: loggedInUser.displayName, }, "Logs", docName, "private")
       .then(() => {
         const authContainer = document.getElementById("authContainer");
         authContainer.innerHTML = signedInBackendDiv(loggedInUser);
@@ -108,6 +112,6 @@ document.addEventListener("loggedIn", () => {
 });
 
 document.getElementById("signInButton").onclick = () => {
-  location.href = location.origin + "/googleLogin.html";
+  location.href = location.origin + "/backend/googleLogin.html";
 }
 

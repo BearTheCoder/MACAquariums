@@ -41,7 +41,6 @@ function registerMenuOnClick () {
         location = `${location.origin}/html/contactMe.html`;
       }
       else {
-
         document.getElementById("categorySelector").value = item.innerText;
         document.getElementById("categorySelectorButton").click();
       }

@@ -1,5 +1,5 @@
 import { hideLoadingScreen, showLoadingScreen } from "../../scripts/exports/elementsExports.js";
-import { setDoc, doc, db } from "../../scripts/exports/firebaseConfigExports.js";
+import { doc, db, globalSetDoc } from "../../scripts/exports/firebaseConfigExports.js";
 
 let root = document.documentElement;
 let testColorButton = document.getElementById("testColorButton");
@@ -21,7 +21,7 @@ submitButton.onclick = () => {
   submitButton.disabled = true;
   showLoadingScreen();
   const categoryDoc = doc(db, "colors", "colors");
-  setDoc(categoryDoc, {
+  globalSetDoc(categoryDoc, {
     0: { name: "--accentColor", value: colorSelectors[0].value },
     1: { name: "--borderColor", value: colorSelectors[1].value },
     2: { name: "--backgroundColor", value: colorSelectors[2].value },

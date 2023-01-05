@@ -2,8 +2,8 @@
 import { initializeApp, } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut, } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js';
-import { getFirestore, doc, setDoc, getDoc, getDocs, collection, deleteDoc } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
-export { initializeApp, ref, uploadBytes, getDownloadURL, doc, setDoc, getDoc, getDocs, collection, deleteDoc, deleteObject, signOut };
+import { getFirestore, doc, setDoc, getDoc, getDocs, collection, deleteDoc, query, where } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
+export { initializeApp, ref, uploadBytes, getDownloadURL, doc, getDoc, getDocs, collection, deleteDoc, deleteObject, signOut };
 
 /*      *****     CONSTANTS     *****       */
 export const firebaseConfig = {
@@ -36,8 +36,12 @@ onAuthStateChanged(loggedAuth, (user) => {
 * @returns {Promise<QuerySnapshot<T>} Promise with collection data.
 */
 export function importCollection (category) {
-  let col = collection(db, category);
-  return getDocs(col);
+  return getDocs(query(collection(db, category), where("visibility", "==", "public")));
+}
+
+export function getPrivateMessages () {
+  //Firebase rules prevent this if an authorized user is not signed in
+  return getDocs(collection(db, "Messages"));
 }
 
 /** 
@@ -93,7 +97,12 @@ export function uploadImagesToStorage (fileList) {
 * @param {string} documentName
 * @returns {Promise<void>} Empty promise
 */
-export function uploadDataToDatabase (data, collectionName, documentName) {
+export function uploadDataToDatabase (data, collectionName, documentName, visibility = "public") {
   const categoryDoc = doc(db, collectionName, documentName);
-  return setDoc(categoryDoc, data);
+  return globalSetDoc(categoryDoc, data, visibility);
 }
+
+export function globalSetDoc (docRef, data, visibility = "public") {
+  data.visibility = visibility;
+  return setDoc(docRef, data);
+} 

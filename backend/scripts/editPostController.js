@@ -1,5 +1,5 @@
 import { returnPostDiv, returnEditPostDiv } from "../../scripts/exports/elementsExports.js";
-import { deleteDoc, setDoc, doc, db, ref, storage, deleteObject, getDoc, importCollection } from "../../scripts/exports/firebaseConfigExports.js";
+import { deleteDoc, globalSetDoc, doc, db, ref, storage, deleteObject, getDoc, importCollection } from "../../scripts/exports/firebaseConfigExports.js";
 
 document.getElementById("importButton").onclick = () => {
   const categoryValue = document.getElementById("importCategoryInput");
@@ -56,7 +56,7 @@ function editButtonOnClick (category, buttonElement) {
             let newTitle = document.getElementById("newTitleInput").value;
             let newCategory = document.getElementById("newUploadCategoryInput").value;
             const categoryDoc = doc(db, newCategory, newTitle);
-            setDoc(categoryDoc, {
+            globalSetDoc(categoryDoc, {
               title: newTitle,
               description: document.getElementById("newDescInput").value,
               category: newCategory,

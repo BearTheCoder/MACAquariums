@@ -30,7 +30,7 @@ messageMeButton.onclick = () => {
   }
   showLoadingScreen();
   messageMeButton.disabled = true;
-  uploadDataToDatabase({ subject: subject.value, body: body.value }, "Messages", `Message_${Math.ceil(Math.random() * 10000000)}`)
+  uploadDataToDatabase({ subject: subject.value, body: body.value }, "Messages", `Message_${Math.ceil(Math.random() * 10000000)}`, "private")
     .then(() => {
       alert("Message sent!");
       messageMeButton.disabled = false;
