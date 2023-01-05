@@ -131,6 +131,5 @@ function createNewPost_DeleteOld (oldCategoryName, newCategoryName, importedDocu
     })
     .then(() => {
       deleteDoc(oldDocRef);
-      counter++;
     });
 }
