@@ -40,13 +40,9 @@ function deleteCategoryImage (deleteCategoryPromise, deleteCategory) {
         deleteCategoryPromise
           .then(() => sendMessageAndReload("No category image, category deleted..."));
       }
-      importedCollection.forEach(importedDocument => {
-        if (importedDocument.id === deleteCategory) {
-          pullURLandDeleteImage("Category Images", deleteCategory)
-            .then(() => deleteDoc(doc(db, "Category Images", deleteCategory)))
-            .then(() => sendMessageAndReload("Category and associated images deleted..."));
-        }
-      });
+      pullURLandDeleteImage("Category Images", deleteCategory)
+        .then(() => deleteDoc(doc(db, "Category Images", deleteCategory)))
+        .then(() => sendMessageAndReload("Category and associated images deleted..."));
     });
 }
 
