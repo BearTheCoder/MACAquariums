@@ -30,71 +30,80 @@ deleteButton.onclick = () => {
       if (importedCollection.size === 0) {
         deleteCategoryPromise.then(() => {
           hideLoadingScreen();
+          alert("Nothing in category, deleted...");
           location.reload();
         });
       }
-      deleteEverythingInCategory(importedCollection, deleteCategory);
+      deleteEverythingInCategory(importedCollection, deleteCategory, deleteCategoryPromise);
     });
 
+
+};
+
+function deleteEverythingInCategory (importedCollection, deleteCategory, deleteCategoryPromise) {
+  importedCollection.forEach((document) => {
+    const docRef = doc(db, deleteCategory, document.id);
+    pullURLandDeleteImage(deleteCategory, document.id)
+      .then(() => deleteDoc(docRef))
+      .then(() => deleteCategoryImage(deleteCategoryPromise, deleteCategory));
+  });
+}
+
+function deleteCategoryImage (deleteCategoryPromise, deleteCategory) {
   importCollection("Category Images")
     .then(importedCollection => {
       if (importedCollection.size === 0) {
         deleteCategoryPromise.then(() => {
           hideLoadingScreen();
+          alert("No category image, category deleted...");
           location.reload();
         });
       }
       importedCollection.forEach(importedDocument => {
         if (importedDocument.id === deleteCategory) {
-          deleteDoc(doc(db, "Category Images", deleteCategory));
+          pullURLandDeleteImage("Category Images", importedDocument.id)
+            .then(() => {
+              deleteDoc(doc(db, "Category Images", deleteCategory))
+                .then(() => {
+                  hideLoadingScreen();
+                  alert("Category and associated images deleted...");
+                  location.reload();
+                });
+            });
         }
       });
     });
-};
-
-function deleteEverythingInCategory (importedCollection, deleteCategory) {
-  let counter = 0;
-  importedCollection.forEach((document) => {
-    const docRef = doc(db, deleteCategory, document.id);
-    pullURLandDeleteImage(deleteCategory, document.id)
-      .then(() => deleteDoc(docRef))
-      .then(() => {
-        counter++;
-        if (counter === importedCollection.size) {
-          hideLoadingScreen();
-          location.reload();
-        }
-      });
-  });
 }
 
 editButton.onclick = () => {
   if (editCategoryInput.value === "") alert("Please select a category to rename!");
   getDoc(doc(db, "Categories", editCategoryInput.value))
-    .then(data => {
-      editCategoryContainer.innerHTML = returnRenameInputContainer(data.data());
+    .then(importedDocument => {
+      editCategoryContainer.innerHTML = returnRenameInputContainer(importedDocument.data());
       listenForRenameSubmit(editCategoryInput.value);
     });
 };
 
 function listenForRenameSubmit (oldCategoryName) {
-  const newCategoryName = document.getElementById("editCategoryName");
-  const newCategoryDescription = document.getElementById("editCategoryDescription");
   const submitEditButton = document.getElementById("editCategorySubmit");
   submitEditButton.onclick = () => {
     submitEditButton.disabled = true;
+    const newCategoryName = document.getElementById("editCategoryName").value;
+    const newCategoryDescription = document.getElementById("editCategoryDescription").value;
     showLoadingScreen();
     importCollection(oldCategoryName)
       .then(importedCollection => {
         let counter = 0;
+        if (importedCollection.size === 0) renameCategory(newCategoryName, oldCategoryName, newCategoryDescription);
         importedCollection.forEach(importedDocument => {
-          createNewPost_DeleteOld(oldCategoryName, newCategoryName, importedDocument);
+          console.log("asdasd");
+          createNewPost_DeleteOld(oldCategoryName, newCategoryName, importedDocument)
+            .then(() => {
+              console.log("here 3");
+              counter++;
+              if (counter === importedCollection.size) renameCategory(newCategoryName, oldCategoryName, newCategoryDescription);
+            });
         });
-        setInterval(() => {
-          if (counter === importedCollection.size) {
-            renameCategory(newCategoryName.value, newCategoryName.value, newCategoryDescription.value);
-          }
-        }, 500);
       });
   };
 }
@@ -116,21 +125,31 @@ function addCategory (addCategoryValue, newCategoryDescription) {
 }
 
 function createNewPost_DeleteOld (oldCategoryName, newCategoryName, importedDocument) {
-  const oldDocRef = doc(db, oldCategoryName, importedDocument.id);
-  const newDocRef = doc(db, newCategoryName.value, importedDocument.id);
-  getDoc(oldDocRef)
-    .then(querySnapshot => {
-      return globalSetDoc(newDocRef, {
-        title: querySnapshot.data().title,
-        description: querySnapshot.data().description,
-        category: newCategoryName.value,
-        price: querySnapshot.data().price,
-        importance: querySnapshot.data().importance,
-        URL: querySnapshot.data().URL,
+  if (oldCategoryName === newCategoryName) {
+    return Promise.resolve();
+  }
+  return new Promise(fulfilled => {
+
+    const oldDocRef = doc(db, oldCategoryName, importedDocument.id);
+    const newDocRef = doc(db, newCategoryName, importedDocument.id);
+    getDoc(oldDocRef)
+      .then(querySnapshot => {
+        return globalSetDoc(newDocRef, {
+          title: querySnapshot.data().title,
+          description: querySnapshot.data().description,
+          category: newCategoryName,
+          price: querySnapshot.data().price,
+          importance: querySnapshot.data().importance,
+          URL: querySnapshot.data().URL,
+        });
+      })
+      .then(() => {
+        console.log("here 2");
+        return deleteDoc(oldDocRef);
+      })
+      .then(() => {
+        fulfilled("");
       });
-    })
-    .then(() => {
-      deleteDoc(oldDocRef);
-      counter++;
-    });
+  });
+
 }
