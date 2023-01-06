@@ -19,13 +19,13 @@
     };
     firebase.initializeApp(firebaseConfig);
     var uiConfig = {
-      signInSuccessUrl: 'http://127.0.0.1:5500/backend/index.html',
+      signInSuccessUrl: 'https://www.macaquariums.com/backend/index.html',
       signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       ],
-      tosUrl: 'http://127.0.0.1:5500/html/tos.html',
+      tosUrl: 'https://www.macaquariums.com/html/tos.html',
       privacyPolicyUrl: function () {
-        window.location.assign('http://127.0.0.1:5500/html/privacyAgreement.html');
+        window.location.assign('https://www.macaquariums.com/html/privacyAgreement.html');
       }
     };
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
