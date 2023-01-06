@@ -9,6 +9,7 @@ const deleteButton = document.getElementById("deleteCategoryButton");
 const editButton = document.getElementById("editCategoryButton");
 const editCategoryContainer = document.getElementById("editCategoryContainer");
 
+// Add new category
 addCategoryButton.onclick = () => {
   addCategoryButton.disabled = true;
   showLoadingScreen();
@@ -20,6 +21,12 @@ addCategoryButton.onclick = () => {
     });
 };
 
+function addCategory (addCategoryValue, newCategoryDescription) {
+  addCategoryButton.disabled = true;
+  const categoryDoc = doc(db, "Categories", addCategoryValue);
+  return globalSetDoc(categoryDoc, { category: addCategoryValue, description: newCategoryDescription, });
+}
+
 deleteButton.onclick = () => {
   showLoadingScreen();
   deleteButton.disabled = true;
@@ -27,27 +34,10 @@ deleteButton.onclick = () => {
   const deleteCategoryPromise = deleteDoc(doc(db, "Categories", deleteCategory));
   importCollection(deleteCategory)
     .then(importedCollection => {
-      if (importedCollection.size === 0) {
-        deleteCategoryPromise.then(() => {
-          hideLoadingScreen();
-          alert("Nothing in category, deleted...");
-          location.reload();
-        });
-      }
+      if (importedCollection.size === 0) deleteCategoryImage(deleteCategoryPromise, deleteCategory);
       deleteEverythingInCategory(importedCollection, deleteCategory, deleteCategoryPromise);
     });
-
-
 };
-
-function deleteEverythingInCategory (importedCollection, deleteCategory, deleteCategoryPromise) {
-  importedCollection.forEach((document) => {
-    const docRef = doc(db, deleteCategory, document.id);
-    pullURLandDeleteImage(deleteCategory, document.id)
-      .then(() => deleteDoc(docRef))
-      .then(() => deleteCategoryImage(deleteCategoryPromise, deleteCategory));
-  });
-}
 
 function deleteCategoryImage (deleteCategoryPromise, deleteCategory) {
   importCollection("Category Images")
@@ -61,7 +51,7 @@ function deleteCategoryImage (deleteCategoryPromise, deleteCategory) {
       }
       importedCollection.forEach(importedDocument => {
         if (importedDocument.id === deleteCategory) {
-          pullURLandDeleteImage("Category Images", importedDocument.id)
+          pullURLandDeleteImage("Category Images", deleteCategory)
             .then(() => {
               deleteDoc(doc(db, "Category Images", deleteCategory))
                 .then(() => {
@@ -73,6 +63,15 @@ function deleteCategoryImage (deleteCategoryPromise, deleteCategory) {
         }
       });
     });
+}
+
+function deleteEverythingInCategory (importedCollection, deleteCategory, deleteCategoryPromise) {
+  importedCollection.forEach(importedDocument => {
+    const docRef = doc(db, deleteCategory, importedDocument.id);
+    pullURLandDeleteImage(deleteCategory, importedDocument.id)
+      .then(() => deleteDoc(docRef))
+      .then(() => deleteCategoryImage(deleteCategoryPromise, deleteCategory));
+  });
 }
 
 editButton.onclick = () => {
@@ -87,23 +86,23 @@ editButton.onclick = () => {
 function listenForRenameSubmit (oldCategoryName) {
   const submitEditButton = document.getElementById("editCategorySubmit");
   submitEditButton.onclick = () => {
-    submitEditButton.disabled = true;
     const newCategoryName = document.getElementById("editCategoryName").value;
     const newCategoryDescription = document.getElementById("editCategoryDescription").value;
+    submitEditButton.disabled = true;
     showLoadingScreen();
     importCollection(oldCategoryName)
       .then(importedCollection => {
-        let counter = 0;
         if (importedCollection.size === 0) renameCategory(newCategoryName, oldCategoryName, newCategoryDescription);
-        importedCollection.forEach(importedDocument => {
-          console.log("asdasd");
-          createNewPost_DeleteOld(oldCategoryName, newCategoryName, importedDocument)
-            .then(() => {
-              console.log("here 3");
-              counter++;
-              if (counter === importedCollection.size) renameCategory(newCategoryName, oldCategoryName, newCategoryDescription);
-            });
-        });
+        else {
+          let counter = 0;
+          importedCollection.forEach(importedDocument => {
+            createNewPost_DeleteOld(oldCategoryName, newCategoryName, importedDocument)
+              .then(() => {
+                counter++;
+                if (counter === importedCollection.size) renameCategory(newCategoryName, oldCategoryName, newCategoryDescription);
+              });
+          });
+        }
       });
   };
 }
@@ -111,25 +110,20 @@ function listenForRenameSubmit (oldCategoryName) {
 function renameCategory (newValue, oldValue, newDescription) {
   addCategory(newValue, newDescription)
     .then(() => {
-      if (oldValue !== newValue) deleteDoc(doc(db, "Categories", oldValue));
-      alert("Category edited.");
-      hideLoadingScreen();
-      location.reload();
+      if (oldValue !== newValue) {
+        createNewCategoryImage(oldValue, newValue)
+          .then(() => {
+            deleteDoc(doc(db, "Categories", oldValue))
+              .then(() => sendMessageAndReload("Category edited..."));
+          });
+      }
+      else sendMessageAndReload("Same category name, description updated...");
     });
 }
 
-function addCategory (addCategoryValue, newCategoryDescription) {
-  addCategoryButton.disabled = true;
-  const categoryDoc = doc(db, "Categories", addCategoryValue);
-  return globalSetDoc(categoryDoc, { category: addCategoryValue, description: newCategoryDescription, });
-}
-
 function createNewPost_DeleteOld (oldCategoryName, newCategoryName, importedDocument) {
-  if (oldCategoryName === newCategoryName) {
-    return Promise.resolve();
-  }
+  if (oldCategoryName === newCategoryName) return Promise.resolve();
   return new Promise(fulfilled => {
-
     const oldDocRef = doc(db, oldCategoryName, importedDocument.id);
     const newDocRef = doc(db, newCategoryName, importedDocument.id);
     getDoc(oldDocRef)
@@ -143,13 +137,31 @@ function createNewPost_DeleteOld (oldCategoryName, newCategoryName, importedDocu
           URL: querySnapshot.data().URL,
         });
       })
-      .then(() => {
-        console.log("here 2");
-        return deleteDoc(oldDocRef);
+      .then(() => deleteDoc(oldDocRef))
+      .then(() => fulfilled(""));
+  });
+}
+
+function createNewCategoryImage (oldCategory, newCategory) {
+  return new Promise(fulfilled => {
+    const oldRef = doc(db, "Category Images", oldCategory);
+    const newRef = doc(db, "Category Images", newCategory);
+    getDoc(oldRef)
+      .then(querySnapshot => {
+        return globalSetDoc(newRef, {
+          URL: querySnapshot.data().URL,
+          title: newCategory,
+          visibility: querySnapshot.data().visibility,
+        });
       })
-      .then(() => {
-        fulfilled("");
-      });
+      .then(() => deleteDoc(oldRef))
+      .then(() => fulfilled(""));
   });
 
+}
+
+function sendMessageAndReload (message) {
+  alert(message);
+  hideLoadingScreen();
+  location.reload();
 }

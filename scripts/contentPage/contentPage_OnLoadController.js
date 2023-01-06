@@ -1,9 +1,11 @@
 import { doc, importCollection, db, getDoc } from "../exports/firebaseConfigExports.js";
 
-const selectedCategory = location.href.split("category=")[1];
+const categoryPreFilter = location.href.split("category=")[1];
+const selectedCategory = categoryPreFilter.replace(/\+/g, " ");
 
 getDoc(doc(db, "Categories", selectedCategory))
   .then((categoryData) => {
+    console.log(categoryData);
     document.getElementById("contentHeaderDesc").innerText = categoryData.data().description;
     document.getElementById("contentHeaderTitle").innerHTML = categoryData.data().category;
   });

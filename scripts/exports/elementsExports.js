@@ -148,7 +148,7 @@ export function signedInBackendDiv (user) {
 export function signedOutBackendDiv () {
   return `
   <div class="addFlex" style=" align-items: center;">
-    <button id="signInButton" class="hoverColor" style="margin-right: 10px; height: 20px;">Sign in</button>
+    <button id="signInButton" class="hoverColor addBorder borderColor backgroundColor" style="margin-right: 10px; height: 23px; width: 100px;">Sign in</button>
   </div>
   `;
 }
