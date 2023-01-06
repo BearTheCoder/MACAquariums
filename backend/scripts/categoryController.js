@@ -9,20 +9,14 @@ const deleteButton = document.getElementById("deleteCategoryButton");
 const editButton = document.getElementById("editCategoryButton");
 const editCategoryContainer = document.getElementById("editCategoryContainer");
 
-// Add new category
 addCategoryButton.onclick = () => {
   addCategoryButton.disabled = true;
   showLoadingScreen();
   addCategory(addCategoryName.value, newCategoryDescription.value)
-    .then(() => {
-      alert("New category added...");
-      hideLoadingScreen();
-      location.reload();
-    });
+    .then(() => sendMessageAndReload("New category added..."));
 };
 
 function addCategory (addCategoryValue, newCategoryDescription) {
-  addCategoryButton.disabled = true;
   const categoryDoc = doc(db, "Categories", addCategoryValue);
   return globalSetDoc(categoryDoc, { category: addCategoryValue, description: newCategoryDescription, });
 }
@@ -43,23 +37,14 @@ function deleteCategoryImage (deleteCategoryPromise, deleteCategory) {
   importCollection("Category Images")
     .then(importedCollection => {
       if (importedCollection.size === 0) {
-        deleteCategoryPromise.then(() => {
-          hideLoadingScreen();
-          alert("No category image, category deleted...");
-          location.reload();
-        });
+        deleteCategoryPromise
+          .then(() => sendMessageAndReload("No category image, category deleted..."));
       }
       importedCollection.forEach(importedDocument => {
         if (importedDocument.id === deleteCategory) {
           pullURLandDeleteImage("Category Images", deleteCategory)
-            .then(() => {
-              deleteDoc(doc(db, "Category Images", deleteCategory))
-                .then(() => {
-                  hideLoadingScreen();
-                  alert("Category and associated images deleted...");
-                  location.reload();
-                });
-            });
+            .then(() => deleteDoc(doc(db, "Category Images", deleteCategory)))
+            .then(() => sendMessageAndReload("Category and associated images deleted..."));
         }
       });
     });
@@ -110,14 +95,10 @@ function listenForRenameSubmit (oldCategoryName) {
 function renameCategory (newValue, oldValue, newDescription) {
   addCategory(newValue, newDescription)
     .then(() => {
-      if (oldValue !== newValue) {
-        createNewCategoryImage(oldValue, newValue)
-          .then(() => {
-            deleteDoc(doc(db, "Categories", oldValue))
-              .then(() => sendMessageAndReload("Category edited..."));
-          });
-      }
-      else sendMessageAndReload("Same category name, description updated...");
+      if (oldValue === newValue) sendMessageAndReload("Same category name, description updated...");
+      createNewCategoryImage(oldValue, newValue)
+        .then(() => deleteDoc(doc(db, "Categories", oldValue)))
+        .then(() => sendMessageAndReload("Category edited..."));
     });
 }
 
