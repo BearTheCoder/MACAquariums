@@ -6,7 +6,6 @@
 - [Issues and Excuses](#issues-and-excuses)
 - [Features](#current-features)
 - [Planned Features](#upcoming-features)
-- [License](#license)
 - [Authors](#authors)
 
 # About
