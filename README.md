@@ -30,7 +30,7 @@ Ok, bye.
 
 ### Backend Screenshot
 
-![Logo](https://cdn.discordapp.com/attachments/1050946434498830448/1061117280274096128/image.png)
+![image](https://user-images.githubusercontent.com/58434823/211128583-889d9f6c-d48a-43bf-baa7-26522f061425.png)
 
 # Issues and Excuses
 
