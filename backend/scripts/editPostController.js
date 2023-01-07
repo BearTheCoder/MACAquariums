@@ -26,7 +26,7 @@ function deleteButtonOnClick (category, element) {
   const docRef = doc(db, category, element.name);
   getDoc(docRef)
     .then((querySnapshot) => {
-      const url = querySnapshot.data().imageURLS[0];
+      const url = querySnapshot.data().URL;
       const imageRef = ref(storage, url);
       deleteObject(imageRef);
       deleteDoc(docRef);

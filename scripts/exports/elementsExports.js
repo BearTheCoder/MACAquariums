@@ -153,6 +153,21 @@ export function signedOutBackendDiv () {
   `;
 }
 
+export function contentPagePostDiv (data) {
+  return `
+    <div class="postBG contentPost addBorder borderColor addDropShadow">
+      <img src="${data.URL}" class="contentPostImage">
+      <div class="contentPostFooter w100p">
+        <div class="webHeader addFlex padding5p">
+          <h4 class="fontColor categoryTitle">${data.title}</h4>
+          <h4 class="fontColor">$${data.price}</h4>
+        </div>
+        <p class="fontColor postDescription addFlex w100p padding5p">${data.description}</p>
+      </div>
+    </div>
+  `;
+}
+
 export function exportHREF (data) {
   return `
     <a class="accentFontColor linkHoverColor" href="${data.URL}" target="_blank">${data.title}</a>
