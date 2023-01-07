@@ -153,6 +153,12 @@ export function signedOutBackendDiv () {
   `;
 }
 
+export function exportHREF (data) {
+  return `
+    <a class="accentFontColor linkHoverColor" href="${data.URL}" target="_blank">${data.title}</a>
+  `;
+}
+
 /*      *****     INTERNAL FUNCTIONS     *****       */
 function createSelectionOptions (categories) {
   let returnedOptions = "";

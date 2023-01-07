@@ -105,6 +105,14 @@
     width: 100%;
     padding: 0px 50px;
   }
+
+  #navLinks {
+    display: none;
+  }
+
+  #navLinksSmall {
+    display: flex;
+  }
 }
 
 @media screen and (min-width: 400px) and (max-width: 700px) {
@@ -122,7 +130,16 @@
     width: 100%;
     padding: 0px 50px;
   }
+
+  #navLinks {
+    display: none;
+  }
+
+  #navLinksSmall {
+    display: flex;
+  }
 }
+
 
 @media screen and (min-width: 700px) {
   .postClass {
@@ -152,7 +169,13 @@
   #missionStatement {
     width: 33%;
   }
+
+  #navLinksSmall {
+    display: none;
+  }
 }
+
+
 
 @media screen and (max-width: 1200px) {
   #contactMeDiv {

@@ -113,5 +113,15 @@ document.addEventListener("loggedIn", () => {
 
 document.getElementById("signInButton").onclick = () => {
   location.href = location.origin + "/backend/googleLogin.html";
-}
+};
 
+importCollection("Links")
+  .then(importedCollection => {
+    const linkDivs = Array.from(document.getElementsByClassName("link"));
+    importedCollection.forEach(importedDocument => {
+      let linkData = importedDocument.data();
+      let index = importedDocument.id.charAt(importedDocument.id.length - 1);
+      linkDivs[index].children[0].value = linkData.title;
+      linkDivs[index].children[1].value = linkData.URL;
+    });
+  });

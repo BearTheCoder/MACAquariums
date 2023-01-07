@@ -1,5 +1,5 @@
 import { getDoc, db, doc, importCollection } from "../exports/firebaseConfigExports.js";
-import { defaultRGB, loadMenu } from "../exports/elementsExports.js";
+import { defaultRGB, exportHREF, loadMenu } from "../exports/elementsExports.js";
 
 document.getElementById("menuForm").setAttribute("action", `${location.origin}/html/contentPage.html`);
 
@@ -56,3 +56,12 @@ document.getElementById("menuIcon").onclick = () => {
   menuShown = !menuShown;
 };
 
+let linksDiv = ``;
+importCollection("Links")
+  .then(importedCollection => {
+    importedCollection.forEach(importedDocument => {
+      linksDiv += exportHREF(importedDocument.data());
+    });
+    document.getElementById("navLinks").innerHTML = linksDiv;
+    document.getElementById("navLinksSmall").innerHTML = linksDiv;
+  });

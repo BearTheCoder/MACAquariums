@@ -31,6 +31,7 @@
   <script type="module" src="./scripts/galleryController.js"></script>
   <script type="module" src="./scripts/missionStatementController.js"></script>
   <script type="module" src="./scripts/contactInfoController.js"></script>
+  <script type="module" src="./scripts/linkController.js"></script>
 </head>
 
 <body class="accentColor h100p w100p addFlex">
@@ -224,6 +225,41 @@
         <button id="updateContactButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor" style="margin-top: 10px;">Update Contact Info</button>
       </div>
 
+      <div id="homepageLinks" class="form addFlex addBorder postBG borderColor addDropShadow">
+        <div class="titleHeader">
+          <h3 class="fontColor">Edit Homepage Links</h3>
+          <p>Links are shown on each page and are inline with the menu and logo bar. Please ensure you include "https://"</p>
+          <hr class="addBorder accentColorNoHover">
+          <br>
+        </div>
+        <label>Link #1: </label>
+        <div class="addFlex link">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Link Title" style="margin-bottom: 10px; margin-right: 5px; width: 90px;">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Add link here..." style="margin-bottom: 10px; width: 100%;">
+        </div>
+        <label>Link #2: </label>
+        <div class="addFlex link">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Link Title" style="margin-bottom: 10px; margin-right: 5px; width: 90px;">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Add link here..." style="margin-bottom: 10px; width: 100%;">
+        </div>
+        <label>Link #3: </label>
+        <div class="addFlex link">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Link Title" style="margin-bottom: 10px; margin-right: 5px; width: 90px;">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Add link here..." style="margin-bottom: 10px; width: 100%;">
+        </div>
+        <label>Link #4: </label>
+        <div class="addFlex link">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Link Title" style="margin-bottom: 10px; margin-right: 5px; width: 90px;">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Add link here..." style="margin-bottom: 10px; width: 100%;">
+        </div>
+        <label>Link #5: </label>
+        <div class="addFlex link">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Link Title" style="margin-bottom: 10px; margin-right: 5px; width: 90px;">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Add link here..." style="margin-bottom: 10px; width: 100%;">
+        </div>
+        <button id="updateLinksButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor" style="margin-top: 10px;">Update Links</button>
+      </div>
+
       <div id="infoForm" class="form addFlex addBorder postBG borderColor addDropShadow">
         <div class="titleHeader">
           <h3 class="fontColor">More Information</h3>
@@ -243,7 +279,6 @@
 
     <footer class="w100p addFlex footer">
       <a class="accentFontColor linkHoverColor" href="../html/contactMe.html">Contact Me</a>
-      <a class="accentFontColor linkHoverColor" href="../html/contactTheDeveloper.html">Contact the Developer</a>
       <a class="accentFontColor linkHoverColor" href="../html/tos.html">Terms of Service</a>
       <a class="accentFontColor linkHoverColor" href="../html/privacyAgreement.html">Privacy Agreement</a>
     </footer>
