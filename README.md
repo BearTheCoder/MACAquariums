@@ -31,42 +31,32 @@ Ok, bye.
 ### Backend Screenshot
 
 ![image](https://user-images.githubusercontent.com/58434823/211128583-889d9f6c-d48a-43bf-baa7-26522f061425.png)
+*Artifact at mid bottom is from multi-screen screenshot
 
 # Issues and Excuses
 
--   Issue # 1 - LarryBot and the no good very bad code.
-      Larry, the sentient hygiene god of the server, has taken life in the form of a real-time response every time someone types "//larry".
-      Sounds cool I'm sure, the issue?
-      As you could probably tell "//larry" is not a "conventional" slash command that you might see on Discord.
-      Instead, so Larry could be interactive and responsive, ChaosBot constantly looks through each message for "//larry"
-      This causes optimization issues.
-      
-      This means an event inside of ChaosBot fires everytime a message is sent in the Discord.
-      
-      This is not good code, and there is better ways to do this, we know.
-      But this was a joint decision between Phwee and I.
-      The magic of Larry is his responsiveness and making him a slash command would have taken away some of the magic.
+-   Issue # 1 - Mobile Homepage
+Might not be an issue as I think fitting more on the home screen makes more sense while trying to port people to proper sections, though I think that maybe 
+it might be benefitial for the "products" instead of scaling in size when on mobile, maybe add a condition to switch them to a flex-column instead of row so they 
+maintain a readable size.
 
 ## Current Features
 
--   Role Creation and Filtering based on other roles.
--   Coin Flip Feature.
--   Larry.
--   8-Ball Feature.
--   Christmas command that counts down the days until Christmas.
--   Internal slash command control features.
--   Context Menu "Hello" command.
+-   Post Creation.
+-   Google Login.
+-   Firebase storage and persistence.
+-   Category creation and sorting.
+-   User controled color changing UI.
+-   Homepage gallery and backend controller
+-   Messaging system.
+-   Contact page module.
+-   BIO and Homepage Mission Statement module.
 
 ## Upcoming Features
 
--   Embed for listing commands
+-   None Planned
 
-### License
-
--   [MIT](https://choosealicense.com/licenses/mit/)
 
 ### Authors
 
 -   [BearTheCoder](https://www.youtube.com/channel/UCWg8LAQk6NLQfj4Wr3zImKA)
--   [PhweedomStudios](https://phwee.carrd.co/)
-
