@@ -1,6 +1,39 @@
 import { getDoc, importCollection, doc, db, deleteDoc, loggedInUser, signOut, loggedAuth, uploadDataToDatabase, getPrivateMessages } from "../../scripts/exports/firebaseConfigExports.js";
 import { information } from "../../scripts/exports/informationExports.js";
 import { defaultRGB, showLoadingScreen, hideLoadingScreen, messageDiv, signedInBackendDiv, signedOutBackendDiv, } from "../../scripts/exports/elementsExports.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+
+function authFirebase() {
+  // Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAtsvkP-si-K-2JhnWhfUU1GN4UTWJFcRc",
+    authDomain: "btc-db-97c7e.firebaseapp.com",
+    projectId: "btc-db-97c7e",
+    storageBucket: "btc-db-97c7e.appspot.com",
+    messagingSenderId: "964621763508",
+    appId: "1:964621763508:web:148199c048b486828e28e1"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // Set up Google provider
+  const provider = new GoogleAuthProvider();
+
+  // Event listener for sign-in
+  document.getElementById('signInButton').addEventListener('click', async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      console.log('User Info:', result.user);
+    } catch (error) {
+      console.error('Error signing in:', error);
+    }
+  });
+}
+
+authFirebase();
 
 const buttonArray = Array.from(document.querySelectorAll('button'));
 buttonArray.forEach(button => {
@@ -110,10 +143,6 @@ document.addEventListener("loggedIn", () => {
       });
   }
 });
-
-document.getElementById("signInButton").onclick = () => {
-  location.href = location.origin + "/backend/googleLogin.html";
-};
 
 importCollection("Links")
   .then(importedCollection => {

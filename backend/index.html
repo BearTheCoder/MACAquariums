@@ -32,6 +32,7 @@
   <script type="module" src="./scripts/missionStatementController.js"></script>
   <script type="module" src="./scripts/contactInfoController.js"></script>
   <script type="module" src="./scripts/linkController.js"></script>
+
 </head>
 
 <body class="accentColor h100p w100p addFlex">
@@ -45,7 +46,8 @@
       <div class="addFlex">
         <div id="authContainer" class="addFlex">
           <div class="addFlex" style=" align-items: center;">
-            <button id="signInButton" class="hoverColor addBorder borderColor backgroundColor" style="margin-right: 10px; height: 23px; width: 100px;">Sign in</button>
+            <button id="signInButton" class="hoverColor addBorder borderColor backgroundColor"
+              style="margin-right: 10px; height: 23px; width: 100px;">Sign in</button>
           </div>
         </div>
         <img id="menuIcon" src="../images/menu.png" alt="" class="onClickHover">
@@ -69,21 +71,27 @@
           <br>
         </div>
         <label for="imageInput" class="formLabel fontColor">File: </label>
-        <input type="file" id="imageInput" class="hoverColor addFlex addBorder borderColor accentFontColor accentColor" accept=".png, .jpg" style="padding-left: 5px;">
+        <input type="file" id="imageInput" class="hoverColor addFlex addBorder borderColor accentFontColor accentColor"
+          accept=".png, .jpg" style="padding-left: 5px;">
         <br>
         <label for="titleInput" class="formLabel fontColor">Title: </label>
-        <input type="text" id="titleInput" class="formInput addBorder borderColor placeholderColor" placeholder="Title must be unique..." \>
+        <input type="text" id="titleInput" class="formInput addBorder borderColor placeholderColor"
+          placeholder="Title must be unique..." \>
         <br>
         <label for="descInput" class="formLabel fontColor">Description: </label>
-        <textarea id="descInput" rows="10" class="addBorder w100p borderColor" placeholder="Input description..." style="padding: 0px;"></textarea>
+        <textarea id="descInput" rows="10" class="addBorder w100p borderColor" placeholder="Input description..."
+          style="padding: 0px;"></textarea>
         <br>
-        <select id="uploadCategoryInput" class="categoryInput addBorder placeholderColor borderColor textHoverColor"></select>
+        <select id="uploadCategoryInput"
+          class="categoryInput addBorder placeholderColor borderColor textHoverColor"></select>
         <br>
         <label for="priceInput" class="formLabel fontColor">Price: </label>
-        <input type="number" id="priceInput" class="formInput addBorder borderColor placeholderColor" placeholder="Input Price...">
+        <input type="number" id="priceInput" class="formInput addBorder borderColor placeholderColor"
+          placeholder="Input Price...">
         <br>
         <label for="importance" class="formLabel fontColor">Importance: </label>
-        <input type="number" id="importance" class="formInput addBorder borderColor placeholderColor" placeholder="Low to High...">
+        <input type="number" id="importance" class="formInput addBorder borderColor placeholderColor"
+          placeholder="Low to High...">
         <br>
 
         <button id="uploadButton" class="accentColor addBorder borderColor accentFontColor hoverColor">Submit</button>
@@ -95,16 +103,22 @@
           <hr class="addBorder accentColorNoHover">
           <br>
         </div>
-        <input type="text" id="addCategoryDescription" class="formInput w100p addBorder borderColor placeholderColor" placeholder="Short Category Description" \>
+        <input type="text" id="addCategoryDescription" class="formInput w100p addBorder borderColor placeholderColor"
+          placeholder="Short Category Description" \>
         <div id="categorySelect" class="addFlex">
-          <input type="text" id="addCategoryInput" class="formInput w100p addBorder borderColor placeholderColor" placeholder="Category Name" \>
-          <button id="addCategoryButton" class="h100p accentColor addBorder borderColor accentFontColor hoverColor">Add Category</button>
+          <input type="text" id="addCategoryInput" class="formInput w100p addBorder borderColor placeholderColor"
+            placeholder="Category Name" \>
+          <button id="addCategoryButton" class="h100p accentColor addBorder borderColor accentFontColor hoverColor">Add
+            Category</button>
         </div>
         <br>
         <div id="categorySelect" class="w100p addFlex">
-          <select id="editCategoryInput" class="categoryInput w100p addBorder placeholderColor borderColor textHoverColor"></select>
-          <button id="deleteCategoryButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Delete</button>
-          <button id="editCategoryButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Edit</button>
+          <select id="editCategoryInput"
+            class="categoryInput w100p addBorder placeholderColor borderColor textHoverColor"></select>
+          <button id="deleteCategoryButton"
+            class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Delete</button>
+          <button id="editCategoryButton"
+            class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Edit</button>
         </div>
         <br>
         <div id="editCategoryContainer" class="addFlex"></div>
@@ -129,8 +143,10 @@
           <br>
         </div>
         <div id="categorySelect" class="addFlex">
-          <select id="importCategoryInput" class="categoryInput flexGrow1 addBorder placeholderColor borderColor textHoverColor"></select>
-          <button id="importButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Import</button>
+          <select id="importCategoryInput"
+            class="categoryInput flexGrow1 addBorder placeholderColor borderColor textHoverColor"></select>
+          <button id="importButton"
+            class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Import</button>
         </div>
         <br>
         <p class="fontColor">Select a category above. Anything can be edited on a post
@@ -145,7 +161,8 @@
         </div>
       </div>
 
-      <div id="messageForm" class="form addFlex addBorder postBG borderColor addDropShadow" style="overflow-y: scroll; overflow-x: hidden; overflow-wrap: break-word;">
+      <div id="messageForm" class="form addFlex addBorder postBG borderColor addDropShadow"
+        style="overflow-y: scroll; overflow-x: hidden; overflow-wrap: break-word;">
         <div class="titleHeader">
           <h3 class="fontColor">Messages</h3>
           <hr class="addBorder accentColorNoHover">
@@ -176,9 +193,11 @@
           <label for="fontColor" class="fontColor">Font Color:</label>
           <input id="fontColor" type="color" class="w100p color addBorder borderColor">
           <br><br>
-          <button id="testColorButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor">Test Color</button>
+          <button id="testColorButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor">Test
+            Color</button>
           <br><br>
-          <button id="submitColorsButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor">Submit</button>
+          <button id="submitColorsButton"
+            class="w100p accentColor addBorder borderColor accentFontColor hoverColor">Submit</button>
         </div>
       </div>
 
@@ -189,16 +208,24 @@
         </div>
         <label for="galleryInput">Add Images to Gallery: </label>
         <div id="galleryInput" class="addFlex">
-          <input type="file" id="galleryImageInput" class="hoverColor addFlex addBorder borderColor accentFontColor accentColor" accept=".png, .jpg" multiple style="padding-left: 5px;">
-          <button id="galleryImageSubmitButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">submit</button>
+          <input type="file" id="galleryImageInput"
+            class="hoverColor addFlex addBorder borderColor accentFontColor accentColor" accept=".png, .jpg" multiple
+            style="padding-left: 5px;">
+          <button id="galleryImageSubmitButton"
+            class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">submit</button>
         </div>
-        <button id="clearGalleryButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor" style="margin-top: 5px;">Clear Gallery</button>
+        <button id="clearGalleryButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor"
+          style="margin-top: 5px;">Clear Gallery</button>
         <br>
         <label for="categoryGallerySelect">Category Image: </label>
-        <select id="categoryGallerySelect" class="categoryInput addBorder placeholderColor borderColor textHoverColor"></select>
+        <select id="categoryGallerySelect"
+          class="categoryInput addBorder placeholderColor borderColor textHoverColor"></select>
         <div class="addFlex" style="padding-top: 5px;">
-          <input type="file" id="categoryImageInput" class="hoverColor addFlex addBorder borderColor accentFontColor accentColor" accept=".png, .jpg" style="padding-left: 5px;">
-          <button id="catergoryImageSubmitButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">submit</button>
+          <input type="file" id="categoryImageInput"
+            class="hoverColor addFlex addBorder borderColor accentFontColor accentColor" accept=".png, .jpg"
+            style="padding-left: 5px;">
+          <button id="catergoryImageSubmitButton"
+            class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">submit</button>
         </div>
         <br>
         <div class="titleHeader">
@@ -210,7 +237,8 @@
         <div class="w100p addFlex" style="justify-content: right;">
           <p id="characterCount">Character Count: 500</p>
         </div>
-        <button id="updateStatementButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor">Update Mission Statement</button>
+        <button id="updateStatementButton"
+          class="w100p accentColor addBorder borderColor accentFontColor hoverColor">Update Mission Statement</button>
       </div>
 
       <div id="contactForm" class="form addFlex addBorder postBG borderColor addDropShadow">
@@ -219,45 +247,61 @@
           <hr class="addBorder accentColorNoHover">
           <br>
         </div>
-        <input id="phoneInput" type="text" placeholder="Phone Number..." class="addBorder borderColor" style="padding-left: 5px;">
-        <input id="emailInput" type="text" placeholder="Email..." class="addBorder borderColor" style="margin-top: 10px; padding-left: 5px;">
-        <textarea id="bioInput" rows="15" placeholder="Type bio here..." class="addBorder borderColor" style="margin-top: 10px;"></textarea>
-        <button id="updateContactButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor" style="margin-top: 10px;">Update Contact Info</button>
+        <input id="phoneInput" type="text" placeholder="Phone Number..." class="addBorder borderColor"
+          style="padding-left: 5px;">
+        <input id="emailInput" type="text" placeholder="Email..." class="addBorder borderColor"
+          style="margin-top: 10px; padding-left: 5px;">
+        <textarea id="bioInput" rows="15" placeholder="Type bio here..." class="addBorder borderColor"
+          style="margin-top: 10px;"></textarea>
+        <button id="updateContactButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor"
+          style="margin-top: 10px;">Update Contact Info</button>
       </div>
 
       <div id="homepageLinks" class="form addFlex addBorder postBG borderColor addDropShadow">
         <div class="titleHeader">
           <h3 class="fontColor">Edit Homepage Links</h3>
-          <p>Links are shown on each page and are inline with the menu and logo bar. Please ensure you include "https://"</p>
+          <p>Links are shown on each page and are inline with the menu and logo bar. Please ensure you include
+            "https://"</p>
           <hr class="addBorder accentColorNoHover">
           <br>
         </div>
         <label>Link #1: </label>
         <div class="addFlex link">
-          <input class="addBorder borderColor addFlex" type="text" placeholder="Link Title" style="margin-bottom: 10px; margin-right: 5px; width: 90px;">
-          <input class="addBorder borderColor addFlex" type="text" placeholder="Add link here..." style="margin-bottom: 10px; width: 100%;">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Link Title"
+            style="margin-bottom: 10px; margin-right: 5px; width: 90px;">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Add link here..."
+            style="margin-bottom: 10px; width: 100%;">
         </div>
         <label>Link #2: </label>
         <div class="addFlex link">
-          <input class="addBorder borderColor addFlex" type="text" placeholder="Link Title" style="margin-bottom: 10px; margin-right: 5px; width: 90px;">
-          <input class="addBorder borderColor addFlex" type="text" placeholder="Add link here..." style="margin-bottom: 10px; width: 100%;">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Link Title"
+            style="margin-bottom: 10px; margin-right: 5px; width: 90px;">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Add link here..."
+            style="margin-bottom: 10px; width: 100%;">
         </div>
         <label>Link #3: </label>
         <div class="addFlex link">
-          <input class="addBorder borderColor addFlex" type="text" placeholder="Link Title" style="margin-bottom: 10px; margin-right: 5px; width: 90px;">
-          <input class="addBorder borderColor addFlex" type="text" placeholder="Add link here..." style="margin-bottom: 10px; width: 100%;">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Link Title"
+            style="margin-bottom: 10px; margin-right: 5px; width: 90px;">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Add link here..."
+            style="margin-bottom: 10px; width: 100%;">
         </div>
         <label>Link #4: </label>
         <div class="addFlex link">
-          <input class="addBorder borderColor addFlex" type="text" placeholder="Link Title" style="margin-bottom: 10px; margin-right: 5px; width: 90px;">
-          <input class="addBorder borderColor addFlex" type="text" placeholder="Add link here..." style="margin-bottom: 10px; width: 100%;">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Link Title"
+            style="margin-bottom: 10px; margin-right: 5px; width: 90px;">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Add link here..."
+            style="margin-bottom: 10px; width: 100%;">
         </div>
         <label>Link #5: </label>
         <div class="addFlex link">
-          <input class="addBorder borderColor addFlex" type="text" placeholder="Link Title" style="margin-bottom: 10px; margin-right: 5px; width: 90px;">
-          <input class="addBorder borderColor addFlex" type="text" placeholder="Add link here..." style="margin-bottom: 10px; width: 100%;">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Link Title"
+            style="margin-bottom: 10px; margin-right: 5px; width: 90px;">
+          <input class="addBorder borderColor addFlex" type="text" placeholder="Add link here..."
+            style="margin-bottom: 10px; width: 100%;">
         </div>
-        <button id="updateLinksButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor" style="margin-top: 10px;">Update Links</button>
+        <button id="updateLinksButton" class="w100p accentColor addBorder borderColor accentFontColor hoverColor"
+          style="margin-top: 10px;">Update Links</button>
       </div>
 
       <div id="infoForm" class="form addFlex addBorder postBG borderColor addDropShadow">
@@ -268,7 +312,8 @@
         </div>
         <div id="infoCategorySelect" class="addFlex">
           <select id="infoSelectInput" class="flexGrow1 addBorder placeholderColor borderColor textHoverColor"></select>
-          <button id="infoSelectButton" class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Show Info</button>
+          <button id="infoSelectButton"
+            class="standardButton h100p accentColor addBorder borderColor accentFontColor hoverColor">Show Info</button>
         </div>
         <br>
         <hr class="addBorder accentColorNoHover">
